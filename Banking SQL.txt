@@ -1,0 +1,40 @@
+create table Customers(
+customer_name varchar(20) not null,
+father_name varchar(20) not null,
+gender varchar(20) not null,
+dob date not null,
+address varchar(50) not null,
+nationality varchar(20) not null,
+aadhar_number number(20) PRIMARY KEY,
+mobile_number number(30) not null,
+email varchar(50) not null,
+account_status varchar(30) not null
+);
+
+
+create table CustomerAccount(
+aadhar_number number(30) constraint FK_aadhar_number REFERENCES Customers(aadhar_number) not null,
+account_number number(30) PRIMARY KEY,
+account_type varchar(30) not null,
+date_of_opening date not null,
+account_status varchar(30) not null,
+minimum_balance number(20) not null,
+current_balance number(20) not null
+);
+
+
+create table CreateUPI(
+account_number number(30) constraint FKaccount_number REFERENCES CustomerAccount(account_number) not null,
+create_new_pin number(10) not null,
+Pin_created_date date not null
+);
+
+
+create table TransactionDetails(
+account_number number(30) constraint FKaccountNumber REFERENCES CustomerAccount(account_number) not null,
+transaction_number number(30) not null,
+transaction_date date not null,
+transaction_type varchar(50) not null,
+deposited_amount number(20) not null,
+withdrawal_amount number(20) not null
+);
