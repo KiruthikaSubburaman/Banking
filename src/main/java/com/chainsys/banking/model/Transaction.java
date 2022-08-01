@@ -1,4 +1,4 @@
-package com.chainsys.banking.pojo;
+package com.chainsys.banking.model;
 
 import java.util.Date;
 
@@ -8,8 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "TransactionDetails")
-public class TransactionDetail {
+@Table(name = "transactiondetails")
+public class Transaction {
 	@Id
 	@Column(name = "account_number")
 	private long accountNumber;

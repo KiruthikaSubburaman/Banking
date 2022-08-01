@@ -1,4 +1,4 @@
-package com.chainsys.banking.pojo;
+package com.chainsys.banking.model;
 
 import java.util.Date;
 
@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "CustomerAccount")
+@Table(name = "customeraccount")
 public class CustomerAccount {
 	@Id
 	@Column(name = "aadhar_number")
@@ -23,7 +23,7 @@ public class CustomerAccount {
 	private String accountStatus;
 	@Column(name = "minimum_balance")
 	private float minimumBalance;
-	@Column(name = "current_balance")
+	@Column(name = "current_Balance")
 	private float currentBalance;
 
 	public long getAadharNumber() {

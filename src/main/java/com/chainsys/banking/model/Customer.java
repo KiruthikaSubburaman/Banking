@@ -1,4 +1,4 @@
-package com.chainsys.banking.pojo;
+package com.chainsys.banking.model;
 
 import java.util.Date;
 

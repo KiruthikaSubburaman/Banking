@@ -1,4 +1,4 @@
-package com.chainsys.banking.pojo;
+package com.chainsys.banking.model;
 
 import java.util.Date;
 
@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "CreateUPI")
-public class CreateUPI {
+public class UPI {
 	@Id
 	@Column(name = "account_number")
 	private long accountNumber;

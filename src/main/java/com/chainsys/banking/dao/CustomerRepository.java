@@ -3,15 +3,16 @@ package com.chainsys.banking.dao;
 import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
-import com.chainsys.banking.pojo.Customer;
+import com.chainsys.banking.model.Customer;
+@Repository
+public interface CustomerRepository extends CrudRepository<Customer, Long> {
+	Customer findByAadharNumber(long number);
 
-public interface CustomerRepository extends CrudRepository<Customer, Integer> {
-	Customer findById(int id);
+	Customer save(Customer cr);
 
-	Customer save(Customer cus);
-
-	void deleteById(int Customer_Id);
+	void deleteByAadharNumber(long number);
 
 	List<Customer> findAll();
 
