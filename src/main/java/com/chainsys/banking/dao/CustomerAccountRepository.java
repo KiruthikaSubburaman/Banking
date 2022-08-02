@@ -7,11 +7,12 @@ import org.springframework.stereotype.Repository;
 
 import com.chainsys.banking.model.Customer;
 import com.chainsys.banking.model.CustomerAccount;
+
 @Repository
 public interface CustomerAccountRepository extends CrudRepository<CustomerAccount, Long> {
 	CustomerAccount findByAccountNumber(long number);
 
-	CustomerAccount save(CustomerAccount cra);
+	CustomerAccount save(CustomerAccount customerAccount);
 
 	void deleteByAccountNumber(long number);
 

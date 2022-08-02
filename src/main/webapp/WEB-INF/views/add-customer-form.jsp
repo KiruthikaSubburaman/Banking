@@ -12,7 +12,7 @@
 <body>
     <div id="root">
         <div id="form">
-            <form:form action="add" method="post" modelAttribute="addcustomer">
+            <form:form action="addcustomer" method="post" modelAttribute="addcustomer">
             <div>
                 <label for="customerName">Customer Name</label>
                 <div>
@@ -73,7 +73,7 @@
                 </div>
             </div>
                 <div>
-                            <form:button>Add New</form:button>
+                            <form:button>Add New Customer</form:button>
                         </div>
             </form:form>
 </div>

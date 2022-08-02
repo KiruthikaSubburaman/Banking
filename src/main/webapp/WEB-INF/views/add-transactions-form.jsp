@@ -12,8 +12,7 @@
 <body>
 	<div id="root">
 		<div id="form">
-			<form:form action="add" method="post"
-				modelAttribute="addtransaction">
+			<form:form action="addtransaction" method="post" modelAttribute="addtransaction">
 				<div>
 					<label for="accountNumber">Account Number</label>
 					<div>

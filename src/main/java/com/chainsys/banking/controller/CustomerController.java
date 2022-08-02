@@ -12,58 +12,66 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.chainsys.banking.model.Customer;
+import com.chainsys.banking.model.CustomerAccountDTO;
 import com.chainsys.banking.service.CustomerService;
 
 @Controller
 @RequestMapping("/customer")
 public class CustomerController {
 	@Autowired
-	CustomerService crservice;
+	CustomerService customerService;
 
-	@GetMapping("/list")
+	@GetMapping("/customerlist")
 	public String getCustomers(Model model) {
-		List<Customer> allCustomers = crservice.getCustomers();
+		List<Customer> allCustomers = customerService.getCustomers();
 		model.addAttribute("allcustomers", allCustomers);
 		return "list-customers";
 	}
 
-	@GetMapping("/addform")
-	public String showAddForm(Model model) {
-		Customer cus = new Customer();
-		model.addAttribute("addcustomer", cus);
+	@GetMapping("/addcustomerform")
+	public String showCustomerAddForm(Model model) {
+		Customer customer = new Customer();
+		model.addAttribute("addcustomer", customer);
 		return "add-customer-form";
 	}
 
-	@PostMapping("/add")
-	public String addNewCustomer(@ModelAttribute("addcustomer") Customer cus) {
-		crservice.save(cus);
-		return "redirect:/customer/list";
+	@PostMapping("/addcustomer")
+	public String addNewCustomer(@ModelAttribute("addcustomer") Customer customer) {
+		customerService.save(customer);
+		return "redirect:/customer/customerlist";
 	}
 
-	@GetMapping("/updateform")
-	public String showUpdateForm(@RequestParam("aadharNumber") long number, Model model) {
-		Customer cus = crservice.findByNumber(number);
-		model.addAttribute("updatecustomer", cus);
+	@GetMapping("/updatecustomerform")
+	public String showUpdateCustomerForm(@RequestParam("aadharNumber") long number, Model model) {
+		Customer customer = customerService.findByAadharNumber(number);
+		model.addAttribute("updatecustomer", customer);
 		return "update-customer-form";
 	}
 
-	@PostMapping("/updatecus")
-	public String UpdateCustomers(@ModelAttribute("updatecustomer") Customer cus) {
-		crservice.save(cus);
-		return "redirect:/customer/list";
+	@PostMapping("/updatecustomer")
+	public String UpdateCustomers(@ModelAttribute("updatecustomer") Customer customer) {
+		customerService.save(customer);
+		return "redirect:/customer/customerlist";
 	}
 
 	@GetMapping("/deletecustomer")
 	public String deleteCustomer(@RequestParam("aadharNumber") long number) {
-		Customer cus = crservice.findByNumber(number);
-		crservice.deleteByAadharNumber(number);
-		return "redirect:/customer/list";
+		Customer customer = customerService.findByAadharNumber(number);
+		customerService.deleteByAadharNumber(number);
+		return "redirect:/customer/customerlist";
 	}
 
-	@GetMapping("/findcustomerbynumber")
-	public String findCustomerById(@RequestParam("aadharNumber") long number, Model model) {
-		Customer cus = crservice.findByNumber(number);
-		model.addAttribute("findcustomerbynumber", cus);
-		return "find-customer-by-number";
+	@GetMapping("/findcustomer")
+	public String findCustomerByAadhar(@RequestParam("aadharNumber") long number, Model model) {
+		Customer cus = customerService.findByAadharNumber(number);
+		model.addAttribute("findcustomer", cus);
+		return "find-customer";
+	}
+	@GetMapping("/getcustomeraccount")
+	public String getCustomerAccount(@RequestParam("aadharnumber") long number,Model model) {
+	    CustomerAccountDTO customeraccountdto =customerService.getCustomerAndAccount(number);
+	    model.addAttribute("getcus",customeraccountdto.getCustomer());
+	    model.addAttribute("accountlist",customeraccountdto.getAccountlist());
+	return "list-customer-customeraccount";
 	}
 }

@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Customer List</title>
+<title>customer List</title>
 </head>
 <body>
 	<div id="table root">
@@ -27,18 +27,18 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach var="cus" items="${allcustomers}">
+				<c:forEach var="customer" items="${allcustomers}">
 					<tr>
-						<td>${cus.customerName}</td>
-						<td>${cus.fatherName}</td>
-						<td>${cus.gender}</td>
-						<td>${cus.dob}</td>
-						<td>${cus.address}</td>
-						<td>${cus.nationality}</td>
-						<td>${cus.aadharNumber}</td>
-						<td>${cus.mobileNumber}</td>
-						<td>${cus.email}</td>
-						<td>${cus.accountStatus}</td>
+						<td>${customer.customerName}</td>
+						<td>${customer.fatherName}</td>
+						<td>${customer.gender}</td>
+						<td>${customer.dob}</td>
+						<td>${customer.address}</td>
+						<td>${customer.nationality}</td>
+						<td>${customer.aadharNumber}</td>
+						<td>${customer.mobileNumber}</td>
+						<td>${customer.email}</td>
+						<td>${customer.accountStatus}</td>
 						
 					</tr>
 				</c:forEach>

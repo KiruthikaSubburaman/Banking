@@ -7,32 +7,32 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Customer Account List</title>
+<title>customer Account List</title>
 </head>
 <body>
 	<div id="table root">
 		<table>
 			<thead>
 				<tr>
-					<th>aadharNumber</th>
-					<th>accountNumber</th>
-					<th>accountType</th>
-					<th>dateOfOpening</th>
-					<th>accountStatus</th>
-					<th>minimumBalance</th>
-					<th>currentBalance</th>
+					<th>Aadhar Number</th>
+					<th>Account Number</th>
+					<th>Account Type</th>
+					<th>Date Of Opening</th>
+					<th>Account Status</th>
+					<th>Minimum Balance</th>
+					<th>Current Balance</th>
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach var="cus" items="${allcusaccount}">
+				<c:forEach var="customer" items="${customeraccount}">
 					<tr>
-						<td>${cus.aadharNumber}</td>
-						<td>${cus.accountNumber}</td>
-						<td>${cus.accountType}</td>
-						<td>${cus.dateOfOpening}</td>
-						<td>${cus.accountStatus}</td>
-						<td>${cus.minimumBalance}</td>
-						<td>${cus.currentBalance}</td>
+						<td>${customer.aadharNumber}</td>
+						<td>${customer.accountNumber}</td>
+						<td>${customer.accountType}</td>
+						<td>${customer.dateOfOpening}</td>
+						<td>${customer.accountStatus}</td>
+						<td>${customer.minimumBalance}</td>
+						<td>${customer.currentBalance}</td>
 					</tr>
 				</c:forEach>
 			</tbody>

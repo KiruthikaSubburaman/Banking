@@ -7,64 +7,55 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Update customer Account</title>
+<title>Find CustomerAccount By AccountNumber</title>
 </head>
 <body>
 	<div id="root">
 		<div id="form">
-			<form:form action="updatecus" method="post"
-				modelAttribute="updatecustomer">
-
+			<form:form action="" method="get" modelAttribute="findcustomeraccount">
 				<div>
 					<label for="aadharNumber">Aadhar Number</label>
 					<div>
-						<form:input path="aadharNumber" />
+						<form:input path="aadharNumber" readonly="true" />
 					</div>
 				</div>
 				<div>
 					<label for="accountNumber">Account Number</label>
 					<div>
-						<form:input path="accountNumber" />
+						<form:input path="accountNumber" readonly="true" />
 					</div>
 				</div>
 				<div>
 					<label for="accountType">Account Type</label>
 					<div>
-						<form:input path="accountType" />
+						<form:input path="accountType" readonly="true" />
 					</div>
 				</div>
 				<div>
 					<label for="dateOfOpening">Date Of Opening</label>
 					<div>
-						<form:input path="dateOfOpening" />
+						<form:input path="dateOfOpening" readonly="true" />
 					</div>
 				</div>
 				<div>
 					<label for="accountStatus">Account Status</label>
 					<div>
-						<form:input path="accountStatus" />
+						<form:input path="accountStatus" readonly="true" />
 					</div>
 				</div>
 				<div>
 					<label for="minimumBalance">Minimum Balance</label>
 					<div>
-						<form:input path="minimumBalance" />
+						<form:input path="minimumBalance" readonly="true" />
 					</div>
 				</div>
 				<div>
-					<label for="currentBalance">CurrentBalance</label>
+					<label for="currentBalance">Current Balance</label>
 					<div>
-						<form:input path="currentBalance" />
+						<form:input path="currentBalance" readonly="true" />
 					</div>
-
 				</div>
-
-
-				<div>
-					<form:button>Update Customer Account</form:button>
-				</div>
-			</form:form>
-		</div>
+	</form:form>
 	</div>
 	</div>
 </body>

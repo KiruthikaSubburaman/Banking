@@ -18,52 +18,52 @@ import com.chainsys.banking.service.TransactionService;
 @RequestMapping("/transactiondetails")
 public class TransactionController {
 	@Autowired
-	TransactionService transactionservice;
+	TransactionService transactionService;
 
-	@GetMapping("/list")
+	@GetMapping("/transactionlist")
 	public String getTransactions(Model model) {
-		List<Transaction> allTransactions = transactionservice.getTransactions();
+		List<Transaction> allTransactions = transactionService.getTransactions();
 		model.addAttribute("alltransactions", allTransactions);
 		return "list-transactions";
 	}
 
-	@GetMapping("/addform")
+	@GetMapping("/addtransactionform")
 	public String showAddForm(Model model) {
 		Transaction transaction = new Transaction();
 		model.addAttribute("addtransaction", transaction);
 		return "add-transactions-form";
 	}
 
-	@PostMapping("/add")
+	@PostMapping("/addtransaction")
 	public String addNewTransaction(@ModelAttribute("addtransaction") Transaction transaction) {
-		transactionservice.save(transaction);
-		return "redirect:/transactions/list";
+		transactionService.save(transaction);
+		return "redirect:/transactiondetails/list";
 	}
 
-	@GetMapping("/updateform")
-	public String showUpdateForm(@RequestParam("accountNumber") long number, Model model) {
-		Transaction transaction = transactionservice.findByNumber(number);
+	@GetMapping("/updatetransactionform")
+	public String showTransactionUpdateForm(@RequestParam("accountNumber") long number, Model model) {
+		Transaction transaction = transactionService.findByNumber(number);
 		model.addAttribute("updatetransaction", transaction);
 		return "update-transaction-form";
 	}
 
-	@PostMapping("/updatecus")
-	public String UpdateTransactions(@ModelAttribute("updateTransaction") Transaction transaction) {
-		transactionservice.save(transaction);
-		return "redirect:/transaction/list";
+	@PostMapping("/updatetransaction")
+	public String UpdateTransactions(@ModelAttribute("updatetransaction") Transaction transaction) {
+		transactionService.save(transaction);
+		return "redirect:/transactiondetails/list";
 	}
 
 	@GetMapping("/deletetransaction")
-	public String deleteTransaction(@RequestParam("accountNumber") long number) {
-		Transaction transaction = transactionservice.findByNumber(number);
-		transactionservice.deleteByAccountNumber(number);
-		return "redirect:/transactions/list";
+	public String deleteTransaction(@RequestParam("accountnumber") long number) {
+		Transaction transaction = transactionService.findByNumber(number);
+		transactionService.deleteByAccountNumber(number);
+		return "redirect:/transactiondetails/list";
 	}
 
-	@GetMapping("/findtransactionbynumber")
-	public String findTransactionById(@RequestParam("accountNumber") long number, Model model) {
-		Transaction transaction = transactionservice.findByNumber(number);
-		model.addAttribute("findtransactionbynumber", transaction);
-		return "find-transaction-by-number";
+	@GetMapping("/findtransaction")
+	public String findTransactionByAccountNumber(@RequestParam("accountNumber") long number, Model model) {
+		Transaction transaction = transactionService.findByNumber(number);
+		model.addAttribute("findtransaction", transaction);
+		return "find-transaction";
 	}
 }

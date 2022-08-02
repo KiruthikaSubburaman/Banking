@@ -6,15 +6,15 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import com.chainsys.banking.model.CustomerAccount;
-import com.chainsys.banking.model.UPI;
+import com.chainsys.banking.model.UpiCreation;
 @Repository
-public interface UPIRepository extends CrudRepository<UPI, Long> {
-	UPI findByAccountNumber(long number);
+public interface UpiCreationRepository extends CrudRepository<UpiCreation, Long> {
+	UpiCreation findByAccountNumber(long number);
 
-	UPI save(UPI upi);
+	UpiCreation save(UpiCreation upi);
 
 	void deleteByAccountNumber(long number);
 
-	List<UPI> findAll();
+	List<UpiCreation> findAll();
 
 }

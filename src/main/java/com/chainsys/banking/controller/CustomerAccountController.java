@@ -2,6 +2,8 @@ package com.chainsys.banking.controller;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,52 +22,53 @@ import com.chainsys.banking.service.CustomerService;
 @RequestMapping("/customeraccount")
 public class CustomerAccountController {
 	@Autowired
-	CustomerAccountService craservice;
+	CustomerAccountService customerAccountService;
 
-	@GetMapping("/list")
+	@GetMapping("/customeraccountlist")
 	public String getCustomerAccount(Model model) {
-		List<CustomerAccount> allCusAccount = craservice.getCustomerAccount();
-		model.addAttribute("allcusaccount", allCusAccount);
+		List<CustomerAccount> allCustomerAccount = customerAccountService.getCustomerAccount();
+		model.addAttribute("customeraccount", allCustomerAccount);
 		return "list-customer-account";
 	}
 
-	@GetMapping("/addform")
-	public String showAddForm(Model model) {
-		CustomerAccount cus = new CustomerAccount();
-		model.addAttribute("addcustomeraccount", cus);
+	@GetMapping("/addcustomeraccountform")
+	public String showAddCustomerAccountForm(Model model) {
+		CustomerAccount customerAccount = new CustomerAccount();
+		model.addAttribute("addcustomeraccount", customerAccount);
 		return "add-customer-account";
 	}
 
-	@PostMapping("/add")
-	public String addNewCustomerAccount(@ModelAttribute("addcustomeraccount") CustomerAccount cus) {
-		craservice.save(cus);
-		return "redirect:/customeraccount/list";
+	@PostMapping("/addcustomeraccount")
+	public String addNewCustomerAccount(@ModelAttribute("addcustomeraccount") CustomerAccount customerAccount) {
+		customerAccountService.save(customerAccount);
+		return "redirect:/customeraccount/customeraccountlist";
 	}
 
-	@GetMapping("/updateform")
-	public String showUpdateForm(@RequestParam("accountNumber") long number, Model model) {
-		CustomerAccount cus = craservice.findByNumber(number);
-		model.addAttribute("updatecustomer", cus);
-		return "update-customeraccount-form";
+	@GetMapping("/updatecustomeraccountform")
+	public String showupdateCustomerAccountForm(@RequestParam("accountNumber") long number, Model model) {
+		CustomerAccount customerAccount = customerAccountService.findByAccountNumber(number);
+		model.addAttribute("updatecustomer", customerAccount);
+		return "update-customer-account";
 	}
 
-	@PostMapping("/updatecus")
-	public String UpdateCustomerAccount(@ModelAttribute("updatecustomeraccount") CustomerAccount cus) {
-		craservice.save(cus);
-		return "redirect:/customeraccount/list";
+	@PostMapping("/updateCustomeraccount")
+	public String UpdateCustomerAccount(@ModelAttribute("updatecustomer") CustomerAccount customerAccount) {
+		customerAccountService.save(customerAccount);
+		return "redirect:/customeraccount/customeraccountlist";
 	}
 
-	@GetMapping("/deletecustomer")
+	@Transactional
+	@GetMapping("/deletecustomeraccount")
 	public String deleteCustomerAccount(@RequestParam("accountNumber") long number) {
-		CustomerAccount cus = craservice.findByNumber(number);
-		craservice.deleteByAccountNumber(number);
-		return "redirect:/customer/list";
+		CustomerAccount customerAccount = customerAccountService.findByAccountNumber(number);
+		customerAccountService.deleteByAccountNumber(number);
+		return "redirect:/customeraccount/customeraccountlist";
 	}
 
-	@GetMapping("/findcustomerbynumber")
-	public String findCustomerAccountById(@RequestParam("accountNumber") long number, Model model) {
-		CustomerAccount cus = craservice.findByNumber(number);
-		model.addAttribute("findcustomeraccountbynumber", cus);
-		return "find-customeraccount-by-number";
+	@GetMapping("/findcustomeraccount")
+	public String findCustomerAccount(@RequestParam("accountNumber") long number, Model model) {
+		CustomerAccount customerAccount = customerAccountService.findByAccountNumber(number);
+		model.addAttribute("findcustomeraccount", customerAccount);
+		return "find-customer-account";
 	}
 }

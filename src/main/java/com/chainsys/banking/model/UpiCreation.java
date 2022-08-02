@@ -8,8 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "CreateUPI")
-public class UPI {
+@Table(name = "createupi")
+public class UpiCreation {
 	@Id
 	@Column(name = "account_number")
 	private long accountNumber;

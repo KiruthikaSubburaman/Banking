@@ -10,7 +10,7 @@ import com.chainsys.banking.model.Customer;
 public interface CustomerRepository extends CrudRepository<Customer, Long> {
 	Customer findByAadharNumber(long number);
 
-	Customer save(Customer cr);
+	Customer save(Customer customer);
 
 	void deleteByAadharNumber(long number);
 

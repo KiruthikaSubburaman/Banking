@@ -7,13 +7,14 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Add customer Account</title>
+<title>Update customer Account</title>
 </head>
 <body>
 	<div id="root">
 		<div id="form">
-			<form:form action="addcustomeraccount" method="post"
-				modelAttribute="addcustomeraccount">
+			<form:form action="updateCustomeraccount" method="post"
+				modelAttribute="updatecustomer">
+
 				<div>
 					<label for="aadharNumber">Aadhar Number</label>
 					<div>
@@ -60,7 +61,7 @@
 
 
 				<div>
-					<form:button>Add New Customer Account</form:button>
+					<form:button>Update Customer Account</form:button>
 				</div>
 			</form:form>
 		</div>

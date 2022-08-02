@@ -14,26 +14,24 @@ import com.chainsys.banking.model.CustomerAccount;
 @Service
 public class CustomerAccountService {
 	@Autowired
-	private CustomerAccountRepository customeraccountrepo;
+	private CustomerAccountRepository customerAccountRepository;
 
-	public List<CustomerAccount>getCustomerAccount() {
-		List<CustomerAccount> listCr = customeraccountrepo.findAll();
-		return listCr;
+	public List<CustomerAccount> getCustomerAccount() {
+		List<CustomerAccount> listCustomer = customerAccountRepository.findAll();
+		return listCustomer;
 	}
 
-	public CustomerAccount save(CustomerAccount cra) {
+	public CustomerAccount save(CustomerAccount customerAccount) {
 
-		return customeraccountrepo.save(cra);
+		return customerAccountRepository.save(customerAccount);
 	}
 
-	public CustomerAccount findByNumber(long number) {
-		return customeraccountrepo.findByAccountNumber(number);
+	public CustomerAccount findByAccountNumber(long number) {
+		return customerAccountRepository.findByAccountNumber(number);
 	}
-@Transactional
+
 	public void deleteByAccountNumber(long number) {
-		customeraccountrepo.deleteByAccountNumber(number);
+		customerAccountRepository.deleteByAccountNumber(number);
 	}
 
 }
-
-

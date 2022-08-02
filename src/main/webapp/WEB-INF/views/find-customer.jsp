@@ -12,7 +12,7 @@
 <body>
 	<div id="root">
 		<div id="form">
-			<form:form action="" method="get" modelAttribute="findcustomerbynumber">
+			<form:form action="" method="get" modelAttribute="findcustomer">
 				<div>
 					<label for="customerName">Customer Name</label>
 					<div>
