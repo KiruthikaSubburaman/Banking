@@ -1,16 +1,18 @@
 package com.chainsys.banking.model;
 
-import java.util.Date;
+import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "Customers")
 public class Customer {
-	@Id
+	
 	@Column(name = "customer_name")
 	private String customerName;
 	@Column(name = "father_name")
@@ -23,14 +25,26 @@ public class Customer {
 	private String address;
 	@Column(name = "nationality")
 	private String nationality;
+	@Id
 	@Column(name = "aadhar_number")
-	private long aadharNumber;
+	private long aadharNumber;// primary key
 	@Column(name = "mobile_number")
 	private long mobileNumber;
 	@Column(name = "email")
 	private String email;
 	@Column(name = "account_status")
 	private String accountStatus;
+
+	@OneToOne(mappedBy ="customer", fetch = FetchType.LAZY)
+	private CustomerAccount customerAccount;
+
+	public CustomerAccount getCustomerAccount() {
+		return customerAccount;
+	}
+
+	public void setCustomerAccount(CustomerAccount customerAccount) {
+		this.customerAccount = customerAccount;
+	}
 
 	public String getCustomerName() {
 		return customerName;

@@ -11,7 +11,7 @@
 </head>
 <body>
 	<div id="root">
-		<div id="form">
+		<div id="form" align="center">
 			<form:form action="updatetransaction" method="post"
 				modelAttribute="updatetransaction">
 
@@ -30,7 +30,7 @@
 				<div>
 					<label for="transactionDate">Transaction Date</label>
 					<div>
-						<form:input path="transactionDate" />
+						<form:input path="transactionDate" type="date" />
 					</div>
 				</div>
 				<div>

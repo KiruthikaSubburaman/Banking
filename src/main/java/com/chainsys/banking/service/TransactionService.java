@@ -25,7 +25,7 @@ public class TransactionService {
 		return transactionrepo.save(transaction);
 	}
 
-	public Transaction findByNumber(long number) {
+	public Transaction findByAccountNumber(long number) {
 		return transactionrepo.findByAccountNumber(number);
 	}
 @Transactional

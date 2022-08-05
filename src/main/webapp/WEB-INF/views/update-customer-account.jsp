@@ -11,9 +11,9 @@
 </head>
 <body>
 	<div id="root">
-		<div id="form">
-			<form:form action="updateCustomeraccount" method="post"
-				modelAttribute="updatecustomer">
+		<div id="form" align="center">
+			<form:form action="updatecustomeraccount" method="post"
+				modelAttribute="updatecustomeraccount">
 
 				<div>
 					<label for="aadharNumber">Aadhar Number</label>
@@ -36,7 +36,7 @@
 				<div>
 					<label for="dateOfOpening">Date Of Opening</label>
 					<div>
-						<form:input path="dateOfOpening" />
+						<form:input path="dateOfOpening" type="date" />
 					</div>
 				</div>
 				<div>
@@ -58,14 +58,11 @@
 					</div>
 
 				</div>
-
-
 				<div>
 					<form:button>Update Customer Account</form:button>
 				</div>
 			</form:form>
 		</div>
-	</div>
 	</div>
 </body>
 </html>

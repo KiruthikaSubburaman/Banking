@@ -29,7 +29,7 @@ public class UpiCreationService {
 	public UpiCreation findByAccountNumber(long number) {
 		return upiRepository.findByAccountNumber(number);
 	}
-
+@Transactional
 	public void deleteByAccountNumber(long number) {
 		upiRepository.deleteByAccountNumber(number);
 	}

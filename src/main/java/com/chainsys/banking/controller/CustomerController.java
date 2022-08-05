@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.chainsys.banking.model.Customer;
-import com.chainsys.banking.model.CustomerAccountDTO;
+import com.chainsys.banking.model.CustomerAndAccountDto;
 import com.chainsys.banking.service.CustomerService;
 
 @Controller
@@ -67,11 +67,11 @@ public class CustomerController {
 		model.addAttribute("findcustomer", cus);
 		return "find-customer";
 	}
-	@GetMapping("/getcustomeraccount")
-	public String getCustomerAccount(@RequestParam("aadharnumber") long number,Model model) {
-	    CustomerAccountDTO customeraccountdto =customerService.getCustomerAndAccount(number);
-	    model.addAttribute("getcus",customeraccountdto.getCustomer());
-	    model.addAttribute("accountlist",customeraccountdto.getAccountlist());
-	return "list-customer-customeraccount";
-	}
+	@GetMapping("/getcustomerandaccount")
+    public String getCustomerAndAccount(@RequestParam("aadharNumber") long number,Model model){
+        CustomerAndAccountDto dto=customerService.getCustomerAccountDetails(number);
+        model.addAttribute("customer",dto.getCustomer());
+        model.addAttribute("customeraccount",dto.getCustomerAccount());
+        return "list-customer-customeraccount";
+    }
 }

@@ -1,18 +1,24 @@
 package com.chainsys.banking.model;
 
-import java.util.Date;
+import java.sql.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "customeraccount")
 public class CustomerAccount {
-	@Id
+	
 	@Column(name = "aadhar_number")
 	private long aadharNumber;
+	@Id
 	@Column(name = "account_number")
 	private long accountNumber;
 	@Column(name = "account_type")
@@ -25,6 +31,40 @@ public class CustomerAccount {
 	private float minimumBalance;
 	@Column(name = "current_Balance")
 	private float currentBalance;
+
+	@OneToOne(mappedBy ="customersAccount", fetch = FetchType.LAZY)
+	private UpiCreation upiCreation;
+	
+	public UpiCreation getUpiCreation() {
+		return upiCreation;
+	}
+
+	public void setUpiCreation(UpiCreation upiCreation) {
+		this.upiCreation = upiCreation;
+	}
+
+	@OneToMany(mappedBy="customerAccount",fetch= FetchType.LAZY )
+    private List<Transaction> transaction;
+    
+        public List<Transaction> getTransaction() {
+		return transaction;
+	}
+
+	public void setTransaction(List<Transaction> transaction) {
+		this.transaction = transaction;
+    }
+
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name ="aadhar_number", nullable = false, insertable = false, updatable = false)
+	private Customer customer;
+
+	public Customer getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
 
 	public long getAadharNumber() {
 		return aadharNumber;

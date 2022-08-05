@@ -11,8 +11,9 @@
 </head>
 <body>
 	<div id="root">
-		<div id="form">
-			<form:form action="addtransaction" method="post" modelAttribute="addtransaction">
+		<div id="form" align="center">
+			<form:form action="addtransactiondetails" method="post"
+				modelAttribute="addtransaction">
 				<div>
 					<label for="accountNumber">Account Number</label>
 					<div>
@@ -28,7 +29,7 @@
 				<div>
 					<label for="transactionDate">Transaction Date</label>
 					<div>
-						<form:input path="transactionDate" />
+						<form:input path="transactionDate" type="date" />
 					</div>
 				</div>
 				<div>

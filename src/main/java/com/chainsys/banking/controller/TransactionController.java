@@ -28,21 +28,21 @@ public class TransactionController {
 	}
 
 	@GetMapping("/addtransactionform")
-	public String showAddForm(Model model) {
+	public String showTransactionAddForm(Model model) {
 		Transaction transaction = new Transaction();
 		model.addAttribute("addtransaction", transaction);
 		return "add-transactions-form";
 	}
 
-	@PostMapping("/addtransaction")
+	@PostMapping("/addtransactiondetails")
 	public String addNewTransaction(@ModelAttribute("addtransaction") Transaction transaction) {
 		transactionService.save(transaction);
-		return "redirect:/transactiondetails/list";
+		return "redirect:/transactiondetails/transactionlist";
 	}
 
 	@GetMapping("/updatetransactionform")
 	public String showTransactionUpdateForm(@RequestParam("accountNumber") long number, Model model) {
-		Transaction transaction = transactionService.findByNumber(number);
+		Transaction transaction = transactionService.findByAccountNumber(number);
 		model.addAttribute("updatetransaction", transaction);
 		return "update-transaction-form";
 	}
@@ -50,19 +50,19 @@ public class TransactionController {
 	@PostMapping("/updatetransaction")
 	public String UpdateTransactions(@ModelAttribute("updatetransaction") Transaction transaction) {
 		transactionService.save(transaction);
-		return "redirect:/transactiondetails/list";
+		return "redirect:/transactiondetails/transactionlist";
 	}
 
 	@GetMapping("/deletetransaction")
 	public String deleteTransaction(@RequestParam("accountnumber") long number) {
-		Transaction transaction = transactionService.findByNumber(number);
+		Transaction transaction = transactionService.findByAccountNumber(number);
 		transactionService.deleteByAccountNumber(number);
-		return "redirect:/transactiondetails/list";
+		return "redirect:/transactiondetails/transactionlist";
 	}
 
 	@GetMapping("/findtransaction")
 	public String findTransactionByAccountNumber(@RequestParam("accountNumber") long number, Model model) {
-		Transaction transaction = transactionService.findByNumber(number);
+		Transaction transaction = transactionService.findByAccountNumber(number);
 		model.addAttribute("findtransaction", transaction);
 		return "find-transaction";
 	}

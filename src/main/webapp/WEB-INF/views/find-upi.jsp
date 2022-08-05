@@ -11,7 +11,7 @@
 </head>
 <body>
 	<div id="root">
-		<div id="form">
+		<div id="form" align="center">
 			<form:form action="" method="get" modelAttribute="findupi">
 				<div>
 					<label for="accountNumber">Account Number</label>

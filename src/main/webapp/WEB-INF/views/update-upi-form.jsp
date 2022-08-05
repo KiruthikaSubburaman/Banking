@@ -11,7 +11,7 @@
 </head>
 <body>
 	<div id="root">
-		<div id="form">
+		<div id="form" align="center">
 			<form:form action="updateupi" method="post"
 				modelAttribute="updateupi">
 
@@ -30,7 +30,7 @@
 				<div>
 					<label for="pinCreatedDate">pin Created Date</label>
 					<div>
-						<form:input path="pinCreatedDate" />
+						<form:input path="pinCreatedDate" type="date" />
 					</div>
 				</div>
 				<div>
