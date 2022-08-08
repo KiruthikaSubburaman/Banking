@@ -44,6 +44,9 @@ public class CustomerAccountService {
 	public void deleteByAccountNumber(long number) {
 		customerAccountRepository.deleteByAccountNumber(number);
 	}
+	public List<CustomerAccount> customerAccount(){
+		return customerAccountRepository.findAll();
+	}
 
 	public AccountAndTransactionDto getAccountTransaction(long number) {
 		CustomerAccount customerAccount = findByAccountNumber(number);

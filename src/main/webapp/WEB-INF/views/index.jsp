@@ -6,7 +6,7 @@
 <meta charset="ISO-8859-1">
 <title>Index</title>
 <style>
-#div1 {
+body {
 	background:
 		url(http://loving2you.blogspot.com/2013/09/new-mind-blowing-car-wallpapers.html);
 	background-size: 100px 80px;
@@ -16,6 +16,7 @@
 </head>
 <body>
 	<div>
+
 		<h1>Customer Details</h1>
 	</div>
 	<div>
@@ -60,7 +61,8 @@
 			Customer Account</a>
 	</div>
 	<div>
-		<a href="/customer/getcustomerandaccount?aadharNumber=">Get Customer and Account</a>
+		<a href="/customer/getcustomerandaccount?aadharNumber=">Get
+			Customer and Account</a>
 	</div>
 	<div></div>
 	<div>
@@ -82,7 +84,8 @@
 		<a href="/upicreation/findupi?accountNumber=">Find Upi</a>
 	</div>
 	<div>
-		<a href="/customeraccount/getaccountandupi?accountNumber=">Get Account And Upi</a>
+		<a href="/customeraccount/getaccountandupi?accountNumber=">Get
+			Account And Upi</a>
 	</div>
 	<div></div>
 	<div>
@@ -106,7 +109,8 @@
 		<a href="/transactiondetails/findtransaction?accountNumber=">FindTransaction</a>
 	</div>
 	<div>
-		<a href="/customeraccount/getaccounttransactions?accountNumber=">Get Account Transactions</a>
+		<a href="/customeraccount/getaccounttransactions?accountNumber=">Get
+			Account Transactions</a>
 	</div>
 	<div></div>
 </body>

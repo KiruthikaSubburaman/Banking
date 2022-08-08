@@ -3,6 +3,7 @@ package com.chainsys.banking.controller;
 import java.util.List;
 
 import javax.transaction.Transactional;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -52,7 +53,7 @@ public class CustomerAccountController {
 	}
 
 	@GetMapping("/updatecustomeraccountform")
-	public String showupdateCustomerAccountForm(@RequestParam("accountNumber") long number, Model model) {
+	public String showupdateCustomerAccountForm(@Valid@RequestParam("accountNumber") long number, Model model) {
 		CustomerAccount customerAccount = customerAccountService.findByAccountNumber(number);
 		model.addAttribute("updatecustomeraccount", customerAccount);
 		return "update-customer-account";
@@ -66,7 +67,7 @@ public class CustomerAccountController {
 
 	@Transactional
 	@GetMapping("/deletecustomeraccount")
-	public String deleteCustomerAccount(@RequestParam("accountNumber") long number) {
+	public String deleteCustomerAccount(@Valid@RequestParam("accountNumber") long number) {
 		CustomerAccount customerAccount = customerAccountService.findByAccountNumber(number);
 		customerAccountService.deleteByAccountNumber(number);
 		return "redirect:/customeraccount/customeraccountlist";

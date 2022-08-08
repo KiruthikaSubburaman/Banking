@@ -9,14 +9,17 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Digits;
 
 @Entity
 @Table(name = "createupi")
 public class UpiCreation {
 	@Id
 	@Column(name = "account_number")
+	@Digits(integer = 15, fraction = 0)
 	private long accountNumber;
 	@Column(name = "create_new_pin")
+	@Digits(integer = 6, fraction = 0)
 	private int createNewPIN;
 	@Column(name = "pin_created_date")
 	private Date pinCreatedDate;

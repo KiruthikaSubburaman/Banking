@@ -34,7 +34,9 @@
 				<div>
 					<label for="accountType">Account Type</label>
 					<div>
-						<form:input path="accountType" />
+						<form:select path="accountType">
+                            <form:option value="savings">Savings</form:option>
+                        </form:select>
 					</div>
 				</div>
 				<div>

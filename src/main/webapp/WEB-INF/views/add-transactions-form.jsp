@@ -17,7 +17,12 @@
 				<div>
 					<label for="accountNumber">Account Number</label>
 					<div>
-						<form:input path="accountNumber" />
+						<form:select path="accountNumber">
+							<c:forEach var="alltrans" items="${allaccountno}">
+								<form:option value="${alltrans.accountNumber}"
+									label="${alltrans.accountNumber}" />
+							</c:forEach>
+						</form:select>
 					</div>
 				</div>
 				<div>
@@ -35,7 +40,10 @@
 				<div>
 					<label for="transactionType">Transaction Type</label>
 					<div>
-						<form:input path="transactionType" />
+						<form:select path="transactionType">
+                            <form:option value="Deposit">Deposit</form:option>
+                            <form:option value="Withdraw">Withdraw</form:option>
+                        </form:select>
 					</div>
 				</div>
 				<div>

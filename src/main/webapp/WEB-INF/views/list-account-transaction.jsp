@@ -11,77 +11,79 @@
 <body>
 	<div id="root">
 		<div id="form">
-			<form:form action="getaccounttransactions" method="post" modelAttribute="accountdetails">
-				<div>
-					<label for="aadharNumber">Aadhar Number</label>
+			<table border="2" width="100%" cellpadding="2">
+				<form:form action="getaccounttransactions" method="post"
+					modelAttribute="accountdetails">
 					<div>
-						<form:input path="aadharNumber" />
+						<label for="aadharNumber">Aadhar Number</label>
+						<div>
+							<form:input path="aadharNumber" readonly="true" />
+						</div>
 					</div>
-				</div>
-				<div>
-					<label for="accountNumber">Account Number</label>
 					<div>
-						<form:input path="accountNumber" />
+						<label for="accountNumber">Account Number</label>
+						<div>
+							<form:input path="accountNumber" readonly="true" />
+						</div>
 					</div>
-				</div>
-				<div>
-					<label for="accountType">Account Type</label>
 					<div>
-						<form:input path="accountType" />
+						<label for="accountType">Account Type</label>
+						<div>
+							<form:input path="accountType" readonly="true"/>
+						</div>
 					</div>
-				</div>
-				<div>
-					<label for="dateOfOpening">Date Of Opening</label>
 					<div>
-						<form:input path="dateOfOpening" />
+						<label for="dateOfOpening">Date Of Opening</label>
+						<div>
+							<form:input path="dateOfOpening" readonly="true"/>
+						</div>
 					</div>
-				</div>
-				<div>
-					<label for="accountStatus">Account Status</label>
 					<div>
-						<form:input path="accountStatus" />
+						<label for="accountStatus">Account Status</label>
+						<div>
+							<form:input path="accountStatus" readonly="true"/>
+						</div>
 					</div>
-				</div>
-				<div>
-					<label for="minimumBalance">Minimum Balance</label>
 					<div>
-						<form:input path="minimumBalance" />
+						<label for="minimumBalance">Minimum Balance</label>
+						<div>
+							<form:input path="minimumBalance" readonly="true"/>
+						</div>
 					</div>
-				</div>
-				<div>
-					<label for="currentBalance">CurrentBalance</label>
 					<div>
-						<form:input path="currentBalance" />
+						<label for="currentBalance">CurrentBalance</label>
+						<div>
+							<form:input path="currentBalance" readonly="true"/>
+						</div>
 					</div>
+				</form:form>
 				</div>
-			</form:form>
-		</div>
-	</div>
-	<div id="root">
-		<table>
-			<thead>
-				<tr>
-					<th>Account Number</th>
-					<th>Transaction Number</th>
-					<th>Transaction Date</th>
-					<th>Transaction Type</th>
-					<th>Deposited Amount</th>
-					<th>Withdrawal Amount</th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach var="transaction" items="${transactionlist}">
-					<tr>
-						<td>${transaction.accountNumber}</td>
-						<td>${transaction.transactionNumber}</td>
-						<td>${transaction.transactionDate}</td>
-						<td>${transaction.transactionType}</td>
-						<td>${transaction.depositedAmount}</td>
-						<td>${transaction.withdrawalAmount}</td>
-					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
-	</div>
+				</div>
+				<div id="root">
+					<table>
+						<thead>
+							<tr>
+								<th>Account Number</th>
+								<th>Transaction Number</th>
+								<th>Transaction Date</th>
+								<th>Transaction Type</th>
+								<th>Deposited Amount</th>
+								<th>Withdrawal Amount</th>
+							</tr>
+						</thead>
+						<tbody>
+							<c:forEach var="transaction" items="${transactionlist}">
+								<tr>
+									<td>${transaction.accountNumber}</td>
+									<td>${transaction.transactionNumber}</td>
+									<td>${transaction.transactionDate}</td>
+									<td>${transaction.transactionType}</td>
+									<td>${transaction.depositedAmount}</td>
+									<td>${transaction.withdrawalAmount}</td>
+								</tr>
+							</c:forEach>
+						</tbody>
+					</table>
+				</div>
 </body>
 </html>

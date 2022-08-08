@@ -9,22 +9,28 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "transactiondetails")
 public class Transaction {
 	@Id
 	@Column(name = "account_number")
+	@Digits(integer = 15, fraction = 0)
 	private long accountNumber;
 	@Column(name = "transaction_number")
+	@Digits(integer = 15, fraction = 0)
 	private long transactionNumber;
 	@Column(name = "transaction_date")
 	private Date transactionDate;
 	@Column(name = "transaction_type")
 	private String transactionType;
 	@Column(name = "deposited_amount")
+	@NotNull(message = "DepositAmount is required")
 	private float depositedAmount;
 	@Column(name = "withdrawal_amount")
+	@NotNull(message = "WithdrawAmount is required")
 	private float withdrawalAmount;
 	
 	@ManyToOne(fetch=FetchType.LAZY)

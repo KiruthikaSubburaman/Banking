@@ -16,7 +16,12 @@
 				<div>
 					<label for="accountNumber">Account Number</label>
 					<div>
-						<form:input path="accountNumber" />
+						<form:select path="accountNumber">
+							<c:forEach var="allupi" items="${allaccountno}">
+								<form:option value="${allupi.accountNumber}"
+									label="${allupi.accountNumber}" />
+							</c:forEach>
+						</form:select>
 					</div>
 				</div>
 				<div>

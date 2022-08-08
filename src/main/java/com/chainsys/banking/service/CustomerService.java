@@ -52,5 +52,9 @@ public CustomerAndAccountDto getCustomerAccountDetails(long number)
     dto.setCustomerAccount(customerAccount);
     return dto;
 }
+public Customer getAadharNumberAndEmail(long aadharNumber,String email)
+{
+	return customerRepository.findByAadharNumberAndEmail(aadharNumber, email);
+}
 }
     

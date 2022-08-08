@@ -2,6 +2,8 @@ package com.chainsys.banking.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -42,7 +44,7 @@ public class CustomerController {
 	}
 
 	@GetMapping("/updatecustomerform")
-	public String showUpdateCustomerForm(@RequestParam("aadharNumber") long number, Model model) {
+	public String showUpdateCustomerForm(@Valid@RequestParam("aadharNumber") long number, Model model) {
 		Customer customer = customerService.findByAadharNumber(number);
 		model.addAttribute("updatecustomer", customer);
 		return "update-customer-form";
@@ -55,7 +57,7 @@ public class CustomerController {
 	}
 
 	@GetMapping("/deletecustomer")
-	public String deleteCustomer(@RequestParam("aadharNumber") long number) {
+	public String deleteCustomer(@Valid@RequestParam("aadharNumber") long number) {
 		Customer customer = customerService.findByAadharNumber(number);
 		customerService.deleteByAadharNumber(number);
 		return "redirect:/customer/customerlist";
@@ -67,11 +69,29 @@ public class CustomerController {
 		model.addAttribute("findcustomer", cus);
 		return "find-customer";
 	}
+
 	@GetMapping("/getcustomerandaccount")
-    public String getCustomerAndAccount(@RequestParam("aadharNumber") long number,Model model){
-        CustomerAndAccountDto dto=customerService.getCustomerAccountDetails(number);
-        model.addAttribute("customer",dto.getCustomer());
-        model.addAttribute("customeraccount",dto.getCustomerAccount());
-        return "list-customer-customeraccount";
-    }
+	public String getCustomerAndAccount(@RequestParam("aadharNumber") long number, Model model) {
+		CustomerAndAccountDto dto = customerService.getCustomerAccountDetails(number);
+		model.addAttribute("customer", dto.getCustomer());
+		model.addAttribute("customeraccount", dto.getCustomerAccount());
+		return "list-customer-customeraccount";
+	}
+
+	@GetMapping("/customerpage")
+	public String CustomerLogin(Model model) {
+		Customer customer = new Customer();
+		model.addAttribute("login", customer);
+		return "customer-login-form";
+	}
+
+	@PostMapping("/customerlogin")
+	public String checkingAccess(@ModelAttribute("login") Customer cus) {
+		Customer customer = customerService.getAadharNumberAndEmail(cus.getAadharNumber(),
+				cus.getEmail());
+		if (customer != null) {
+			return "redirect:/home/customeruse";
+		} else
+			return "invalid customer error";
+	}
 }

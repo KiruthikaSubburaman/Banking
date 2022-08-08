@@ -10,65 +10,66 @@
 <body>
 	<div id="root">
 		<div id="form">
+		<table border="2" width="100%" cellpadding="2">
 			<form:form action=" " method="post" modelAttribute="customer">
 				<div>
 					<label for="customerName">Customer Name</label>
 					<div>
-						<form:input path="customerName" />
+						<form:input path="customerName" readonly="true"/>
 					</div>
 				</div>
 				<div>
 					<label for="fatherName">Father Name</label>
 					<div>
-						<form:input path="fatherName" />
+						<form:input path="fatherName" readonly="true"/>
 					</div>
 				</div>
 				<div>
 					<label for="gender">Gender</label>
 					<div>
-						<form:input path="gender" />
+						<form:input path="gender" readonly="true"/>
 					</div>
 				</div>
 				<div>
 					<label for="dob">DOB</label>
 					<div>
-						<form:input path="dob" />
+						<form:input path="dob" readonly="true"/>
 					</div>
 				</div>
 				<div>
 					<label for="address">Address</label>
 					<div>
-						<form:input path="address" />
+						<form:input path="address" readonly="true"/>
 					</div>
 				</div>
 				<div>
 					<label for="nationality">Nationality</label>
 					<div>
-						<form:input path="nationality" />
+						<form:input path="nationality" readonly="true"/>
 					</div>
 				</div>
 				<div>
 					<label for="aadharNumber">Aadhar Number</label>
 					<div>
-						<form:input path="aadharNumber" />
+						<form:input path="aadharNumber" readonly="true"/>
 					</div>
 				</div>
 				<div>
 					<label for="mobileNumber">Mobile Number</label>
 					<div>
-						<form:input path="mobileNumber" />
+						<form:input path="mobileNumber" readonly="true"/>
 					</div>
 				</div>
 				<div>
 					<label for="email">Email</label>
 					<div>
-						<form:input path="email" />
+						<form:input path="email" readonly="true"/>
 					</div>
 				</div>
 				<div>
 					<label for="accountStatus">Account Status</label>
 					<div>
-						<form:input path="accountStatus" />
+						<form:input path="accountStatus" readonly="true"/>
 					</div>
 				</div>
 			</form:form>
@@ -80,19 +81,19 @@
 				<div>
 					<label for="aadharNumber">Aadhar Number</label>
 					<div>
-						<form:input path="aadharNumber" />
+						<form:input path="aadharNumber" readonly="true"/>
 					</div>
 				</div>
 				<div>
 					<label for="accountNumber">Account Number</label>
 					<div>
-						<form:input path="accountNumber" />
+						<form:input path="accountNumber" readonly="true"/>
 					</div>
 				</div>
 				<div>
 					<label for="accountType">Account Type</label>
 					<div>
-						<form:input path="accountType" />
+						<form:input path="accountType" readonly="true"/>
 					</div>
 				</div>
 				<div>
@@ -104,19 +105,19 @@
 				<div>
 					<label for="accountStatus">Account Status</label>
 					<div>
-						<form:input path="accountStatus" />
+						<form:input path="accountStatus" readonly="true"/>
 					</div>
 				</div>
 				<div>
 					<label for="minimumBalance">Minimum Balance</label>
 					<div>
-						<form:input path="minimumBalance" />
+						<form:input path="minimumBalance" readonly="true"/>
 					</div>
 				</div>
 				<div>
 					<label for="currentBalance">CurrentBalance</label>
 					<div>
-						<form:input path="currentBalance" />
+						<form:input path="currentBalance" readonly="true"/>
 					</div>
 				</div>
 			</form:form>

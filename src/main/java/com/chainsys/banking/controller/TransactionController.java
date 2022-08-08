@@ -2,6 +2,8 @@ package com.chainsys.banking.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,7 +13,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.chainsys.banking.model.CustomerAccount;
 import com.chainsys.banking.model.Transaction;
+import com.chainsys.banking.model.UpiCreation;
+import com.chainsys.banking.service.CustomerAccountService;
 import com.chainsys.banking.service.TransactionService;
 
 @Controller
@@ -19,6 +24,9 @@ import com.chainsys.banking.service.TransactionService;
 public class TransactionController {
 	@Autowired
 	TransactionService transactionService;
+	@Autowired
+	CustomerAccountService customerAccountService;
+
 
 	@GetMapping("/transactionlist")
 	public String getTransactions(Model model) {
@@ -29,6 +37,8 @@ public class TransactionController {
 
 	@GetMapping("/addtransactionform")
 	public String showTransactionAddForm(Model model) {
+		List<CustomerAccount> customerAccount=customerAccountService.customerAccount();
+		model.addAttribute("allaccountno",customerAccount);
 		Transaction transaction = new Transaction();
 		model.addAttribute("addtransaction", transaction);
 		return "add-transactions-form";
@@ -41,7 +51,7 @@ public class TransactionController {
 	}
 
 	@GetMapping("/updatetransactionform")
-	public String showTransactionUpdateForm(@RequestParam("accountNumber") long number, Model model) {
+	public String showTransactionUpdateForm(@Valid@RequestParam("accountNumber") long number, Model model) {
 		Transaction transaction = transactionService.findByAccountNumber(number);
 		model.addAttribute("updatetransaction", transaction);
 		return "update-transaction-form";
@@ -54,7 +64,7 @@ public class TransactionController {
 	}
 
 	@GetMapping("/deletetransaction")
-	public String deleteTransaction(@RequestParam("accountnumber") long number) {
+	public String deleteTransaction(@Valid@RequestParam("accountnumber") long number) {
 		Transaction transaction = transactionService.findByAccountNumber(number);
 		transactionService.deleteByAccountNumber(number);
 		return "redirect:/transactiondetails/transactionlist";
