@@ -7,6 +7,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -38,26 +39,33 @@ public class CustomerController {
 	}
 
 	@PostMapping("/addcustomer")
-	public String addNewCustomer(@ModelAttribute("addcustomer") Customer customer) {
+	public String addNewCustomer(@Valid @ModelAttribute("addcustomer") Customer customer, Errors errors) {
+
+		if (errors.hasErrors()) {
+			return "add-customer-form";
+		}
 		customerService.save(customer);
 		return "redirect:/customer/customerlist";
 	}
 
 	@GetMapping("/updatecustomerform")
-	public String showUpdateCustomerForm(@Valid@RequestParam("aadharNumber") long number, Model model) {
+	public String showUpdateCustomerForm(@RequestParam("aadharNumber") long number, Model model) {
 		Customer customer = customerService.findByAadharNumber(number);
 		model.addAttribute("updatecustomer", customer);
 		return "update-customer-form";
 	}
 
 	@PostMapping("/updatecustomer")
-	public String UpdateCustomers(@ModelAttribute("updatecustomer") Customer customer) {
+	public String UpdateCustomers(@Valid @ModelAttribute("updatecustomer") Customer customer, Errors errors) {
+		if (errors.hasErrors()) {
+			return "update-customer-form";
+		}
 		customerService.save(customer);
 		return "redirect:/customer/customerlist";
 	}
 
 	@GetMapping("/deletecustomer")
-	public String deleteCustomer(@Valid@RequestParam("aadharNumber") long number) {
+	public String deleteCustomer(@RequestParam("aadharNumber") long number) {
 		Customer customer = customerService.findByAadharNumber(number);
 		customerService.deleteByAadharNumber(number);
 		return "redirect:/customer/customerlist";
@@ -87,11 +95,29 @@ public class CustomerController {
 
 	@PostMapping("/customerlogin")
 	public String checkingAccess(@ModelAttribute("login") Customer cus) {
-		Customer customer = customerService.getAadharNumberAndEmail(cus.getAadharNumber(),
-				cus.getEmail());
+		Customer customer = customerService.getAadharNumberAndEmail(cus.getAadharNumber(), cus.getEmail());
 		if (customer != null) {
-			return "redirect:/home/customeruse";
+			return "redirect:/customer/customerindex";
 		} else
 			return "invalid customer error";
 	}
+	@GetMapping("/customerindex")
+	public String customerReg() {
+		return "customeraccess";
+	}
+
+	@GetMapping("/customeraccountuses")
+	public String customerAccount() {
+		return "customeraccount";
+	}
+	@GetMapping("/upiuses")
+	public String upiCreation() {
+		return "upicreation";
+	}
+	@GetMapping("transactionuses")
+	public String transaction() {
+		return "Transaction";
+	}
+	
+
 }

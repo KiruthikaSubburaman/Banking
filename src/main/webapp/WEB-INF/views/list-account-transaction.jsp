@@ -7,6 +7,18 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Account and Transactions</title>
+<style>
+body {
+	background-image:
+		url("https://media.istockphoto.com/vectors/widescreen-abstract-financial-chart-with-uptrend-line-graph-and-on-vector-id1156644488?k=20&m=1156644488&s=612x612&w=0&h=t4hyZNSbM34W1Wo62Pi2SGu1cfTKkV8PhWUYjvvM9vE=");
+	height: 768px;
+	width: 1366px;
+	background-position: center top;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+}
+</style>
 </head>
 <body>
 	<div id="root">
@@ -29,31 +41,31 @@
 					<div>
 						<label for="accountType">Account Type</label>
 						<div>
-							<form:input path="accountType" readonly="true"/>
+							<form:input path="accountType" readonly="true" />
 						</div>
 					</div>
 					<div>
 						<label for="dateOfOpening">Date Of Opening</label>
 						<div>
-							<form:input path="dateOfOpening" readonly="true"/>
+							<form:input path="dateOfOpening" readonly="true" />
 						</div>
 					</div>
 					<div>
 						<label for="accountStatus">Account Status</label>
 						<div>
-							<form:input path="accountStatus" readonly="true"/>
+							<form:input path="accountStatus" readonly="true" />
 						</div>
 					</div>
 					<div>
 						<label for="minimumBalance">Minimum Balance</label>
 						<div>
-							<form:input path="minimumBalance" readonly="true"/>
+							<form:input path="minimumBalance" readonly="true" />
 						</div>
 					</div>
 					<div>
 						<label for="currentBalance">CurrentBalance</label>
 						<div>
-							<form:input path="currentBalance" readonly="true"/>
+							<form:input path="currentBalance" readonly="true" />
 						</div>
 					</div>
 				</form:form>

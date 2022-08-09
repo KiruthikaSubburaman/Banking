@@ -7,6 +7,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -43,7 +44,10 @@ public class UpiCreationController {
 	}
 
 	@PostMapping("/addupi")
-	public String addNewUpi(@ModelAttribute("addupi") UpiCreation upi) {
+	public String addNewUpi(@Valid@ModelAttribute("addupi") UpiCreation upi,Errors errors) {
+		if (errors.hasErrors()) {
+			return "add-upi-form";
+		}
 		upiService.save(upi);
 		return "redirect:/upicreation/upilist";
 	}
@@ -56,7 +60,10 @@ public class UpiCreationController {
 	}
 
 	@PostMapping("/updateupi")
-	public String UpdateUpi(@ModelAttribute("updateupi") UpiCreation upi) {
+	public String UpdateUpi(@Valid@ModelAttribute("updateupi") UpiCreation upi,Errors errors) {
+		if (errors.hasErrors()) {
+			return "update-upi-form";
+		}
 		upiService.save(upi);
 		return "redirect:/upicreation/upilist";
 	}

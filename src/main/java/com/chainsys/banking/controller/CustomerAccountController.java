@@ -8,6 +8,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,7 +27,7 @@ import com.chainsys.banking.service.CustomerService;
 public class CustomerAccountController {
 	@Autowired
 	CustomerAccountService customerAccountService;
-	
+
 	@Autowired
 	CustomerService customerService;
 
@@ -39,35 +40,43 @@ public class CustomerAccountController {
 
 	@GetMapping("/addcustomeraccountform")
 	public String showAddCustomerAccountForm(Model model) {
-		List<Customer> allCustomer=customerService.allCustomer();
-		model.addAttribute("allaadharno",allCustomer);
+		List<Customer> allCustomer = customerService.allCustomer();
+		model.addAttribute("allaadharno", allCustomer);
 		CustomerAccount customerAccount = new CustomerAccount();
 		model.addAttribute("addcustomeraccount", customerAccount);
 		return "add-customer-account";
 	}
 
 	@PostMapping("/addcustomeraccount")
-	public String addNewCustomerAccount(@ModelAttribute("addcustomeraccount") CustomerAccount customerAccount) {
+	public String addNewCustomerAccount(@Valid @ModelAttribute("addcustomeraccount") CustomerAccount customerAccount,
+			Errors errors) {
+		if (errors.hasErrors()) {
+			return "add-customer-account";
+		}
 		customerAccountService.save(customerAccount);
 		return "redirect:/customeraccount/customeraccountlist";
 	}
 
 	@GetMapping("/updatecustomeraccountform")
-	public String showupdateCustomerAccountForm(@Valid@RequestParam("accountNumber") long number, Model model) {
+	public String showupdateCustomerAccountForm(@RequestParam("accountNumber") long number, Model model) {
 		CustomerAccount customerAccount = customerAccountService.findByAccountNumber(number);
 		model.addAttribute("updatecustomeraccount", customerAccount);
 		return "update-customer-account";
 	}
 
 	@PostMapping("/updatecustomeraccount")
-	public String UpdateCustomerAccount(@ModelAttribute("updatecustomeraccount") CustomerAccount customerAccount) {
+	public String UpdateCustomerAccount(@Valid @ModelAttribute("updatecustomeraccount") CustomerAccount customerAccount,
+			Errors errors) {
+		if (errors.hasErrors()) {
+			return "update-customer-account";
+		}
 		customerAccountService.save(customerAccount);
 		return "redirect:/customeraccount/customeraccountlist";
 	}
 
 	@Transactional
 	@GetMapping("/deletecustomeraccount")
-	public String deleteCustomerAccount(@Valid@RequestParam("accountNumber") long number) {
+	public String deleteCustomerAccount(@RequestParam("accountNumber") long number) {
 		CustomerAccount customerAccount = customerAccountService.findByAccountNumber(number);
 		customerAccountService.deleteByAccountNumber(number);
 		return "redirect:/customeraccount/customeraccountlist";
@@ -79,20 +88,21 @@ public class CustomerAccountController {
 		model.addAttribute("findcustomeraccount", customerAccount);
 		return "find-customer-account";
 	}
+
 	@GetMapping("/getaccounttransactions")
-    public String getAccountTransactions(@RequestParam("accountNumber") long number,Model model) {
-        AccountAndTransactionDto dto =customerAccountService.getAccountTransaction(number);
-        model.addAttribute("accountdetails",dto.getCustomerAccount());
-        model.addAttribute("transactionlist",dto.getTransaction());
-        return "list-account-transaction";
-    }
+	public String getAccountTransactions(@RequestParam("accountNumber") long number, Model model) {
+		AccountAndTransactionDto dto = customerAccountService.getAccountTransaction(number);
+		model.addAttribute("accountdetails", dto.getCustomerAccount());
+		model.addAttribute("transactionlist", dto.getTransaction());
+		return "list-account-transaction";
+	}
+
 	@GetMapping("/getaccountandupi")
-    public String getAccountAndUpi(@RequestParam("accountNumber") long number,Model model){
-        AccountAndUpiDto dto=customerAccountService.getAccountAndUpiDetails(number);
-        model.addAttribute("customeraccount",dto.getCustomerAccount());
-        model.addAttribute("upilist",dto.getUpiCreation());
-        return "list-account-upi";
-    }
+	public String getAccountAndUpi(@RequestParam("accountNumber") long number, Model model) {
+		AccountAndUpiDto dto = customerAccountService.getAccountAndUpiDetails(number);
+		model.addAttribute("customeraccount", dto.getCustomerAccount());
+		model.addAttribute("upilist", dto.getUpiCreation());
+		return "list-account-upi";
+	}
+
 }
-
-

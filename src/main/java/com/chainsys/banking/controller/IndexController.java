@@ -13,12 +13,21 @@ public class IndexController {
 		return "index";
 	}
 	@GetMapping("/customeruse")
-	public String CustomerAccess(Model model) {
+	public String CustomerView(Model model) {
 		return "customerlogin";
 	}
 	@GetMapping("/hello")
 	public String getImage(Model model) {
 		return "mainindex";
 	}
+	@GetMapping("/kiki")
+	public String getDemo(Model model) {
+		return "demo";
+	}
+	@GetMapping("/mainpage")
+	public String getHome(Model model) {
+		return "Home";
+	}
+	
 
 }

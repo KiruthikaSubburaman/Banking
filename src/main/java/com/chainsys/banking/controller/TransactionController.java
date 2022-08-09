@@ -7,6 +7,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.chainsys.banking.model.CustomerAccount;
 import com.chainsys.banking.model.Transaction;
-import com.chainsys.banking.model.UpiCreation;
+//import com.chainsys.banking.model.UpiCreation;
 import com.chainsys.banking.service.CustomerAccountService;
 import com.chainsys.banking.service.TransactionService;
 
@@ -45,7 +46,10 @@ public class TransactionController {
 	}
 
 	@PostMapping("/addtransactiondetails")
-	public String addNewTransaction(@ModelAttribute("addtransaction") Transaction transaction) {
+	public String addNewTransaction(@Valid@ModelAttribute("addtransaction") Transaction transaction,Errors errors) {
+		if (errors.hasErrors()) {
+			return "add-transactions-form";
+		}
 		transactionService.save(transaction);
 		return "redirect:/transactiondetails/transactionlist";
 	}
@@ -58,13 +62,16 @@ public class TransactionController {
 	}
 
 	@PostMapping("/updatetransaction")
-	public String UpdateTransactions(@ModelAttribute("updatetransaction") Transaction transaction) {
+	public String UpdateTransactions(@Valid@ModelAttribute("updatetransaction") Transaction transaction,Errors errors) {
+		if (errors.hasErrors()) {
+			return "update-transaction-form";
+		}
 		transactionService.save(transaction);
 		return "redirect:/transactiondetails/transactionlist";
 	}
 
 	@GetMapping("/deletetransaction")
-	public String deleteTransaction(@Valid@RequestParam("accountnumber") long number) {
+	public String deleteTransaction(@RequestParam("accountnumber") long number) {
 		Transaction transaction = transactionService.findByAccountNumber(number);
 		transactionService.deleteByAccountNumber(number);
 		return "redirect:/transactiondetails/transactionlist";

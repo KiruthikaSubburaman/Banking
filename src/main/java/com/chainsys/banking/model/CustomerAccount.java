@@ -12,34 +12,33 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Digits;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
+//import javax.validation.constraints.Max;
+//import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name = "customeraccount")
 public class CustomerAccount {
 	@Column(name = "aadhar_number")
-	@Digits(integer = 12, fraction = 0)
+	@Digits(message="*Invalid Aadhar Number",integer = 12, fraction = 0)
 	private long aadharNumber;
 	@Id
 	@Column(name = "account_number")
-	@Digits(integer = 15, fraction = 0)
 	private long accountNumber;
 	@Column(name = "account_type")
 	private String accountType;
 	@Column(name = "date_of_opening")
 	private Date dateOfOpening;
 	@Column(name = "account_status")
-	@NotNull(message = "AccountStatus is required")
+	@NotEmpty(message = "*AccountStatus is required")
 	private String accountStatus;
 	@Column(name = "minimum_balance")
-	@NotNull(message="Minimum Balance is required")
-	@Min(3000)
+	//@NotEmpty(message="*Minimum Balance is required")
+//	@Min(3000)
 	private float minimumBalance;
 	@Column(name = "current_Balance")
-	@NotNull(message = "CurrentBalance is required")
-	@Max(3000)
+//	@NotEmpty(message = "CurrentBalance is required")
+	//@Max(3000)
 	private float currentBalance;
 
 	@OneToOne(mappedBy ="customersAccount", fetch = FetchType.LAZY)
