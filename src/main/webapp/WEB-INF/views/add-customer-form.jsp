@@ -8,20 +8,32 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Add customer</title>
-<style>
-body {
-    background-image:
-        url("");
-    height: 768px;
-    width: 1366px;
-    background-position: center top;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
+<style type="text/css">
+label {
+	display: inline-block;
+	width: 200px;
+	margin: 5px;
+	text-align: left;
 }
+
+button {
+	padding: 10px;
+	margin: 10px;
+}
+
+body {
+	background-image: url("https://us.123rf.com/450wm/valeo5/valeo51604/valeo5160400058/54939817-empty-studio-light-gray-abstract-background-with-radial-gradient-effect-spotlights-blurred-backgroun.jpg?ver=6");
+	height: 768px;
+	width: 1366px;
+	background-position: center top;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+}
+
 .text-danger {
-    color: #e80c4d;
-    font-size: 0.9em;
+	color: #e80c4d;
+	font-size: 0.9em;
 }
 </style>
 </head>
@@ -105,9 +117,9 @@ body {
 					</div>
 				</div>
 				<form:errors path="accountStatus" cssClass="text-danger" />
-				<div>
-					<form:button>Add Customer</form:button>
-				</div>
+				<h1>
+		<button onclick="document.location='/upicreation/addupiform'">Register</button>
+	</h1>  
 			</form:form>
 		</div>
 	</div>

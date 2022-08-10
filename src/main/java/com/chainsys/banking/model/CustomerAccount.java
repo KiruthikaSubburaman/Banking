@@ -6,14 +6,15 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.Digits;
-//import javax.validation.constraints.Max;
-//import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 
 @Entity
@@ -22,8 +23,10 @@ public class CustomerAccount {
 	@Column(name = "aadhar_number")
 	@Digits(message="*Invalid Aadhar Number",integer = 12, fraction = 0)
 	private long aadharNumber;
-	@Id
+	
 	@Column(name = "account_number")
+	@Id@GeneratedValue(strategy = GenerationType.AUTO, generator = "account_number")
+    @SequenceGenerator(name = "account_number", sequenceName = "account_number",  allocationSize = 10000)
 	private long accountNumber;
 	@Column(name = "account_type")
 	private String accountType;
@@ -33,12 +36,8 @@ public class CustomerAccount {
 	@NotEmpty(message = "*AccountStatus is required")
 	private String accountStatus;
 	@Column(name = "minimum_balance")
-	//@NotEmpty(message="*Minimum Balance is required")
-//	@Min(3000)
 	private float minimumBalance;
 	@Column(name = "current_Balance")
-//	@NotEmpty(message = "CurrentBalance is required")
-	//@Max(3000)
 	private float currentBalance;
 
 	@OneToOne(mappedBy ="customersAccount", fetch = FetchType.LAZY)

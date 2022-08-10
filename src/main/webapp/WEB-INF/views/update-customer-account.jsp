@@ -42,12 +42,12 @@ body {
 					</div>
 				</div>
 				<form:errors path="aadharNumber" cssClass="text-danger" />
-				<div>
+				<%-- <div>
 					<label for="accountNumber">Account Number</label>
 					<div>
 						<form:input path="accountNumber" />
 					</div>
-				</div>
+				</div> --%>
 				<%-- <form:errors path="accountNumber" cssClass="text-danger" /> --%>
 				<div>
 					<label for="accountType">Account Type</label>

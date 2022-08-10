@@ -45,7 +45,7 @@ public class CustomerController {
 			return "add-customer-form";
 		}
 		customerService.save(customer);
-		return "redirect:/customer/customerlist";
+		return "registration-success";
 	}
 
 	@GetMapping("/updatecustomerform")
@@ -110,14 +110,15 @@ public class CustomerController {
 	public String customerAccount() {
 		return "customeraccount";
 	}
+
 	@GetMapping("/upiuses")
 	public String upiCreation() {
 		return "upicreation";
 	}
+
 	@GetMapping("transactionuses")
 	public String transaction() {
 		return "Transaction";
 	}
-	
 
 }

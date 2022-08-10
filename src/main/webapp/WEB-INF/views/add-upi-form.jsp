@@ -28,16 +28,13 @@ body {
 <body>
 	<div id="root">
 		<div id="form" align="center">
+		 <h2> Get Your Account Number Here</h2>
+		 <span>Account Number:</span><span>${findcustomeraccount.accountNumber}</span><br/>
 			<form:form action="addupi" method="post" modelAttribute="addupi">
 				<div>
 					<label for="accountNumber">Account Number</label>
 					<div>
-						<form:select path="accountNumber">
-							<c:forEach var="allupi" items="${allaccountno}">
-								<form:option value="${allupi.accountNumber}"
-									label="${allupi.accountNumber}" />
-							</c:forEach>
-						</form:select>
+							<form:input path="accountNumber" />
 					</div>
 				</div>
 			<%-- 	<form:errors path="accountNumber" cssClass="text-danger" /> --%>

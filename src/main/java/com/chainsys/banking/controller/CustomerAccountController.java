@@ -53,8 +53,10 @@ public class CustomerAccountController {
 		if (errors.hasErrors()) {
 			return "add-customer-account";
 		}
-		customerAccountService.save(customerAccount);
-		return "redirect:/customeraccount/customeraccountlist";
+		else {
+		customerAccount=customerAccountService.save(customerAccount);
+		return "redirect:/customeraccount/findcustomeraccount?accountNumber="+customerAccount.getAccountNumber();
+		}
 	}
 
 	@GetMapping("/updatecustomeraccountform")

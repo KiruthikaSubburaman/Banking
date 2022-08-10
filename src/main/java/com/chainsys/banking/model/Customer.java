@@ -14,30 +14,24 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
-//import javax.validation.constraints.Past;
-
-//import com.chainsys.banking.constraints.BirthDate;
 
 @Entity
 @Table(name = "Customers")
 public class Customer {
 
 	@Column(name = "customer_name")
-	@Size(max=20,min=3,message="*CustomerName length should be 3 to 20")
+	@Size(max = 20, min = 3, message = "*CustomerName length should be 3 to 20")
 	@NotBlank(message = "*CustomerName is required")
 	@Pattern(regexp = "^[A-Za-z]\\w{3,20}$", message = "*Enter valid name ")
 	private String customerName;
 	@Column(name = "father_name")
-	@Size(max=20,min=3,message="*FatherName length should be 3 to 20")
+	@Size(max = 20, min = 3, message = "*FatherName length should be 3 to 20")
 	@NotBlank(message = "*FatherName is required")
 	@Pattern(regexp = "^[A-Za-z]\\w{3,20}$", message = "*Enter valid name ")
 	private String fatherName;
 	@Column(name = "gender")
 	private String gender;
 	@Column(name = "dob")
-//	@NotNull
-//	@BirthDate(message = "The birth date must be greater or equal than 18")
-//	@Past(message = "The date of birth must be in the past.")
 	private Date dob;
 	@Column(name = "address")
 	@NotEmpty(message = "*Address is required")
@@ -49,10 +43,10 @@ public class Customer {
 	@Column(name = "aadhar_number")
 	private long aadharNumber;
 	@Column(name = "mobile_number")
-	@Digits(message="*Invalid Mobile Number",integer = 10, fraction = 0)
+	@Digits(message = "*Invalid Mobile Number", integer = 10, fraction = 0)
 	private long mobileNumber;
 	@Column(name = "email")
-	@Email(message="*Invalid Email",regexp = "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}")
+	@Email(message = "*Invalid Email", regexp = "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}")
 	private String email;
 	@Column(name = "account_status")
 	@NotEmpty(message = "*AccountStatus is required")
