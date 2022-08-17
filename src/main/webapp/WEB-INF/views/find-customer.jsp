@@ -4,80 +4,93 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>Find Customer By Aadhar Number</title>
+<style><%@include file="/WEB-INF/css/style.css"%></style>
 </head>
 <body>
-	<div id="root">
-		<div id="form" align="center">
+<button style="font-size: 12px; background-color: #e7e7e7; color: black; float:left;" onclick="history.back()">Go Back</button>
 			<form:form action="" method="get" modelAttribute="findcustomer">
-				<div>
-					<label for="customerName">Customer Name</label>
-					<div>
-						<form:input path="customerName" readonly="true" />
-					</div>
-				</div>
-				<div>
-					<label for="fatherName">Father Name</label>
-					<div>
-						<form:input path="fatherName" readonly="true" />
-					</div>
-				</div>
-				<div>
-					<label for="gender">Gender</label>
-					<div>
-						<form:input path="gender" readonly="true" />
-					</div>
-				</div>
-				<div>
-					<label for="dob">DOB</label>
-					<div>
-						<form:input path="dob" readonly="true" />
-					</div>
-				</div>
-				<div>
-					<label for="address">Address</label>
-					<div>
-						<form:input path="address" readonly="true" />
-					</div>
-				</div>
-				<div>
-					<label for="nationality">Nationality</label>
-					<div>
-						<form:input path="nationality" readonly="true" />
-					</div>
-				</div>
-				<div>
-					<label for="aadharNumber">Aadhar Number</label>
-					<div>
-						<form:input path="aadharNumber" readonly="true" />
-					</div>
-					<div>
-						<div>
-							<label for="mobileNumber">Mobile Number</label>
-							<div>
-								<form:input path="mobileNumber" readonly="true" />
-							</div>
-						</div>
-						<div>
-							<label for="email">Email</label>
-							<div>
-								<form:input path="email" readonly="true" />
-							</div>
-						</div>
-						<div>
-							<label for="accountStatus">Account Status</label>
-							<div>
-								<form:input path="accountStatus" readonly="true" />
-							</div>
-						</div>
+				<div class="form">
+				<table>
+				<tbody>
+				<tr>
+					<td><label for="customerName">Customer Name</label></td>
+                <td>
+					<form:input path="customerName" />
+                </td>
+				</tr>
+				<form:errors path="customerName" cssClass="text-danger" />
+				<tr>
+					<td><label for="fatherName">Father Name</label></td>
+					<td>
+					<form:input path="fatherName" />
+					</td>
+				</tr>
+				<form:errors path="fatherName" cssClass="text-danger" />
+				<tr>
+					<td><label for="gender">Gender</label></td>
+					<td>
+					<form:select path="gender" class="text-box">
+                            <form:option value="Male">Male</form:option>
+                            <form:option value="Female">Female</form:option>
+                            <form:option value="Others">Others</form:option>
+                        </form:select>
+				</tr>
+				<form:errors path="gender" cssClass="text-danger" />
+				<tr>
+					<td><label for="dob">DOB</label></td>
+					<td>
+					<form:input path="dob" type="date" /></td>
+				</tr>
+				<%-- <form:errors path="dob" cssClass="text-danger" /> --%>
+				<tr>
+					<td><label for="address">Address</label></td>
+					<td>
+					<form:input path="address" />
+					</td>
+				</tr>
+				<form:errors path="address" cssClass="text-danger" />
+				<tr>
+					<td><label for="state">State</label></td>
+					<td><form:input path="state" value="TamilNadu" readonly="readonly" /></td>
+				</tr>
+				<form:errors path="state" cssClass="text-danger" value="TamilNadu"
+					readonly="readonly" />
+				<tr>
+					<td><label for="pinCode">Pin Code</label></td>
+					<td><form:input path="pinCode" maxlength="6" /></td>
+				</tr>
+				<form:errors path="pinCode" cssClass="text-danger" />
+				<tr>
+					<td><label for="nationality">Nationality</label></td>
+					<td><form:input path="nationality" value="Indian" readonly="readonly" /></td>
+				</tr>
+				<form:errors path="nationality" cssClass="text-danger" />
+				<tr>
+					<td><label for="aadharNumber">Aadhar Number</label></td>
+					<td><form:input path="aadharNumber" maxlength="12" /></td>
+				</tr>
+				<form:errors path="aadharNumber" cssClass="text-danger" />
+				<tr>
+					<td><label for="mobileNumber">Mobile Number</label></td>
+					<td><form:input path="mobileNumber" maxlength="10" /></td>
+				</tr>
+				<form:errors path="mobileNumber" cssClass="text-danger" />
+				<tr>
+					<td><label for="email">Email</label></td>
+					<td><form:input path="email" /></td>
+				</tr>
+				<form:errors path="email" cssClass="text-danger" />
 
-					</div>
-				</div>
-			</form:form>
-		</div>
+</tbody>
+</table>
+		
+				
+
 	</div>
+		</form:form>
 </body>
 </html>

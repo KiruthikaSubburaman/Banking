@@ -4,14 +4,15 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>Update transaction</title>
 </head>
 <body>
+<button style="font-size: 12px; background-color: #e7e7e7; color: black; float:left;" onclick="history.back()">Go Back</button>
 	<div id="root">
-		<div id="form" align="center">
+		<div id="form" text-align="center">
 			<form:form action="updatetransaction" method="post"
 				modelAttribute="updatetransaction">
 
@@ -36,16 +37,13 @@
 				<div>
 					<label for="transactionType">Transaction Type</label>
 					<div>
-						<form:select path="transactionType">
-							<form:option value="Deposit">Deposit</form:option>
-							<form:option value="Withdraw">Withdraw</form:option>
-						</form:select>
+						<form:input path="transactionType" />
 					</div>
 				</div>
 				<div>
-					<label for="depositedAmount">Deposited Amount</label>
+					<label for="depositAmount">Deposit Amount</label>
 					<div>
-						<form:input path="depositedAmount" />
+						<form:input path="depositAmount" />
 					</div>
 				</div>
 				<div>
@@ -55,11 +53,26 @@
 					</div>
 				</div>
 				<div>
+					<label for="minimumBalance">Minimum Balance</label>
+					<div>
+						<form:input path="minimumBalance" value="3000" readonly="readonly" />
+					</div>
+				</div>
+
+				<div>
+					<label for="currentBalance">CurrentBalance</label>
+					<div>
+						<form:input path="currentBalance" />
+					</div>
+
+				</div>
+
+
+				<div>
 					<form:button>Update Transaction</form:button>
 				</div>
 			</form:form>
 		</div>
-	</div>
 	</div>
 </body>
 </html>

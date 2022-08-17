@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>Customer Registration</title>
@@ -26,8 +26,8 @@ body {
 		<div>
 			<h3>
 				<div>
-					<a href="/customer/updatecustomerform?aadharNumber=">Update
-						your details</a>
+					<a href="/customer/updatecustomerbyaadhar">Update
+						Customer details</a>
 				</div>
 			</h3>
 		</div>
@@ -35,7 +35,7 @@ body {
 		<div>
 			<h3>
 				<div>
-					<a href="/customer/findcustomer?aadharNumber=">Find your
+					<a href="/customer/updatecustomerbyaadhar">Find your
 						details</a>
 				</div>
 			</h3>

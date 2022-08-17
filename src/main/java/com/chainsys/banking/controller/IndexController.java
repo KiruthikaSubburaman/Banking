@@ -14,7 +14,7 @@ public class IndexController {
 	}
 	@GetMapping("/customeruse")
 	public String CustomerView(Model model) {
-		return "customerlogin";
+		return "logindemo";
 	}
 	@GetMapping("/hello")
 	public String getImage(Model model) {
@@ -22,7 +22,7 @@ public class IndexController {
 	}
 	@GetMapping("/kiki")
 	public String getDemo(Model model) {
-		return "demo";
+		return "Demo";
 	}
 	@GetMapping("/mainpage")
 	public String getHome(Model model) {

@@ -49,9 +49,12 @@ public class UpiCreationController {
 			return "add-upi-form";
 		}
 		upiService.save(upi);
-		return "redirect:/upicreation/upilist";
+	 return "upisuccess";
 	}
-
+	@GetMapping("/updatepin")
+	public String showUpdateForm() {
+		return "update-upi-button";
+	}
 	@GetMapping("/updateupiform")
 	public String showUpdateForm(@Valid@RequestParam("accountNumber") long number, Model model) {
 		UpiCreation upi = upiService.findByAccountNumber(number);
@@ -65,7 +68,7 @@ public class UpiCreationController {
 			return "update-upi-form";
 		}
 		upiService.save(upi);
-		return "redirect:/upicreation/upilist";
+		return "redirect:/upicreation/findupi?accountNumber=";
 	}
 
 	@GetMapping("/deleteupi")
@@ -74,7 +77,7 @@ public class UpiCreationController {
 		upiService.deleteByAccountNumber(number);
 		return "redirect:/upicreation/upilist";
 	}
-
+	
 	@GetMapping("/findupi")
 	public String findUpi(@RequestParam("accountNumber") long number, Model model) {
 		UpiCreation upi = upiService.findByAccountNumber(number);

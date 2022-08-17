@@ -10,8 +10,6 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
@@ -21,12 +19,10 @@ public class Customer {
 
 	@Column(name = "customer_name")
 	@Size(max = 20, min = 3, message = "*CustomerName length should be 3 to 20")
-	@NotBlank(message = "*CustomerName is required")
 	@Pattern(regexp = "^[A-Za-z]\\w{3,20}$", message = "*Enter valid name ")
 	private String customerName;
 	@Column(name = "father_name")
 	@Size(max = 20, min = 3, message = "*FatherName length should be 3 to 20")
-	@NotBlank(message = "*FatherName is required")
 	@Pattern(regexp = "^[A-Za-z]\\w{3,20}$", message = "*Enter valid name ")
 	private String fatherName;
 	@Column(name = "gender")
@@ -34,13 +30,19 @@ public class Customer {
 	@Column(name = "dob")
 	private Date dob;
 	@Column(name = "address")
-	@NotEmpty(message = "*Address is required")
+	@Pattern(regexp ="^[A-Za-z]\\w{3,20}$", message = "*Enter valid address ")
 	private String address;
+	@Pattern(regexp = "^[A-Za-z]\\w{3,20}$", message = "*Enter valid state ")
+	@Column(name = "state")
+	private String state;
+	@Column(name = "pin_code")
+	@Digits(message = "*Invalid Pin code", integer = 6, fraction = 0)
+	private long pinCode;
 	@Column(name = "nationality")
-	@NotEmpty(message = "*Nationality is required")
 	private String nationality;
 	@Id
 	@Column(name = "aadhar_number")
+	@Digits(message = "*Invalid Aadhar Number", integer = 12, fraction = 0)
 	private long aadharNumber;
 	@Column(name = "mobile_number")
 	@Digits(message = "*Invalid Mobile Number", integer = 10, fraction = 0)
@@ -48,9 +50,22 @@ public class Customer {
 	@Column(name = "email")
 	@Email(message = "*Invalid Email", regexp = "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}")
 	private String email;
-	@Column(name = "account_status")
-	@NotEmpty(message = "*AccountStatus is required")
-	private String accountStatus;
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	public long getPinCode() {
+		return pinCode;
+	}
+
+	public void setPinCode(long pinCode) {
+		this.pinCode = pinCode;
+	}
 
 	@OneToOne(mappedBy = "customer", fetch = FetchType.LAZY)
 	private CustomerAccount customerAccount;
@@ -133,14 +148,6 @@ public class Customer {
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public String getAccountStatus() {
-		return accountStatus;
-	}
-
-	public void setAccountStatus(String accountStatus) {
-		this.accountStatus = accountStatus;
 	}
 
 }

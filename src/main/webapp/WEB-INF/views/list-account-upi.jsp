@@ -2,12 +2,14 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>Account and Upi</title>
+<style><%@include file="/WEB-INF/css/style.css"%></style>
 </head>
 <body>
+<button style="font-size: 12px; background-color: #e7e7e7; color: black; float:left;" onclick="history.back()">Go Back</button>
 	<div id="root">
 		<div id="form">
 		<table border="2" width="100%" cellpadding="2">
@@ -55,6 +57,7 @@
 					</div>
 				</div>
 			</form:form>
+			</table>
 		</div>
 	</div>
 	<div id="root">

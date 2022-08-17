@@ -4,63 +4,47 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>Update UPI</title>
-<style>
-body {
-	background-image: url("https://media.istockphoto.com/vectors/widescreen-abstract-financial-chart-with-uptrend-line-graph-and-on-vector-id1156644488?k=20&m=1156644488&s=612x612&w=0&h=t4hyZNSbM34W1Wo62Pi2SGu1cfTKkV8PhWUYjvvM9vE=");
-	height: 768px;
-	width: 1366px;
-	background-position: center top;
-	background-repeat: no-repeat;
-	background-size: cover;
-	position: relative;
-}
-
-.text-danger {
-	color: #e80c4d;
-	font-size: 0.9em;
-}
-</style>
+<style><%@include file="/WEB-INF/css/style.css"%></style>
 </head>
 <body>
-	<div id="root">
-		<div id="form" align="center">
+<button style="font-size: 12px; background-color: #e7e7e7; color: black; float:left;" onclick="history.back()">Go Back</button>
 			<form:form action="updateupi" method="post"
 				modelAttribute="updateupi">
-				<div>
-					<label for="accountNumber">Account Number</label>
-					<div>
-						<form:select path="accountNumber">
-							<c:forEach var="allupi" items="${allaccountno}">
-								<form:option value="${allupi.accountNumber}"
-									label="${allupi.accountNumber}" />
-							</c:forEach>
-						</form:select>
-					</div>
-				</div>
-				<%-- <form:errors path="accountNumber" cssClass="text-danger" /> --%>
-				<div>
-					<label for="createNewPIN">Create New PIN</label>
-					<div>
-						<form:input path="createNewPIN" />
-					</div>
-				</div>
+				<div class="form">
+			<table>
+			<tbody>
+				
+				<tr>
+					<td><label for="accountNumber">Account Number</label></td>
+					<td>
+						<form:input path="accountNumber" /></td>
+				</tr>
+				<%-- 	<form:errors path="accountNumber" cssClass="text-danger" /> --%>
+				<tr>
+					<td><label for="createNewPIN">Create New PIN</label></td>
+					<td>
+						<form:input path="createNewPIN" /></td>
+					</tr>
+				
 				<%-- <form:errors path="createNewPIN" cssClass="text-danger" /> --%>
-				<div>
-					<label for="pinCreatedDate">pinCreatedDate</label>
-					<div>
+				<tr>
+					<td><label for="pinCreatedDate">pinCreatedDate</label></td>
+					<td>
 						<form:input path="pinCreatedDate" type="date" />
-					</div>
-				</div>
+					</td>
+				</tr>
+			
+				</tbody>
+				</table>
+				<form:button>Update UPI </form:button>
+			
+				
 				<%-- <form:errors path="pinCreatedDate" cssClass="text-danger" /> --%>
-				<div>
-					<form:button>Update UPI</form:button>
-				</div>
-			</form:form>
 		</div>
-	</div>
+		</form:form>			
 </body>
 </html>

@@ -51,12 +51,16 @@ public class TransactionController {
 			return "add-transactions-form";
 		}
 		transactionService.save(transaction);
-		return "redirect:/transactiondetails/transactionlist";
+		return "redirect:/transactiondetails/findtransaction?transactionNumber="+transaction.getTransactionNumber();
 	}
-
+	
+	@GetMapping("/updatetrans")
+	public String showUpdateForm() {
+		return "update-trans-button";
+	}
 	@GetMapping("/updatetransactionform")
-	public String showTransactionUpdateForm(@Valid@RequestParam("accountNumber") long number, Model model) {
-		Transaction transaction = transactionService.findByAccountNumber(number);
+	public String showTransactionUpdateForm(@Valid@RequestParam("transactionNumber") long number, Model model) {
+		Transaction transaction = transactionService.findBytransactionNumber(number);
 		model.addAttribute("updatetransaction", transaction);
 		return "update-transaction-form";
 	}
@@ -67,19 +71,22 @@ public class TransactionController {
 			return "update-transaction-form";
 		}
 		transactionService.save(transaction);
-		return "redirect:/transactiondetails/transactionlist";
+		return "redirect:/transactiondetails/findtransaction?transactionNumber=";
 	}
 
-	@GetMapping("/deletetransaction")
-	public String deleteTransaction(@RequestParam("accountnumber") long number) {
-		Transaction transaction = transactionService.findByAccountNumber(number);
-		transactionService.deleteByAccountNumber(number);
-		return "redirect:/transactiondetails/transactionlist";
+//	@GetMapping("/deletetransaction")
+//	public String deleteTransaction(@RequestParam("accountnumber") long number) {
+//		Transaction transaction = transactionService.findByAccountNumber(number);
+//		transactionService.deleteByAccountNumber(number);
+//		return "redirect:/transactiondetails/transactionlist";
+//	}
+	@GetMapping("/findtrans")
+	public String showFindTransForm() {
+		return "find-trans-button";
 	}
-
 	@GetMapping("/findtransaction")
-	public String findTransactionByAccountNumber(@RequestParam("accountNumber") long number, Model model) {
-		Transaction transaction = transactionService.findByAccountNumber(number);
+	public String findTransaction(@RequestParam("transactionNumber") long number, Model model) {
+		Transaction transaction = transactionService.findBytransactionNumber(number);
 		model.addAttribute("findtransaction", transaction);
 		return "find-transaction";
 	}

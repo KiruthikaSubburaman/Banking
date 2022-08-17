@@ -68,5 +68,8 @@ public class CustomerAccountService {
 	    dto.setUpiCreation(upi);
 	    return dto;
 	}
-
+//public CustomerAccount findByAccount(long accountNumber)
+//{
+//	return customerAccountRepository.findByAccount(accountNumber);
+//}
 }

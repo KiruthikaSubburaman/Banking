@@ -16,8 +16,6 @@ public interface CustomerRepository extends CrudRepository<Customer, Long> {
 
 	List<Customer> findAll();
 
-//    List<Customer> getCustomer();
 	
-//	Customer findBycustomerAccountId(long number);
 	Customer findByAadharNumberAndEmail(long number,String str);
 }

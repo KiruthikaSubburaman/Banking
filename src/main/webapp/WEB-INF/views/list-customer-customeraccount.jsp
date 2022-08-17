@@ -2,76 +2,81 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>Customer and Account Details</title>
+<style><%@include file="/WEB-INF/css/style.css"%></style>
 </head>
 <body>
+<button style="font-size: 12px; background-color: #e7e7e7; color: black float:left;;" onclick="history.back()">Go Back</button>
 	<div id="root">
 		<div id="form">
 			<table border="2" width="100%" cellpadding="2">
 				<form:form action=" " method="post" modelAttribute="customer">
 					<div>
 						<label for="customerName">Customer Name</label>
-						<div>
-							<form:input path="customerName" readonly="true" />
-						</div>
+
+						<form:input path="customerName" />
+
 					</div>
+					<form:errors path="customerName" cssClass="text-danger" />
 					<div>
 						<label for="fatherName">Father Name</label>
-						<div>
-							<form:input path="fatherName" readonly="true" />
-						</div>
+						<form:input path="fatherName" />
 					</div>
+					<form:errors path="fatherName" cssClass="text-danger" />
 					<div>
 						<label for="gender">Gender</label>
-						<div>
-							<form:input path="gender" readonly="true" />
-						</div>
+						<form:radiobutton path="gender" value="Male" />
+						Male
+						<form:radiobutton path="gender" value="Female" />
+						Female
+						<form:radiobutton path="gender" value="Transgender" />
+						Transgender
 					</div>
+					<form:errors path="gender" cssClass="text-danger" />
 					<div>
 						<label for="dob">DOB</label>
-						<div>
-							<form:input path="dob" readonly="true" />
-						</div>
+						<form:input path="dob" type="date" />
 					</div>
+					<%-- <form:errors path="dob" cssClass="text-danger" /> --%>
 					<div>
 						<label for="address">Address</label>
-						<div>
-							<form:input path="address" readonly="true" />
-						</div>
+						<form:input path="address" />
 					</div>
+					<form:errors path="address" cssClass="text-danger" />
+					<div>
+						<label for="state">State</label>
+						<form:input path="state" value="TamilNadu" readonly="readonly" />
+					</div>
+					<form:errors path="state" cssClass="text-danger" value="TamilNadu"
+						readonly="readonly" />
+					<div>
+						<label for="pinCode">Pin Code</label>
+						<form:input path="pinCode" maxlength="6" />
+					</div>
+					<form:errors path="pinCode" cssClass="text-danger" />
 					<div>
 						<label for="nationality">Nationality</label>
-						<div>
-							<form:input path="nationality" readonly="true" />
-						</div>
+						<form:input path="nationality" value="Indian" readonly="readonly" />
 					</div>
+					<form:errors path="nationality" cssClass="text-danger" />
 					<div>
 						<label for="aadharNumber">Aadhar Number</label>
-						<div>
-							<form:input path="aadharNumber" readonly="true" />
-						</div>
+						<form:input path="aadharNumber" maxlength="12" />
 					</div>
+					<form:errors path="aadharNumber" cssClass="text-danger" />
 					<div>
 						<label for="mobileNumber">Mobile Number</label>
-						<div>
-							<form:input path="mobileNumber" readonly="true" />
-						</div>
+						<form:input path="mobileNumber" maxlength="10" />
 					</div>
+					<form:errors path="mobileNumber" cssClass="text-danger" />
 					<div>
 						<label for="email">Email</label>
-						<div>
-							<form:input path="email" readonly="true" />
-						</div>
+						<form:input path="email" />
 					</div>
-					<div>
-						<label for="accountStatus">Account Status</label>
-						<div>
-							<form:input path="accountStatus" readonly="true" />
-						</div>
-					</div>
+					<form:errors path="email" cssClass="text-danger" />
 				</form:form>
 
 				<div id="root">
@@ -79,41 +84,28 @@
 						<form:form action=" " method="post"
 							modelAttribute="customeraccount">
 							<div>
-								<label for="accountNumber">Account Number</label>
+								<label for="aadharNumber">AadharNumber</label>
 								<div>
-									<form:input path="accountNumber" readonly="true" />
+									<form:input path="aadharNumber" />
 								</div>
 							</div>
+							<form:errors path="aadharNumber" cssClass="text-danger" />
+
 							<div>
 								<label for="accountType">Account Type</label>
 								<div>
-									<form:input path="accountType" readonly="true" />
+									<form:input path="accountType" value="savings"
+										readonly="readonly" />
 								</div>
 							</div>
+							<form:errors path="accountType" cssClass="text-danger" />
 							<div>
 								<label for="dateOfOpening">Date Of Opening</label>
 								<div>
-									<form:input path="dateOfOpening" />
+									<form:input path="dateOfOpening" type="date" />
 								</div>
 							</div>
-							<div>
-								<label for="accountStatus">Account Status</label>
-								<div>
-									<form:input path="accountStatus" readonly="true" />
-								</div>
-							</div>
-							<div>
-								<label for="minimumBalance">Minimum Balance</label>
-								<div>
-									<form:input path="minimumBalance" readonly="true" />
-								</div>
-							</div>
-							<div>
-								<label for="currentBalance">CurrentBalance</label>
-								<div>
-									<form:input path="currentBalance" readonly="true" />
-								</div>
-							</div>
+
 						</form:form>
 					</div>
 				</div>

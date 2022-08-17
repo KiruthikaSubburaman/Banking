@@ -4,78 +4,79 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>Add transaction form</title>
-<style>
-body {
-	background-image:
-		url("https://media.istockphoto.com/vectors/widescreen-abstract-financial-chart-with-uptrend-line-graph-and-on-vector-id1156644488?k=20&m=1156644488&s=612x612&w=0&h=t4hyZNSbM34W1Wo62Pi2SGu1cfTKkV8PhWUYjvvM9vE=");
-	height: 768px;
-	width: 1366px;
-	background-position: center top;
-	background-repeat: no-repeat;
-	background-size: cover;
-	position: relative;
+<style><%@include file="/WEB-INF/css/style.css"%></style>
+<script type="text/javascript">
+function calculation() {
+    var depositAmount = document.getElementById("depositAmount").value;
+    var miniBalance = document.getElementById("minimumBalance").value;
+    var totalAmount = parseInt(depositAmount) + parseInt(miniBalance);
+    document.getElementById("currentBalance").value = totalAmount;
+    return parseInt(totalAmount);
+    
+    var withdrawalAmount = document.getElementById("withdrawalAmount").value;
+    var tAmount = parseInt(totalAmount) - parseInt(withdrawalAmount);
+    document.getElementById("currentBalance").value = tAmount;
+    return parseInt(tAmount);
 }
-</style>
+</script>
 </head>
 <body>
-	<div id="root">
-		<div id="form" align="center">
+<button style="font-size: 12px; background-color: #e7e7e7; color: black; float:left;" onclick="history.back()">Go Back</button>
 			<form:form action="addtransactiondetails" method="post"
 				modelAttribute="addtransaction">
-				<div>
-					<label for="accountNumber">Account Number</label>
-					<div>
-						<form:select path="accountNumber">
-							<c:forEach var="alltrans" items="${allaccountno}">
-								<form:option value="${alltrans.accountNumber}"
-									label="${alltrans.accountNumber}" />
-							</c:forEach>
-						</form:select>
-					</div>
-				</div>
-				<div>
-					<label for="transactionNumber">Transaction Number</label>
-					<div>
-						<form:input path="transactionNumber" />
-					</div>
-				</div>
-				<div>
-					<label for="transactionDate">Transaction Date</label>
-					<div>
-						<form:input path="transactionDate" type="date" />
-					</div>
-				</div>
-				<div>
-					<label for="transactionType">Transaction Type</label>
-					<div>
-						<form:select path="transactionType">
-                            <form:option value="Deposit">Deposit</form:option>
-                            <form:option value="Withdraw">Withdraw</form:option>
-                        </form:select>
-					</div>
-				</div>
-				<div>
-					<label for="depositedAmount">Deposited Amount</label>
-					<div>
-						<form:input path="depositedAmount" />
-					</div>
-				</div>
-				<div>
-					<label for="withdrawalAmount">Withdrawal Amount</label>
-					<div>
-						<form:input path="withdrawalAmount" />
-					</div>
-				</div>
-				<div>
+				<div class="form">
+				<table>
+				<tbody>
+				<tr>
+				<td>	<label for="accountNumber">Account Number</label> </td>
+					
+					<td>	<form:input path="accountNumber" /> </td>
+			</tr>
+					<tr>
+					<td><label for="transactionDate">Transaction Date</label> </td>
+					
+					<td>	<form:input path="transactionDate" type="date" /> </td>
+				</tr>
+					<tr>
+				<td>	<label for="transactionType">Transaction Type</label> </td>
+					<td>	<form:select path="transactionType" class="text-box">
+                            <form:option value="deposit">Deposit</form:option>
+                            <form:option value="withdraw">Withdraw</form:option>
+                        </form:select> </td>
+				</tr>
+					<tr>
+					<td><label for="depositAmount">Deposit Amount</label> </td>
+					
+					<td>	<form:input path="depositAmount" onchange="calculation()" /></td>
+				</tr>
+					<tr>
+				<td>	<label for="withdrawalAmount">Withdrawal Amount</label> </td>
+					<td>
+						<form:input path="withdrawalAmount" onchange="calculation()"/>
+					</td>
+				</tr>
+					<tr>
+				<td>	<label for="minimumBalance">Minimum Balance</label> </td>
+					<td>
+						<form:input path="minimumBalance" value="3000" readonly="readonly" />
+					</td>
+				</tr>
+
+					<tr>
+				<td>	<label for="currentBalance">CurrentBalance</label> </td>
+					<td>
+						<form:input path="currentBalance" onchange="calculation(this.form)"/>
+					</td>
+
+				</tr>
+				</tbody>
+				</table>
 					<form:button>Add Transaction Details</form:button>
 				</div>
 			</form:form>
-		</div>
-	</div>
-	</div>
 </body>
 </html>

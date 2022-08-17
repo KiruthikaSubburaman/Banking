@@ -4,10 +4,11 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>customer List</title>
+<style><%@include file="/WEB-INF/css/style.css"%></style>
 </head>
 <body>
 	<div id="table root">
@@ -19,11 +20,13 @@
 					<th>Gender</th>
 					<th>DOB</th>
 					<th>Address</th>
+					<th>State</th>
+					<th>Pin Code</th>
 					<th>Nationality</th>
 					<th>AadharNumber</th>
 					<th>MobileNumber</th>
 					<th>Email</th>
-					<th>AccountStatus</th>
+
 				</tr>
 			</thead>
 			<tbody>
@@ -34,12 +37,13 @@
 						<td>${customer.gender}</td>
 						<td>${customer.dob}</td>
 						<td>${customer.address}</td>
+						<td>${customer.state}</td>
+						<td>${customer.pinCode}</td>
 						<td>${customer.nationality}</td>
 						<td>${customer.aadharNumber}</td>
 						<td>${customer.mobileNumber}</td>
 						<td>${customer.email}</td>
-						<td>${customer.accountStatus}</td>
-						
+
 					</tr>
 				</c:forEach>
 			</tbody>

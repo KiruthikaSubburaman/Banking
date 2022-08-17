@@ -4,98 +4,54 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <!DOCTYPE html>
-<html>
+<html lang="em">
 <head>
 <meta charset="ISO-8859-1">
 <title>Update customer Account</title>
-<style>
-body {
-	background-image: url("https://media.istockphoto.com/vectors/widescreen-abstract-financial-chart-with-uptrend-line-graph-and-on-vector-id1156644488?k=20&m=1156644488&s=612x612&w=0&h=t4hyZNSbM34W1Wo62Pi2SGu1cfTKkV8PhWUYjvvM9vE=");
-	height: 768px;
-	width: 1366px;
-	background-position: center top;
-	background-repeat: no-repeat;
-	background-size: cover;
-	position: relative;
-}
-
-.text-danger {
-	color: #e80c4d;
-	font-size: 0.9em;
-}
-</style>
+<style><%@include file="/WEB-INF/css/style.css"%></style>
 </head>
 <body>
-	<div id="root">
-		<div id="form" align="center">
+<button style="font-size: 12px; background-color: #e7e7e7; color: black; float:left;" onclick="history.back()">Go Back</button>
 			<form:form action="updatecustomeraccount" method="post"
 				modelAttribute="updatecustomeraccount">
-				<div>
-					<label for="aadharNumber">AadharNumber</label>
-					<div>
-						<form:select path="aadharNumber">
-							<c:forEach var="allcus" items="${allaadharno}">
-								<form:option value="${allcus.aadharNumber}"
-									label="${allcus.aadharNumber}" />
-							</c:forEach>
-						</form:select>
-					</div>
-				</div>
+				<div class="form">
+				<table>
+				<tbody>
+				<tr>
+					<td><label for="aadharNumber">AadharNumber</label></td>
+					<td>	<form:input path="aadharNumber" /></td>
+			   
 				<form:errors path="aadharNumber" cssClass="text-danger" />
-				<%-- <div>
-					<label for="accountNumber">Account Number</label>
-					<div>
+				 </tr>
+				<tr>
+					<td><label for="accountNumber">Account Number</label></td>
+					<td>
 						<form:input path="accountNumber" />
-					</div>
-				</div> --%>
-				<%-- <form:errors path="accountNumber" cssClass="text-danger" /> --%>
-				<div>
-					<label for="accountType">Account Type</label>
-					<div>
-						<form:select path="accountType">
-							<form:option value="savings">Savings</form:option>
-						</form:select>
-					</div>
-				</div>
+					</td>
+			
+				<form:errors path="accountNumber" cssClass="text-danger" />
+					</tr>
+				<tr>
+					<td><label for="accountType">Account Type</label></td>
+					<td>
+						<form:input path="accountType" value="savings" readonly="readonly" />
+					</td>
+				
 				<form:errors path="accountType" cssClass="text-danger" />
-				<div>
-					<label for="dateOfOpening">Date Of Opening</label>
-					<div>
+				</tr>
+				<tr>
+					<td><label for="dateOfOpening">Date Of Opening</label></td>
+					<td>
 						<form:input path="dateOfOpening" type="date" />
-					</div>
-				</div>
-				<%-- <form:errors path="dateOfOpening" cssClass="text-danger" /> --%>
-				<div>
-					<label for="accountStatus">Account Status</label>
-					<div>
-						<form:input path="accountStatus" />
-					</div>
-				</div>
-				<form:errors path="accountStatus" cssClass="text-danger" />
-				<div>
-					<label for="minimumBalance">Minimum Balance</label>
-					<div>
-						<form:select path="minimumBalance">
-							<form:option value="3000">Minimum Balance</form:option>
-						</form:select>
-					</div>
-				</div>
-				<%-- <form:errors path="minimumBalance" cssClass="text-danger" /> --%>
-				<div>
-					<label for="currentBalance">CurrentBalance</label>
-					<div>
-						<form:input path="currentBalance" />
-					</div>
-
-				</div>
-				<%-- <form:errors path="currentBalance" cssClass="text-danger" /> --%>
-
-
-				<div>
+					</td>
+				</tr>
+				</tbody>
+				</table>
+	
+				
 					<form:button>Update Customer Account</form:button>
+					
 				</div>
 			</form:form>
-		</div>
-	</div>
 </body>
 </html>

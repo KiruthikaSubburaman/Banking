@@ -54,26 +54,30 @@ public class CustomerAccountController {
 			return "add-customer-account";
 		}
 		else {
+			
 		customerAccount=customerAccountService.save(customerAccount);
 		return "redirect:/customeraccount/findcustomeraccount?accountNumber="+customerAccount.getAccountNumber();
 		}
 	}
-
+	@GetMapping("/updateaccount")
+	public String showUpdateForm() {
+		return "update-account-button";
+	}
 	@GetMapping("/updatecustomeraccountform")
-	public String showupdateCustomerAccountForm(@RequestParam("accountNumber") long number, Model model) {
-		CustomerAccount customerAccount = customerAccountService.findByAccountNumber(number);
+	public String showupdateCustomerAccountForm(@RequestParam("accountNumber") long accountNumber, Model model) {
+		CustomerAccount customerAccount = customerAccountService.findByAccountNumber(accountNumber);
 		model.addAttribute("updatecustomeraccount", customerAccount);
 		return "update-customer-account";
 	}
 
 	@PostMapping("/updatecustomeraccount")
-	public String UpdateCustomerAccount(@Valid @ModelAttribute("updatecustomeraccount") CustomerAccount customerAccount,
+	public String updateCustomerAccount(@Valid @ModelAttribute("updatecustomeraccount") CustomerAccount customerAccount,
 			Errors errors) {
 		if (errors.hasErrors()) {
 			return "update-customer-account";
 		}
 		customerAccountService.save(customerAccount);
-		return "redirect:/customeraccount/customeraccountlist";
+		return "update-success";
 	}
 
 	@Transactional
@@ -83,14 +87,21 @@ public class CustomerAccountController {
 		customerAccountService.deleteByAccountNumber(number);
 		return "redirect:/customeraccount/customeraccountlist";
 	}
-
-	@GetMapping("/findcustomeraccount")
-	public String findCustomerAccount(@RequestParam("accountNumber") long number, Model model) {
-		CustomerAccount customerAccount = customerAccountService.findByAccountNumber(number);
-		model.addAttribute("findcustomeraccount", customerAccount);
-		return "find-customer-account";
+	@GetMapping("/findaccount")
+	public String showFindForm() {
+		return "find-account-button";
 	}
 
+	@GetMapping("/findcustomeraccount")
+	public String findCustomerAccount(@RequestParam("accountNumber") long accountNumber, Model model) {
+		CustomerAccount customerAccount = customerAccountService.findByAccountNumber(accountNumber);
+		model.addAttribute("findcustomeraccount", customerAccount);
+	 	return "find-customer-account";
+	}
+	@GetMapping("/getaccounttrans")
+	public String showAccForm() {
+		return "get-account-trans-button";
+	}
 	@GetMapping("/getaccounttransactions")
 	public String getAccountTransactions(@RequestParam("accountNumber") long number, Model model) {
 		AccountAndTransactionDto dto = customerAccountService.getAccountTransaction(number);

@@ -4,64 +4,66 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>Find transactions By Account Number</title>
-<style>
-body {
-	background-image:
-		url("https://media.istockphoto.com/vectors/widescreen-abstract-financial-chart-with-uptrend-line-graph-and-on-vector-id1156644488?k=20&m=1156644488&s=612x612&w=0&h=t4hyZNSbM34W1Wo62Pi2SGu1cfTKkV8PhWUYjvvM9vE=");
-	height: 768px;
-	width: 1366px;
-	background-position: center top;
-	background-repeat: no-repeat;
-	background-size: cover;
-	position: relative;
-}
-</style>
+<style><%@include file="/WEB-INF/css/style.css"%></style>
 </head>
 <body>
+<button style="font-size: 12px; background-color: #e7e7e7; color: black float:left;;" onclick="history.back()">Go Back</button>
 	<div id="root">
 		<div id="form" align="center">
-			<form:form action="" method="get"
-				modelAttribute="findtransaction">
+			<form:form action="" method="get" modelAttribute="findtransaction">
 				<div>
 					<label for="accountNumber">Account Number</label>
 					<div>
-						<form:input path="accountNumber" readonly="true" />
+						<form:input path="accountNumber" />
 					</div>
 				</div>
 				<div>
 					<label for="transactionNumber">Transaction Number</label>
 					<div>
-						<form:input path="transactionNumber" readonly="true" />
+						<form:input path="transactionNumber" />
 					</div>
 				</div>
 				<div>
 					<label for="transactionDate">Transaction Date</label>
 					<div>
-						<form:input path="transactionDate" readonly="true" />
+						<form:input path="transactionDate" type="date" />
 					</div>
 				</div>
 				<div>
 					<label for="transactionType">Transaction Type</label>
 					<div>
-						<form:input path="transactionType" readonly="true" />
+						<form:input path="transactionType" />
 					</div>
 				</div>
 				<div>
-					<label for="depositedAmount">Deposited Amount</label>
+					<label for="depositAmount">Deposit Amount</label>
 					<div>
-						<form:input path="depositedAmount" readonly="true" />
+						<form:input path="depositAmount" />
 					</div>
 				</div>
 				<div>
 					<label for="withdrawalAmount">Withdrawal Amount</label>
 					<div>
-						<form:input path="withdrawalAmount" readonly="true" />
+						<form:input path="withdrawalAmount" />
 					</div>
-					<div></div>
+				</div>
+				<div>
+					<label for="minimumBalance">Minimum Balance</label>
+					<div>
+						<form:input path="minimumBalance" value="3000" readonly="readonly" />
+					</div>
+				</div>
+
+				<div>
+					<label for="currentBalance">CurrentBalance</label>
+					<div>
+						<form:input path="currentBalance" />
+					</div>
+
 				</div>
 			</form:form>
 		</div>

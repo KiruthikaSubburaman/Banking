@@ -4,24 +4,14 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>Find UPI By Account Number</title>
-<style>
-body {
-	background-image:
-		url("https://media.istockphoto.com/vectors/widescreen-abstract-financial-chart-with-uptrend-line-graph-and-on-vector-id1156644488?k=20&m=1156644488&s=612x612&w=0&h=t4hyZNSbM34W1Wo62Pi2SGu1cfTKkV8PhWUYjvvM9vE=");
-	height: 768px;
-	width: 1366px;
-	background-position: center top;
-	background-repeat: no-repeat;
-	background-size: cover;
-	position: relative;
-}
-</style>
+<style><%@include file="/WEB-INF/css/style.css"%></style>
 </head>
 <body>
+<button style="font-size: 12px; background-color: #e7e7e7; color: black float:left;;" onclick="history.back()">Go Back</button>
 	<div id="root">
 		<div id="form" align="center">
 			<form:form action="" method="get" modelAttribute="findupi">
@@ -43,7 +33,7 @@ body {
 						<form:input path="pinCreatedDate" readonly="true" />
 					</div>
 				</div>
-
+				
 			</form:form>
 		</div>
 	</div>

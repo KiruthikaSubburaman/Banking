@@ -4,10 +4,11 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>UPI List</title>
+<style><%@include file="/WEB-INF/css/style.css"%></style>
 </head>
 <body>
 	<div id="table root">

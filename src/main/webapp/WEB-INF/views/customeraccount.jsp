@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>Customer Account</title>
@@ -24,18 +24,11 @@ body {
 			<h1>Customer Account Details</h1>
 		</div>
 
+		
 		<div>
 			<h3>
 				<div>
-					<a href="/customeraccount/addcustomeraccountform">Add new
-						Account</a>
-				</div>
-			</h3>
-		</div>
-		<div>
-			<h3>
-				<div>
-					<a href="/customeraccount/updatecustomeraccountform?accountNumber=">Update
+					<a href="/customeraccount/updateaccount">Update
 						your Account</a>
 				</div>
 			</h3>
@@ -44,7 +37,7 @@ body {
 		<div>
 			<h3>
 				<div>
-					<a href="/customeraccount/findcustomeraccount?accountNumber=">Find
+					<a href="/customeraccount/findaccount">Find
 						your Account</a>
 				</div>
 			</h3>

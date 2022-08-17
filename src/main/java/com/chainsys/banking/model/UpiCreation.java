@@ -9,19 +9,21 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-//import javax.validation.constraints.Digits;
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.PastOrPresent;
 
 @Entity
 @Table(name = "createupi")
 public class UpiCreation {
 	@Id
 	@Column(name = "account_number")
-	//@Digits(message="*Invalid Account Number",integer = 15, fraction = 0)
+	@Digits(message="*Invalid Account Number",integer = 15, fraction = 0)
 	private long accountNumber;
 	@Column(name = "create_new_pin")
-	//@Digits(message="*Invalid Pin Number",integer = 6, fraction = 0)
+	@Digits(message="*Invalid Pin Number",integer = 6, fraction = 0)
 	private int createNewPIN;
 	@Column(name = "pin_created_date")
+	@PastOrPresent
 	private Date pinCreatedDate;
 	
 	@OneToOne(fetch = FetchType.LAZY)

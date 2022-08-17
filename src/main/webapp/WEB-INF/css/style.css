@@ -1,0 +1,58 @@
+@charset "ISO-8859-1";
+.text-danger {
+    color: #e80c4d;
+    font-size: 5px;
+}
+
+body {
+    background-image:
+        url("");
+    background-repeat: no-repeat;
+    background-size: 1366px 768px;
+    text-align: center;
+}
+
+h1 {
+    font-family: "Lucida Console", "Courier New", monospace;
+    font-size: 40px;
+    color: white;
+}
+
+.form label {
+    font-family: Verdana, sans-serif;
+    font-size: 20px;
+    color: black;
+}
+
+.form table {
+    font-size: 20px;
+    margin-left: 480px;
+}
+
+.form input {
+    width: 200px;
+    height: 27px;
+}
+.form select{
+    font-family: Verdana, sans-serif;
+    font-size: 20px;
+    color: black;
+}
+.form #radbtn{
+    font-family: Verdana, sans-serif;
+    font-size: 30px;
+    color: white;
+}
+
+.form button {
+    border-radius: 25px;
+    background: white;
+    padding: 20px;
+    width: 250px;
+    margin-top: 28px; 
+}
+.text-danger {
+	color: #e80c4d;
+	font-size: 0.9em;
+}
+

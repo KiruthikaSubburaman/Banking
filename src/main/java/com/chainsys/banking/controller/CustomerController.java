@@ -48,9 +48,14 @@ public class CustomerController {
 		return "registration-success";
 	}
 
+	@GetMapping("/updatecustomerbyaadhar")
+	public String showUpdateForm() {
+		return "update-customer-button";
+	}
+
 	@GetMapping("/updatecustomerform")
-	public String showUpdateCustomerForm(@RequestParam("aadharNumber") long number, Model model) {
-		Customer customer = customerService.findByAadharNumber(number);
+	public String showUpdateCustomerForm(long aadharNumber, Model model) {
+		Customer customer = customerService.findByAadharNumber(aadharNumber);
 		model.addAttribute("updatecustomer", customer);
 		return "update-customer-form";
 	}
@@ -61,7 +66,7 @@ public class CustomerController {
 			return "update-customer-form";
 		}
 		customerService.save(customer);
-		return "redirect:/customer/customerlist";
+		return "update-customer-success";
 	}
 
 	@GetMapping("/deletecustomer")
@@ -70,10 +75,13 @@ public class CustomerController {
 		customerService.deleteByAadharNumber(number);
 		return "redirect:/customer/customerlist";
 	}
-
+	@GetMapping("/findcustomerbyaadhar")
+	public String showFindForm() {
+		return "find-customer-button";
+	}
 	@GetMapping("/findcustomer")
-	public String findCustomerByAadhar(@RequestParam("aadharNumber") long number, Model model) {
-		Customer cus = customerService.findByAadharNumber(number);
+	public String findCustomerByAadhar(@RequestParam("aadharNumber") long aadharNumber, Model model) {
+		Customer cus = customerService.findByAadharNumber(aadharNumber);
 		model.addAttribute("findcustomer", cus);
 		return "find-customer";
 	}
@@ -101,6 +109,7 @@ public class CustomerController {
 		} else
 			return "invalid customer error";
 	}
+
 	@GetMapping("/customerindex")
 	public String customerReg() {
 		return "customeraccess";
