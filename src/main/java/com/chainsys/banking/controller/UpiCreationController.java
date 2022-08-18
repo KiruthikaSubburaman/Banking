@@ -73,7 +73,6 @@ public class UpiCreationController {
 
 	@GetMapping("/deleteupi")
 	public String deleteUpi(@Valid@RequestParam("accountNumber") long number) {
-		UpiCreation upi = upiService.findByAccountNumber(number);
 		upiService.deleteByAccountNumber(number);
 		return "redirect:/upicreation/upilist";
 	}

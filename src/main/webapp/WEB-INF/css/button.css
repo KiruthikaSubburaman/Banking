@@ -30,3 +30,10 @@
     font-weight: bold;
     color: #009879;
 }
+body {
+    background-image:
+        url("https://www.asianpaints.com/content/dam/asian_paints/colours/swatches/7844.png.transform/cc-width-720-height-540/image.png");
+    background-repeat: no-repeat;
+    background-size: 1366px 768px;
+    text-align: center;
+}

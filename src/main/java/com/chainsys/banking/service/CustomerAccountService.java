@@ -12,9 +12,7 @@ import com.chainsys.banking.dao.TransactionRepository;
 import com.chainsys.banking.dao.UpiCreationRepository;
 import com.chainsys.banking.model.AccountAndTransactionDto;
 import com.chainsys.banking.model.AccountAndUpiDto;
-import com.chainsys.banking.model.Customer;
 import com.chainsys.banking.model.CustomerAccount;
-import com.chainsys.banking.model.CustomerAndAccountDto;
 import com.chainsys.banking.model.Transaction;
 import com.chainsys.banking.model.UpiCreation;
 
@@ -68,8 +66,5 @@ public class CustomerAccountService {
 	    dto.setUpiCreation(upi);
 	    return dto;
 	}
-//public CustomerAccount findByAccount(long accountNumber)
-//{
-//	return customerAccountRepository.findByAccount(accountNumber);
-//}
+
 }

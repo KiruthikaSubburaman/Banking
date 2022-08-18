@@ -18,6 +18,8 @@ body {
 	font-family: Arial, Helvetica, sans-serif;
 }
 
+
+}
 h1 {
 	font-family: lucida Handwriting, Cursive;
 	color: black;
@@ -104,8 +106,7 @@ h1 {
 				Account <i class="fa fa-caret-down"></i>
 			</button>
 			<div class="dropdown-content">
-				<a href="/customeraccount/updateaccount">Update Account</a> <a
-					href="/customeraccount/findaccount">view Account</a>
+				<a href="/customeraccount/findaccount">view Account</a>
 			</div>
 		</div>
 

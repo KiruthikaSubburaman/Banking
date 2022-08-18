@@ -9,26 +9,26 @@
 <meta charset="ISO-8859-1">
 <title>Add transaction form</title>
 <style><%@include file="/WEB-INF/css/style.css"%></style>
-<script type="text/javascript">
-function calculation() {
+<!-- <script type="text/javascript">
+function calculation(type) {
+	if(type=="deposit"){
     var depositAmount = document.getElementById("depositAmount").value;
-    var miniBalance = document.getElementById("minimumBalance").value;
-    var totalAmount = parseInt(depositAmount) + parseInt(miniBalance);
-    document.getElementById("currentBalance").value = totalAmount;
-    return parseInt(totalAmount);
-    
-    var withdrawalAmount = document.getElementById("withdrawalAmount").value;
-    var tAmount = parseInt(totalAmount) - parseInt(withdrawalAmount);
-    document.getElementById("currentBalance").value = tAmount;
-    return parseInt(tAmount);
+    document.getElementById("currentBalance").value += depositAmount;
+    return parseInt(depositAmount);
+	}else if(type=="withdraw"){}
+    var depositAmount = document.getElementById("withdrawalAmount").value;
+    document.getElementById("currentBalance").value -= depositAmount;
+    return parseInt(depositAmount);
 }
-</script>
+return 5;
+}
+</script> -->
 </head>
 <body>
-<button style="font-size: 12px; background-color: #e7e7e7; color: black; float:left;" onclick="history.back()">Go Back</button>
+<button style="font-size: 12px; background-color: #e7e7e7; color: black; float:left; margin-top:-46px;" onclick="history.back()">Go Back</button>
 			<form:form action="addtransactiondetails" method="post"
 				modelAttribute="addtransaction">
-				<div class="form">
+				<div id="form" class="box">
 				<table>
 				<tbody>
 				<tr>
@@ -51,12 +51,12 @@ function calculation() {
 					<tr>
 					<td><label for="depositAmount">Deposit Amount</label> </td>
 					
-					<td>	<form:input path="depositAmount" onchange="calculation()" /></td>
+					<td>	<form:input path="depositAmount" onchange='calculation("deposit")' /></td>
 				</tr>
 					<tr>
 				<td>	<label for="withdrawalAmount">Withdrawal Amount</label> </td>
 					<td>
-						<form:input path="withdrawalAmount" onchange="calculation()"/>
+						<form:input path="withdrawalAmount" onchange='calculation("withdraw")'/>
 					</td>
 				</tr>
 					<tr>
@@ -66,17 +66,12 @@ function calculation() {
 					</td>
 				</tr>
 
-					<tr>
-				<td>	<label for="currentBalance">CurrentBalance</label> </td>
-					<td>
-						<form:input path="currentBalance" onchange="calculation(this.form)"/>
-					</td>
-
-				</tr>
+					 
 				</tbody>
 				</table>
-					<form:button>Add Transaction Details</form:button>
+					<form:button>Add transaction</form:button>
 				</div>
 			</form:form>
+			<%-- <div>Current balance: ${balance}</div> --%>
 </body>
 </html>

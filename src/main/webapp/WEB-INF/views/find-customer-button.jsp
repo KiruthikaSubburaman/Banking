@@ -8,9 +8,9 @@
 <style><%@include file="/WEB-INF/css/style.css"%></style>
 </head>
 <body>
-<button style="font-size: 12px; background-color: #e7e7e7; color: black float:left;;" onclick="history.back()">Go Back</button>
+<button style="font-size: 12px; background-color: #e7e7e7; color: black; float:left; margin-top:-46px;" onclick="history.back()">Go Back</button>
     <form action="/customer/findcustomer" method="get">
-    <div class="form">
+    <div id="form" class="box">
     <table>
     <tbody>
         <tr>

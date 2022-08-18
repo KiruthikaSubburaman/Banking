@@ -11,10 +11,10 @@
 <style><%@include file="/WEB-INF/css/style.css"%></style>
 </head>
 <body>
-<button style="font-size: 12px; background-color: #e7e7e7; color: black float:left;;" onclick="history.back()">Go Back</button>
+<button style="font-size: 12px; background-color: #e7e7e7; color: black; float:left;" onclick="history.back()">Go Back</button>
 			<form:form action="" method="get"
 				modelAttribute="findcustomeraccount">
-				<div class="form">
+				<div id="form" class="box">
 				<table>
 				<tbody>
 				<tr>
@@ -44,6 +44,13 @@
 						<form:input path="dateOfOpening" type="date" />
 					</td>
 				</tr>
+				<tr>
+				<td>	<label for="currentBalance">CurrentBalance</label> </td>
+					<td>
+						<form:input path="currentBalance" required="true" />
+					</td>
+
+				</tr> 
 </tbody>
 </table>
 			

@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.chainsys.banking.dao.UpiCreationRepository;
-import com.chainsys.banking.model.Customer;
 import com.chainsys.banking.model.UpiCreation;
 
 @Service

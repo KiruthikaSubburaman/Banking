@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.chainsys.banking.model.CustomerAccount;
 import com.chainsys.banking.model.Transaction;
-//import com.chainsys.banking.model.UpiCreation;
 import com.chainsys.banking.service.CustomerAccountService;
 import com.chainsys.banking.service.TransactionService;
 
@@ -27,7 +26,7 @@ public class TransactionController {
 	TransactionService transactionService;
 	@Autowired
 	CustomerAccountService customerAccountService;
-
+	
 
 	@GetMapping("/transactionlist")
 	public String getTransactions(Model model) {
@@ -46,11 +45,21 @@ public class TransactionController {
 	}
 
 	@PostMapping("/addtransactiondetails")
-	public String addNewTransaction(@Valid@ModelAttribute("addtransaction") Transaction transaction,Errors errors) {
+	public String addNewTransaction(@Valid@ModelAttribute("addtransaction") Transaction transaction,Errors errors,Model model) {
 		if (errors.hasErrors()) {
 			return "add-transactions-form";
 		}
+		CustomerAccount customerAccount=customerAccountService.findByAccountNumber(transaction.getAccountNumber());
+		customerAccount.setCurrentBalance(customerAccount.getCurrentBalance()+transaction.getDepositAmount());
+		if(customerAccount.getCurrentBalance()<transaction.getWithdrawalAmount()) {
+			return "error-page";
+		}
+		customerAccount.setCurrentBalance(customerAccount.getCurrentBalance()-transaction.getWithdrawalAmount());
+		customerAccountService.save(customerAccount);
+		transaction.setCurrentBalance(customerAccount.getCurrentBalance());
 		transactionService.save(transaction);
+		customerAccount.setCurrentBalance(transaction.getCurrentBalance());
+		model.addAttribute("balance", transaction.getCurrentBalance());
 		return "redirect:/transactiondetails/findtransaction?transactionNumber="+transaction.getTransactionNumber();
 	}
 	
@@ -74,12 +83,12 @@ public class TransactionController {
 		return "redirect:/transactiondetails/findtransaction?transactionNumber=";
 	}
 
-//	@GetMapping("/deletetransaction")
-//	public String deleteTransaction(@RequestParam("accountnumber") long number) {
-//		Transaction transaction = transactionService.findByAccountNumber(number);
-//		transactionService.deleteByAccountNumber(number);
-//		return "redirect:/transactiondetails/transactionlist";
-//	}
+	@GetMapping("/deletetransaction")
+	public String deleteTransaction(@RequestParam("transactionnumber") long number) {
+		Transaction transaction = transactionService.findBytransactionNumber(number);
+		transactionService.deleteByTransactionNumber(number);
+		return "redirect:/transactiondetails/transactionlist";
+	}
 	@GetMapping("/findtrans")
 	public String showFindTransForm() {
 		return "find-trans-button";

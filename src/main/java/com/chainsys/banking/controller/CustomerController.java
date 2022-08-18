@@ -71,7 +71,6 @@ public class CustomerController {
 
 	@GetMapping("/deletecustomer")
 	public String deleteCustomer(@RequestParam("aadharNumber") long number) {
-		Customer customer = customerService.findByAadharNumber(number);
 		customerService.deleteByAadharNumber(number);
 		return "redirect:/customer/customerlist";
 	}
@@ -85,7 +84,10 @@ public class CustomerController {
 		model.addAttribute("findcustomer", cus);
 		return "find-customer";
 	}
-
+	@GetMapping("/getcustomeracc")
+	public String showAccForm() {
+		return "get-customer-account-button";
+	}
 	@GetMapping("/getcustomerandaccount")
 	public String getCustomerAndAccount(@RequestParam("aadharNumber") long number, Model model) {
 		CustomerAndAccountDto dto = customerService.getCustomerAccountDetails(number);

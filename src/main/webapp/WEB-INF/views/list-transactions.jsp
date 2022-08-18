@@ -13,6 +13,10 @@
 <body>
 	<div id="table root">
 		<table class="styled-table">
+		<caption></caption>
+				<tr>
+				<th></th>
+				</tr>
 			<thead>
 				<tr>
 					<th>Account Number</th>

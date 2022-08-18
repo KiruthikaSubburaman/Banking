@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.validation.Valid;
 
-//import javax.transaction.Transactional;
+import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,15 +27,13 @@ public class TransactionService {
 		return transactionrepo.save(transaction);
 	}
 
-//	public Transaction findByAccountNumber(long number) {
-//		return transactionrepo.findByAccountNumber(number);
-//	}
+
 	public Transaction findBytransactionNumber( long number) {
 		return transactionrepo.findBytransactionNumber(number);
 	}
-	//@Transactional
-//	public void deleteByAccountNumber(long number) {
-//		transactionrepo.deleteByAccountNumber(number);
-//	}
+	@Transactional
+	public void deleteByTransactionNumber(long number) {
+		transactionrepo.deleteByTransactionNumber(number);
+	}
 
 }

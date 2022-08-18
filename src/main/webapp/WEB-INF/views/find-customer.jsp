@@ -13,7 +13,7 @@
 <body>
 <button style="font-size: 12px; background-color: #e7e7e7; color: black; float:left;" onclick="history.back()">Go Back</button>
 			<form:form action="" method="get" modelAttribute="findcustomer">
-				<div class="form">
+				<div id="form" class="box">
 				<table>
 				<tbody>
 				<tr>

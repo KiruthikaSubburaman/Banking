@@ -10,7 +10,7 @@
 <style><%@include file="/WEB-INF/css/button.css"%></style>
 </head>
 <body>
-<button style="font-size: 12px; background-color: #e7e7e7; color: black ; float:left;" onclick="history.back()">Go Back</button>
+
 		<div id="form">
 		<table class="styled-table">
 		<caption></caption>
@@ -72,6 +72,8 @@
 							</c:forEach>
 						</tbody>
 					</table>
+					<button style="font-size: 12px; background-color: #e7e7e7; color: black ; float:left;" onclick="history.back()">Go Back</button>
 				</div>
+				
 </body>
 </html>

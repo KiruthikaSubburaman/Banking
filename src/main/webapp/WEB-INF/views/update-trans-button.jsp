@@ -9,11 +9,20 @@
 </head>
 <body>
 <button style="font-size: 12px; background-color: #e7e7e7; color: black; float:left;" onclick="history.back()">Go Back</button>
-    <form action="/transactiondetails/updatetransactionform" method="get"
-        style="text-align:center ;margin-top:5%;">
-        <label>Enter Transaction Number</label> <input type="text"
-            placeholder="Transaction Number" name="transactionNumber"> 
-      <input type='submit' value="Update" name="submit">
+    <form action="/transactiondetails/updatetransactionform" method="get">
+        <div id="form" class="box">
+    <table>
+    <tbody>
+        <tr>
+        <td><label>Enter Transaction Number</label></td> 
+      <td>  <input type="text"
+            placeholder="Transaction Number" name="transactionNumber"> </td>
+            </tr>
+ <tr>   <td>  <input type='submit' value="update" name="submit"></td>
+      </tr>
+      </tbody>
+      </table>
+      </div>
     </form>
 </body>
 </html>

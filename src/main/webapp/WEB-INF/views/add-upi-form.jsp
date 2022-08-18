@@ -13,9 +13,9 @@
 </style>
 </head>
 <body>
-<button style="font-size: 12px; background-color: #e7e7e7; color: black; float:left;" onclick="history.back()">Go Back</button>
+<button style="font-size: 12px; background-color: #e7e7e7; color: black; float:left; margin-top:-46px;" onclick="history.back()">Go Back</button>
 	<form:form action="addupi" method="post" modelAttribute="addupi">
-		<div class="form">
+		<div id="form" class="box">
 			<table>
 				<tbody>
 
@@ -27,13 +27,13 @@
 					<form:errors path="accountNumber" cssClass="text-danger" />
 					<tr>
 						<td><label for="createNewPIN">Create New PIN</label></td>
-						<td><form:input path="createNewPIN" pattern="^\\d{6}$" title="Mobile number must be number" required="true"
+						<td><form:input path="createNewPIN" pattern="^\\d{6}$" title="pin must be number" required="true"
 								maxlength="6" /></td>
 					</tr>
 
 					<form:errors path="createNewPIN" cssClass="text-danger" />
 					<tr>
-						<td><label for="pinCreatedDate">pinCreatedDate</label></td>
+						<td><label for="pinCreatedDate">Pin Created Date</label></td>
 						<td><form:input path="pinCreatedDate" type="date" /></td>
 					</tr>
 

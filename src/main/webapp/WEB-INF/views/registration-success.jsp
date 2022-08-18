@@ -10,7 +10,7 @@
 <style><%@include file="/WEB-INF/css/success.css"%></style>
 </head>
 <body>
-<button style="font-size: 12px; background-color: #e7e7e7; color: black ; float:left;" onclick="history.back()">Go Back</button>
+<button style="font-size: 12px; background-color: #e7e7e7; color: black; float:left;" onclick="history.back()">Go Back</button>
      <div align="center">
      <h2>Registration successful!</h2>
 	<span>Customer Name</span><span>${addcustomer.customerName}</span><br/>
@@ -25,7 +25,8 @@
 	<span>MobileNumber</span><span>${addcustomer.mobileNumber}</span><br/>
 	<span>Email</span><span>${addcustomer.email}</span><br/>
 	
-	
+	<button onclick="document.location='/customeraccount/addcustomeraccountform'">Create
+				account</button>
 	</div>
 </body>
 </html>

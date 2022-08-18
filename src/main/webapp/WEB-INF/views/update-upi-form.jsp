@@ -16,6 +16,10 @@
 				modelAttribute="updateupi">
 				<div class="form">
 			<table>
+			<caption></caption>
+				<tr>
+				<th></th>
+				</tr>
 			<tbody>
 				
 				<tr>

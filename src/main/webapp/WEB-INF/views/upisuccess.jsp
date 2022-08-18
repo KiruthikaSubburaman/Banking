@@ -10,8 +10,8 @@
 <style><%@include file="/WEB-INF/css/success.css"%></style>
 </head>
 <body>
-<button style="font-size: 12px; background-color: #e7e7e7; color: black; float:left;" onclick="history.back()">Go Back</button>
-     <div align="center">
+<button style="font-size: 12px; background-color: #e7e7e7; color: black; float:left; margin-right:480px;" onclick="history.back()">Go Back</button>
+     <div text-align="center">
      <h2>UPI Pin created successfully!</h2>
 	
 	

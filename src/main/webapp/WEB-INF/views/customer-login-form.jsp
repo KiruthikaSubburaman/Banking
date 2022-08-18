@@ -7,6 +7,37 @@
 <head>
 <meta charset="UTF-8">
 <title>Login Page in HTML with CSS Code Example</title>
+<script type="text/javascript">
+
+var EmailCheck = function() {
+    if(document.myForm.email.value == ""){
+        
+        if(alert("Email Id cannot be empty")){
+            document.myForm.email.focus();
+        }
+        else
+            document.activeElement.blur();
+            
+    }
+    else{
+        return false;
+    } 
+}
+var userpasswordCheck = function() {
+ 
+     if(!document.myForm.aadharNumber.value==""){
+            if(alert("Aadhar Number cannot be empty")){ 
+                 document.myForm.aadharNumber.focus();
+            }
+            else
+                document.activeElement.blur();
+        }
+   else{
+       return false;
+   } 
+  
+}
+</script>
 <style type="text/css">
 body {
 	background-image: linear-gradient(135deg, #FAB2FF 10%, #1904E5 100%);
@@ -300,14 +331,14 @@ style
 
 		<div class="right">
 			<h5>Login</h5>
-			<form action="customerindex">
+			<form action="customerindex" name="myForm">
 				<p>
 					Don't have an account? <a href="/customer/addcustomerform">Create
 						Your Account</a> it takes less than a minute
 				</p>
 				<div class="inputs">
-					<input type="text" placeholder="Email" required> <br>
-					<input type="password" placeholder="Aadhar Number" required>
+					<input type="text" name="email" placeholder="Email" onblur="EmailCheck" required> <br>
+					<input type="password" name="aadharNumber" placeholder="Aadhar Number" onblur="userpasswordCheck" required>
 				</div>
 				<input type="submit" name="" value="login">
 			</form>

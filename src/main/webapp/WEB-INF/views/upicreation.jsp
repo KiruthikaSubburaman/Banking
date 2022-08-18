@@ -19,7 +19,7 @@ body {
 </style>
 </head>
 <body>
-	<div align="center">
+	<div text-align="center">
 		<div>
 			<h1>Upi Creation</h1>
 		</div>

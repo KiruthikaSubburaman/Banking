@@ -10,11 +10,20 @@
 <body>
 <button style="font-size: 12px; background-color: #e7e7e7; color: black; float:left;" onclick="history.back()">Go Back</button>
 	<br>
-	<form action="/upicreation/updateupiform" method="get"
-		style="text-align: center; margin-top: 5%;">
-		<label>Enter Account Number</label> <input type="text"
-			placeholder="Account Number" name="accountNumber"> <input
-			type='submit' value="Update" name="submit">
-	</form>
+	<form action="/upicreation/updateupiform" method="get">
+		<div id="form" class="box">
+    <table>
+    <tbody>
+        <tr>
+        <td><label>Enter Account Number</label></td> 
+      <td>  <input type="text"
+            placeholder="Account Number" name="accountNumber"> </td>
+            </tr>
+ <tr>   <td>  <input type='submit' value="change pin" name="submit"></td>
+      </tr>
+      </tbody>
+      </table>
+      </div>
+    </form>
 </body>
 </html>

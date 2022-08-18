@@ -83,7 +83,6 @@ public class CustomerAccountController {
 	@Transactional
 	@GetMapping("/deletecustomeraccount")
 	public String deleteCustomerAccount(@RequestParam("accountNumber") long number) {
-		CustomerAccount customerAccount = customerAccountService.findByAccountNumber(number);
 		customerAccountService.deleteByAccountNumber(number);
 		return "redirect:/customeraccount/customeraccountlist";
 	}

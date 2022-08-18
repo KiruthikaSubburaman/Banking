@@ -11,7 +11,7 @@
 <body>
 <button style="font-size: 12px; background-color: #e7e7e7; color: black float:left;;" onclick="history.back()">Go Back</button>
 	<div id="root">
-		<div id="form">
+		<div id="form" class="box">
 			<table border="2" width="100%" cellpadding="2">
 				<form:form action=" " method="post" modelAttribute="customer">
 					<div>

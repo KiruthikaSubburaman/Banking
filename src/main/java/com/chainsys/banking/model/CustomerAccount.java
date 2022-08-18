@@ -34,6 +34,16 @@ public class CustomerAccount {
 	@Column(name = "date_of_opening")
 	@Past
 	private Date dateOfOpening;
+	@Column(name = "current_Balance")
+	private float currentBalance;
+
+	public float getCurrentBalance() {
+		return currentBalance;
+	}
+
+	public void setCurrentBalance(float currentBalance) {
+		this.currentBalance = currentBalance;
+	}
 
 	@OneToOne(mappedBy = "customersAccount", fetch = FetchType.LAZY)
 	private UpiCreation upiCreation;

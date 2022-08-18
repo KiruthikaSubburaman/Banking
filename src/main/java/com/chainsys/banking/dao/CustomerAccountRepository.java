@@ -21,5 +21,4 @@ public interface CustomerAccountRepository extends CrudRepository<CustomerAccoun
 	List<CustomerAccount> findByAadharNumber(long number);
 	
 	CustomerAccount findCustomerByAadharNumber(long number);
-//CustomerAccount findByAccount(long accountNumber);
 }

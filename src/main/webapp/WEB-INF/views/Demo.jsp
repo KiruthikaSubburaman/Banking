@@ -25,8 +25,8 @@ body {
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-	padding-top: 20px;
-	padding-bottom: 20px;
+	padding-top: 28px;
+	padding-right: 1000px;
 }
 
 .nav-items>a {
@@ -263,16 +263,8 @@ body {
 <body>
 	<nav class="nav-bar">
 		<img
-			src="https://raw.githubusercontent.com/ArslanJajja/online-banking-website-design-with-html-css/78d05eb97430690475bd1376842c1ec0b36e9b15/images/logo.svg"
-			alt="" />
-		<div class="nav-items">
-			<!-- <a href="/home/kiki">Home</a> -->
-			<!-- <a href="#">About</a> -->
-			<!--    <a href="#">Login</a> -->
-			<!--     <a href="#">Blog</a> -->
-			<!--  <a href="#">Carriers</a> -->
-		</div>
-		<!--    <button>Request Invite</button> -->
+			src="https://raw.githubusercontent.com/ArslanJajja/online-banking-website-design-with-html-css/78d05eb97430690475bd1376842c1ec0b36e9b15/images/logo.svg" alt="" />
+
 	</nav>
 	<header class="hero-section">
 		<div class="hero-text-container">
@@ -298,7 +290,8 @@ body {
 		</section>
 		<section class="features-section">
 			<div class="feature-item">
-				<h1>THE WORLD NEEDS BANKING BUT IT DOESN'T NEED BANKS !!! - BILL GATES</h1>
+				<h1>THE WORLD NEEDS BANKING BUT IT DOESN'T NEED BANKS !!! -
+					BILL GATES</h1>
 
 			</div>
 		</section>
@@ -307,8 +300,7 @@ body {
 			<div class="article-container">
 				<div class="article">
 					<img
-						src="https://media.istockphoto.com/photos/young-couple-shaking-hands-deal-contract-real-estate-investment-picture-id1203814636?k=20&m=1203814636&s=612x612&w=0&h=rhbqlwMpW4jO3MepZGj08NyE-bwC9E3thRmwGfey-Qg="
-						alt="" />
+						src="https://media.istockphoto.com/photos/young-couple-shaking-hands-deal-contract-real-estate-investment-picture-id1203814636?k=20&m=1203814636&s=612x612&w=0&h=rhbqlwMpW4jO3MepZGj08NyE-bwC9E3thRmwGfey-Qg=" alt="" />
 					<div class="content">
 
 						<h4>Customer Services</h4>

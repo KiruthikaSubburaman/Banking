@@ -14,8 +14,13 @@
 <button style="font-size: 12px; background-color: #e7e7e7; color: black; float:left;" onclick="history.back()">Go Back</button>
 			<form:form action="addcustomeraccount" method="post"
 				modelAttribute="addcustomeraccount">
-				<div class="form">
+				<div id="form" class="box">
 				<table>
+				<caption></caption>
+				<tr>
+				<th></th>
+				</tr>
+				
 				<tbody>
 				<tr>
 					<td><label for="aadharNumber">AadharNumber</label></td>
@@ -38,6 +43,7 @@
 						<form:input path="dateOfOpening" type="date" />
 					</td>
 				</tr>
+				
 </tbody>
 </table>
 <form:button>Create Account</form:button>

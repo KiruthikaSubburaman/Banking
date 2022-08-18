@@ -9,7 +9,7 @@ public class AccountAndTransactionDto {
 
     @Autowired
     private CustomerAccount customerAccount;
-    private List<Transaction> transaction=new ArrayList<Transaction>();
+    private List<Transaction> transaction=new ArrayList<>();
     
     public CustomerAccount getCustomerAccount() {
 		return customerAccount;
@@ -21,9 +21,7 @@ public class AccountAndTransactionDto {
     public List<Transaction> getTransaction() {
 		return transaction;
 	}
-//	public void setTransaction(List<Transaction> transaction) {
-//		this.transaction = transaction;
-//	}
+
 	public void addTransactions(Transaction trans)
     {
         transaction.add(trans);
