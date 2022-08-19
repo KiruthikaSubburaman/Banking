@@ -10,14 +10,13 @@ body {
 
 .box {
 	overflow: hidden;
-	margin: auto;
 	padding: 50px;
 	text-align: center;
 	float: center;
 	font-weight: 1000;
 	display: flex;
 	flex-direction: column;
-	align-items: center; width : 500px;
+	align-items: center; 
 	margin: 10vh auto;
 	background: transparent;
 	box-shadow: 0 0 15px rgb(255, 255, 255);
