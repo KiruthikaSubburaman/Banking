@@ -12,6 +12,10 @@
     <form action="/customer/findcustomer" method="get">
     <div id="form" class="box">
     <table>
+    	<caption></caption>		
+			<tr>
+			<th></th>
+			</tr>
     <tbody>
         <tr>
         <td><label>Enter Aadhar Number</label></td> 

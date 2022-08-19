@@ -14,9 +14,6 @@
 	<div id="table root">
 		<table >
 		<caption></caption>
-				<tr>
-				<th></th>
-				</tr>
 		
 			<thead>
 				<tr>

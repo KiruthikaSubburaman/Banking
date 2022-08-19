@@ -7,11 +7,15 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Customer</title>
-<style><%@include file="/WEB-INF/css/success.css"%></style>
+<style><%@include file="/WEB-INF/css/success.css"%>
+div{
+text-align:center
+}</style>
+
 </head>
 <body>
 <button style="font-size: 12px; background-color: #e7e7e7; color: black; float:left;" onclick="history.back()">Go Back</button>
-     <div align="center">
+     <div>
         <h2>Customer Details Updated Successfully!</h2>
     <span>Customer Name</span><span>${updatecustomer.customerName}</span><br/>
 	<span>FatherName</span><span>${updatecustomer.fatherName}</span><br/>

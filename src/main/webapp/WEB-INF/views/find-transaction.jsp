@@ -13,7 +13,7 @@
 <body>
 <button style="font-size: 12px; background-color: #e7e7e7; color: black float:left;;" onclick="history.back()">Go Back</button>
 	<div id="root">
-		<div id="form" align="center">
+		<div id="form">
 			<form:form action="" method="get" modelAttribute="findtransaction">
 				<div>
 					<label for="accountNumber">Account Number</label>

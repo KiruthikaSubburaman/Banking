@@ -13,6 +13,10 @@
 	<form action="/upicreation/updateupiform" method="get">
 		<div id="form" class="box">
     <table>
+    <caption></caption>		
+			<tr>
+			<th></th>
+			</tr>
     <tbody>
         <tr>
         <td><label>Enter Account Number</label></td> 

@@ -2,7 +2,6 @@ package com.chainsys.banking.service;
 
 import java.util.List;
 
-import javax.validation.Valid;
 
 import javax.transaction.Transactional;
 

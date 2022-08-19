@@ -6,13 +6,23 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Account and Upi</title>
-<style><%@include file="/WEB-INF/css/style.css"%></style>
+<style><%@include file="/WEB-INF/css/style.css"%>
+.table-size{
+border:2px;
+width:100;
+cellpadding:2px;}
+</style>
+
 </head>
 <body>
 <button style="font-size: 12px; background-color: #e7e7e7; color: black; float:left;" onclick="history.back()">Go Back</button>
 	<div id="root">
 		<div id="form">
-		<table border="2" width="100%" cellpadding="2">
+		<table class="table-size">
+		<caption></caption>		
+			<tr>
+			<th></th>
+			</tr>
 			<form:form action="" method="post" modelAttribute="customeraccount">
 				<div>
 					<label for="aadharNumber">Aadhar Number</label>

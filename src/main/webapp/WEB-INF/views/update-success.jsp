@@ -7,11 +7,15 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Customer</title>
-<style><%@include file="/WEB-INF/css/success.css"%></style>
+<style><%@include file="/WEB-INF/css/success.css"%>
+
+div{
+text-align:center
+}</style>
 </head>
 <body>
 <button style="font-size: 12px; background-color: #e7e7e7; color: black; float:left;" onclick="history.back()">Go Back</button>
-	<div align="center">
+	<div>
 		<h2>Customer Account Updated Successfully!</h2>
 		<span>Aadhar Number</span><span>${updatecustomeraccount.aadharNumber}</span><br />
 		<span>Account Number</span><span>${updatecustomeraccount.accountNumber}</span><br />

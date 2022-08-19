@@ -8,46 +8,45 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Add customer Account</title>
-<style><%@include file="/WEB-INF/css/style.css"%></style>
+<style>
+<%@include file="/WEB-INF/css/style.css"%>
+</style>
 </head>
 <body>
-<button style="font-size: 12px; background-color: #e7e7e7; color: black; float:left;" onclick="history.back()">Go Back</button>
-			<form:form action="addcustomeraccount" method="post"
-				modelAttribute="addcustomeraccount">
-				<div id="form" class="box">
-				<table>
-				<caption></caption>
-				<tr>
-				<th></th>
-				</tr>
-				
+	<button
+		style="font-size: 12px; background-color: #e7e7e7; color: black; float: left;"
+		onclick="history.back()">Go Back</button>
+	<form:form action="addcustomeraccount" method="post"
+		modelAttribute="addcustomeraccount">
+		<div id="form" class="box">
+			<table>
+				<caption></caption>		
+			<tr>
+			<th></th></tr>
 				<tbody>
-				<tr>
-					<td><label for="aadharNumber">AadharNumber</label></td>
-					<td>
-						<form:input path="aadharNumber" title="please enter your 12 digit aadhar number" maxlength="12" required="true"/>
-					</td>
-				</tr>
-				<form:errors path="aadharNumber" cssClass="text-danger" />
+					<tr>
+						<td><label for="aadharNumber">AadharNumber</label></td>
+						<td><form:input path="aadharNumber"
+								title="please enter your 12 digit aadhar number" maxlength="12"
+								required="true" /></td>
+					</tr>
+					<form:errors path="aadharNumber" cssClass="text-danger" />
 
-				<tr>
-					<td><label for="accountType">Account Type</label></td>
-					<td>
-						<form:input path="accountType" value="savings" readonly="readonly" required="true"/>
-					</td>
-				</tr>
-				<form:errors path="accountType" cssClass="text-danger" />
-				<tr>
-					<td><label for="dateOfOpening">Date Of Opening</label></td>
-					<td>
-						<form:input path="dateOfOpening" type="date" />
-					</td>
-				</tr>
-				
-</tbody>
-</table>
-<form:button>Create Account</form:button>
-</div>
-</form:form>
+					<tr>
+						<td><label for="accountType">Account Type</label></td>
+						<td><form:input path="accountType" value="savings"
+								readonly="readonly" required="true" /></td>
+					</tr>
+					<form:errors path="accountType" cssClass="text-danger" />
+					<tr>
+						<td><label for="dateOfOpening">Date Of Opening</label></td>
+						<td><form:input path="dateOfOpening" type="date" /></td>
+					</tr>
+
+				</tbody>
+			</table>
+			<form:button>Create Account</form:button>
+		</div>
+	</form:form>
 </body>
 </html>

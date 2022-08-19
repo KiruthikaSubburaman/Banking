@@ -16,10 +16,13 @@ body {
 	background-size: cover;
 	position: relative;
 }
+div{
+text-align:center
+}
 </style>
 </head>
 <body>
-	<div text-align="center">
+	<div>
 		<div>
 			<h1>Upi Creation</h1>
 		</div>

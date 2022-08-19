@@ -8,6 +8,9 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
+div{
+text-align="center"
+}
 body {
 	background-image:
 		url("https://img.freepik.com/premium-vector/banking-business-banner-finance-savings-silhouette-city-background_48369-11851.jpg?w=2000");
@@ -87,7 +90,7 @@ h1 {
 </style>
 </head>
 <body>
-	<h1 align="center">Welcome</h1>
+	<h1>Welcome</h1>
 
 	<div class="navbar">
 		<div class="dropdown">
@@ -103,7 +106,7 @@ h1 {
 
 		<div class="dropdown">
 			<button class="dropbtn">
-				Account <i class="fa fa-caret-down"></i>
+				Account <em class="fa fa-caret-down"></em>
 			</button>
 			<div class="dropdown-content">
 				<a href="/customeraccount/findaccount">view Account</a>
@@ -112,7 +115,7 @@ h1 {
 
 		<div class="dropdown">
 			<button class="dropbtn">
-				UPI <i class="fa fa-caret-down"></i>
+				UPI <em class="fa fa-caret-down"></em>
 			</button>
 			<div class="dropdown-content">
 				<a href="/upicreation/addupiform">Create New Pin</a> <a
@@ -122,7 +125,7 @@ h1 {
 
 		<div class="dropdown">
 			<button class="dropbtn">
-				Transaction <i class="fa fa-caret-down"></i>
+				Transaction <em class="fa fa-caret-down"></em>
 			</button>
 			<div class="dropdown-content">
 				<a href="/transactiondetails/addtransactionform">New Transaction</a> 

@@ -337,8 +337,8 @@ style
 						Your Account</a> it takes less than a minute
 				</p>
 				<div class="inputs">
-					<input type="text" name="email" placeholder="Email" onblur="EmailCheck" required> <br>
-					<input type="password" name="aadharNumber" placeholder="Aadhar Number" onblur="userpasswordCheck" required>
+					<input type="text" name="email" placeholder="Email" id="email" onblur="EmailCheck();" required> <br>
+					<input type="password" name="aadharNumber" placeholder="Aadhar Number" id="aadharNumber" onblur="userpasswordCheck();" required>
 				</div>
 				<input type="submit" name="" value="login">
 			</form>

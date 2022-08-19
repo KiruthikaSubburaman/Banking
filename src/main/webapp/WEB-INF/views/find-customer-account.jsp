@@ -16,6 +16,10 @@
 				modelAttribute="findcustomeraccount">
 				<div id="form" class="box">
 				<table>
+					<caption></caption>		
+			<tr>
+			<th></th>
+			</tr>
 				<tbody>
 				<tr>
 					<td><label for="aadharNumber">AadharNumber</label></td>

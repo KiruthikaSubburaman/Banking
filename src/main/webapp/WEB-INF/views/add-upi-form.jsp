@@ -17,6 +17,10 @@
 	<form:form action="addupi" method="post" modelAttribute="addupi">
 		<div id="form" class="box">
 			<table>
+			<caption></caption>		
+			<tr>
+			<th></th>
+			</tr>
 				<tbody>
 
 					<tr>

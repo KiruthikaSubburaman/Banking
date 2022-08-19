@@ -12,6 +12,10 @@
     <form action="/transactiondetails/updatetransactionform" method="get">
         <div id="form" class="box">
     <table>
+    <caption></caption>		
+			<tr>
+			<th></th>
+			</tr>
     <tbody>
         <tr>
         <td><label>Enter Transaction Number</label></td> 

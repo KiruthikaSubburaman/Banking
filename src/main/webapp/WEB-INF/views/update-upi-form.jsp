@@ -27,14 +27,12 @@
 					<td>
 						<form:input path="accountNumber" /></td>
 				</tr>
-				<%-- 	<form:errors path="accountNumber" cssClass="text-danger" /> --%>
 				<tr>
 					<td><label for="createNewPIN">Create New PIN</label></td>
 					<td>
 						<form:input path="createNewPIN" /></td>
 					</tr>
 				
-				<%-- <form:errors path="createNewPIN" cssClass="text-danger" /> --%>
 				<tr>
 					<td><label for="pinCreatedDate">pinCreatedDate</label></td>
 					<td>
@@ -47,7 +45,7 @@
 				<form:button>Update UPI </form:button>
 			
 				
-				<%-- <form:errors path="pinCreatedDate" cssClass="text-danger" /> --%>
+				
 		</div>
 		</form:form>			
 </body>

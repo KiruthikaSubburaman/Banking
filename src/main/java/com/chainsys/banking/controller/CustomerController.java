@@ -61,7 +61,7 @@ public class CustomerController {
 	}
 
 	@PostMapping("/updatecustomer")
-	public String UpdateCustomers(@Valid @ModelAttribute("updatecustomer") Customer customer, Errors errors) {
+	public String updateCustomers(@Valid @ModelAttribute("updatecustomer") Customer customer, Errors errors) {
 		if (errors.hasErrors()) {
 			return "update-customer-form";
 		}
@@ -97,7 +97,7 @@ public class CustomerController {
 	}
 
 	@GetMapping("/customerpage")
-	public String CustomerLogin(Model model) {
+	public String customerLogin(Model model) {
 		Customer customer = new Customer();
 		model.addAttribute("login", customer);
 		return "customer-login-form";

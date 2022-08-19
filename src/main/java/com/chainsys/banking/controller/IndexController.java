@@ -13,7 +13,7 @@ public class IndexController {
 		return "index";
 	}
 	@GetMapping("/customeruse")
-	public String CustomerView(Model model) {
+	public String customerView(Model model) {
 		return "logindemo";
 	}
 	@GetMapping("/hello")

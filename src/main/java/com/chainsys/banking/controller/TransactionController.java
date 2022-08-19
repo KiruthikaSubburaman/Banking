@@ -51,7 +51,7 @@ public class TransactionController {
 		}
 		CustomerAccount customerAccount=customerAccountService.findByAccountNumber(transaction.getAccountNumber());
 		customerAccount.setCurrentBalance(customerAccount.getCurrentBalance()+transaction.getDepositAmount());
-		if(customerAccount.getCurrentBalance()<transaction.getWithdrawalAmount()) {
+		if(customerAccount.getCurrentBalance()<(transaction.getWithdrawalAmount()+3000)) {
 			return "error-page";
 		}
 		customerAccount.setCurrentBalance(customerAccount.getCurrentBalance()-transaction.getWithdrawalAmount());
@@ -75,7 +75,7 @@ public class TransactionController {
 	}
 
 	@PostMapping("/updatetransaction")
-	public String UpdateTransactions(@Valid@ModelAttribute("updatetransaction") Transaction transaction,Errors errors) {
+	public String updateTransactions(@Valid@ModelAttribute("updatetransaction") Transaction transaction,Errors errors) {
 		if (errors.hasErrors()) {
 			return "update-transaction-form";
 		}
@@ -85,7 +85,6 @@ public class TransactionController {
 
 	@GetMapping("/deletetransaction")
 	public String deleteTransaction(@RequestParam("transactionnumber") long number) {
-		Transaction transaction = transactionService.findBytransactionNumber(number);
 		transactionService.deleteByTransactionNumber(number);
 		return "redirect:/transactiondetails/transactionlist";
 	}

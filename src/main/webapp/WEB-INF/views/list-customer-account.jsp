@@ -8,12 +8,18 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>customer Account List</title>
-<style><%@include file="/WEB-INF/css/style.css"%></style>
+<style><%@include file="/WEB-INF/css/style.css"%>
+.table-size{
+border:2px;
+width:100;
+cellpadding:2px;}</style>
 </head>
 <body>
 <button style="font-size: 12px; background-color: #e7e7e7; color: black; float:left;" onclick="history.back()">Go Back</button>
 	<div id="table root">
-		<table border="2" width="100%" cellpadding="2">
+		<table class="table-size">
+		<caption></caption>		
+			
 			<thead>
 				<tr>
 					<th>Aadhar Number</th>

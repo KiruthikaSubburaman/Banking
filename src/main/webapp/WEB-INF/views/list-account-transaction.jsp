@@ -13,7 +13,10 @@
 
 		<div id="form">
 		<table class="styled-table">
-		<caption></caption>
+		<caption></caption>		
+			<tr>
+			<th></th>
+			</tr>
 				<form:form action="getaccounttransactions" method="post"
 					modelAttribute="accountdetails">
 					<div>

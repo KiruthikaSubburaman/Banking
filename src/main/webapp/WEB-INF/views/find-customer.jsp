@@ -15,6 +15,10 @@
 			<form:form action="" method="get" modelAttribute="findcustomer">
 				<div id="form" class="box">
 				<table>
+					<caption></caption>		
+			<tr>
+			<th></th>
+			</tr>
 				<tbody>
 				<tr>
 					<td><label for="customerName">Customer Name</label></td>

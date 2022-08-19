@@ -63,7 +63,7 @@ public class UpiCreationController {
 	}
 
 	@PostMapping("/updateupi")
-	public String UpdateUpi(@Valid@ModelAttribute("updateupi") UpiCreation upi,Errors errors) {
+	public String updateUpi(@Valid@ModelAttribute("updateupi") UpiCreation upi,Errors errors) {
 		if (errors.hasErrors()) {
 			return "update-upi-form";
 		}
