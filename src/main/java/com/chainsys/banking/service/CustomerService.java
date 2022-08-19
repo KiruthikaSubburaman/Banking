@@ -22,8 +22,7 @@ public class CustomerService {
 	private CustomerAccountRepository customerAccountRepository;
 
 	public List<Customer> getCustomers() {
-		List<Customer> Customer = customerRepository.findAll();
-		return Customer;
+		return customerRepository.findAll();
 	}
 
 	public Customer save(Customer customer) {

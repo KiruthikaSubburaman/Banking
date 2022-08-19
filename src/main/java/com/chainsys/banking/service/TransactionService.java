@@ -17,8 +17,7 @@ public class TransactionService {
 	private TransactionRepository transactionrepo;
 
 	public List<Transaction> getTransactions() {
-		List<Transaction> listTransaction = transactionrepo.findAll();
-		return listTransaction;
+		return transactionrepo.findAll();
 	}
 
 	public Transaction save(Transaction transaction) {

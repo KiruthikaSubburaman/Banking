@@ -26,8 +26,7 @@ public class CustomerAccountService {
 	UpiCreationRepository upiCreationRepository;
 
 	public List<CustomerAccount> customerAccountList() {
-		List<CustomerAccount> listCustomer = customerAccountRepository.findAll();
-		return listCustomer;
+		return customerAccountRepository.findAll();
 	}
 
 	public CustomerAccount save(CustomerAccount customerAccount) {
@@ -53,7 +52,7 @@ public class CustomerAccountService {
 		List<Transaction> trans = transactionRepository.findByaccountNumber(number);
 		Iterator<Transaction> itr = trans.iterator();
 		while (itr.hasNext()) {
-			dto.addTransactions((Transaction) itr.next());
+			dto.addTransactions(itr.next());
 		}
 		return dto;
 	}

@@ -16,8 +16,7 @@ public class UpiCreationService {
 	private UpiCreationRepository upiRepository;
 
 	public List<UpiCreation> getUpiList() {
-		List<UpiCreation> upi = upiRepository.findAll();
-		return upi;
+		return upiRepository.findAll();
 	}
 
 	public UpiCreation save(UpiCreation upi) {
