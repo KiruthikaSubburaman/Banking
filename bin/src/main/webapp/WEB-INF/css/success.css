@@ -1,0 +1,16 @@
+@charset "ISO-8859-1";
+body {
+	background-image:
+		url("https://www.asianpaints.com/content/dam/asian_paints/colours/swatches/7844.png.transform/cc-width-720-height-540/image.png");
+	height: 768px;
+	width: 1366px;
+	background-position: center top;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+}
+span{
+    text-align:left;
+    display:block;
+    margin-left:50px;
+}
