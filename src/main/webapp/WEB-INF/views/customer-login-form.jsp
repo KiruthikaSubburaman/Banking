@@ -6,38 +6,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Login Page in HTML with CSS Code Example</title>
-<script type="text/javascript">
-
-var EmailCheck = function() {
-    if(document.myForm.email.value == ""){
-        
-        if(alert("Email Id cannot be empty")){
-            document.myForm.email.focus();
-        }
-        else
-            document.activeElement.blur();
-            
-    }
-    else{
-        return false;
-    } 
-}
-var userpasswordCheck = function() {
- 
-     if(!document.myForm.aadharNumber.value==""){
-            if(alert("Aadhar Number cannot be empty")){ 
-                 document.myForm.aadharNumber.focus();
-            }
-            else
-                document.activeElement.blur();
-        }
-   else{
-       return false;
-   } 
-  
-}
-</script>
+<title>Login Page</title>
 <style type="text/css">
 body {
 	background-image: linear-gradient(135deg, #FAB2FF 10%, #1904E5 100%);
@@ -223,102 +192,182 @@ label input[type="checkbox"] {
 }
 <
 link
+
  
+
 href
+
  
+
 ="
 https
+
+
 :
 //
+
+
 fonts
+
+
 .googleapis
+
+
 .com
 /
+
+
 css
+
  
+
 ?
 family
+
  
+
 =
 Open
 +
 Sans
+
  
+
 "
 rel
+
+
 ="
 stylesheet
+
  
+
 ">
 <
 link
+
  
+
 href
+
  
+
 ="
 https
+
+
 :
 //
+
+
 maxcdn
+
+
 .bootstrapcdn
+
+
 .com
 /
+
+
 font-awesome
 /
+
+
 4
+
+
 .7
+
+
 .0
 /
+
+
 css
 /
+
+
 font-awesome
+
+
 .min
+
+
 .css
+
  
+
 "
 rel
+
  
+
 ="
 stylesheet
+
  
+
 "
 integrity
+
  
+
 ="
 sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE
 +
 QkPxCAFlNEevoEH3Sl0sibVcOQVnN
 
+
 	
+
 "
 crossorigin
+
  
+
 ="
 anonymous
+
  
+
 ">
 <
 link
+
  
+
 rel
+
  
+
 ="
 stylesheet
+
  
+
 "
 href
+
  
+
 ="./
 style
+
+
 .css
 
+
 	
+
 ">
 </style>
 
 </head>
 <body>
-<button style="font-size: 12px; background-color: #e7e7e7; color: black;" onclick="history.back()">Go Back</button>
+	<button
+		style="font-size: 12px; background-color: #e7e7e7; color: black;"
+		onclick="history.back()">Go Back</button>
 	<!-- partial:index.partial.html -->
 	<div class="box-form">
 		<div class="left">
@@ -331,31 +380,24 @@ style
 
 		<div class="right">
 			<h5>Login</h5>
-			<form action="customerindex" name="myForm">
+			<form:form action="customerlogin" modelAttribute="login:"
+				name="myForm">
 				<p>
-					Don't have an account? <a href="/customer/addcustomerform">Create
-						Your Account</a> it takes less than a minute
+					Don't have an account? <a href="/customer/addcustomerform">Create Your Account</a>
 				</p>
 				<div class="inputs">
-					<input type="text" name="email" placeholder="Email" id="email" onblur="EmailCheck();" required> <br>
-					<input type="password" name="aadharNumber" placeholder="Aadhar Number" id="aadharNumber" onblur="userpasswordCheck();" required>
+					<input type="text" name="email" placeholder="Email" id="email"
+						pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
+						title="enter valid email" required="true"> <br> <input
+						type="password" name="aadharNumber" placeholder="Aadhar Number"
+						id="aadharNumber" title="please enter your 12 digit aadhar number"
+						maxlength="12" pattern="^[0-9]+$" required="true">
 				</div>
 				<input type="submit" name="" value="login">
-			</form>
-			<br> <br>
-
-			<div class="remember-me--forget-password">
-				<label> <input type="checkbox" name="item" checked /> <span
-					class="text-checkbox">Remember me</span>
-				</label>
-				<p>forget password?</p>
-			</div>
-
-			<br>
-
+			</form:form>
+			<div class="message">${result}</div>
 		</div>
-
 	</div>
-
+	
 </body>
 </html>

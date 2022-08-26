@@ -96,6 +96,11 @@ public class TransactionController {
 	public String findTransaction(@RequestParam("transactionNumber") long number, Model model) {
 		Transaction transaction = transactionService.findBytransactionNumber(number);
 		model.addAttribute("findtransaction", transaction);
+		if(transaction!=null) {
 		return "find-transaction";
+	}else {
+		model.addAttribute("message", "TransactionNumber Not Found");
+		return "find-trans-button";
 	}
+}
 }

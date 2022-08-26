@@ -8,12 +8,15 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Transaction List</title>
-<style><%@include file="/WEB-INF/css/button.css"%></style>
+<style><%@include file="/WEB-INF/css/tablestyle.css"%></style>
 </head>
 <body>
 	<div id="table root">
 		<table class="styled-table">
 		<caption></caption>
+		<colgroup>
+                <col span="11" style="background-color: #FFFFE0">
+            </colgroup>
 			<thead>
 				<tr>
 					<th>Account Number</th>

@@ -11,8 +11,9 @@
 <button style="font-size: 12px; background-color: #e7e7e7; color: black; float:left;" onclick="history.back()">Go Back</button>
 	<br>
 	<form action="/customeraccount/getaccounttransactions" method="get">
-		<div id="form" class="box">
-    <table>
+<div class="form"> 
+ <div class="box"> 
+  <table>
     <caption></caption>		
 			<tr>
 			<th></th>
@@ -21,12 +22,13 @@
         <tr>
         <td><label>Enter Account Number</label></td> 
       <td>  <input type="text"
-            placeholder="Account Number" name="accountNumber"> </td>
+            placeholder="Account Number" name="accountNumber" maxlength="12" required="true" > </td>
             </tr>
  <tr>   <td>  <input type='submit' value="Find" name="submit"></td>
       </tr>
       </tbody>
       </table>
+      </div>
       </div>
     </form>
 </body>

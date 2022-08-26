@@ -16,17 +16,14 @@ public class IndexController {
 	public String customerView(Model model) {
 		return "logindemo";
 	}
-	@GetMapping("/hello")
-	public String getImage(Model model) {
-		return "mainindex";
-	}
-	@GetMapping("/kiki")
+	
+	@GetMapping("/homepage")
 	public String getDemo(Model model) {
-		return "Demo";
+		return "main";
 	}
-	@GetMapping("/mainpage")
-	public String getHome(Model model) {
-		return "Home";
+	@GetMapping("/homelogin")
+	public String getLogin(Model model) {
+		return "logins";
 	}
 	
 

@@ -13,9 +13,10 @@
 </style>
 </head>
 <body>
-<button style="font-size: 12px; background-color: #e7e7e7; color: black; float:left; margin-top:-46px;" onclick="history.back()">Go Back</button>
+<button style="font-size: 12px; background-color: #e7e7e7; color: black; float:left;" onclick="history.back()">Go Back</button>
 	<form:form action="addupi" method="post" modelAttribute="addupi">
-		<div id="form" class="box">
+		<div class="form">
+			<div class="box">
 			<table>
 			<caption></caption>		
 			<tr>
@@ -24,13 +25,13 @@
 				<tbody>
 
 					<tr>
-						<td><label for="accountNumber">Account Number</label></td>
+						<td><label class="mandatory" for="accountNumber">Account Number</label></td>
 						<td><form:input path="accountNumber" required="true"
 								maxlength="15" title="Enter your account number" /></td>
 					</tr>
 					<form:errors path="accountNumber" cssClass="text-danger" />
 					<tr>
-						<td><label for="createNewPIN">Create New PIN</label></td>
+						<td><label class="mandatory" for="createNewPIN">Create New PIN</label></td>
 						<td><form:input path="createNewPIN" pattern="^\\d{6}$" title="pin must be number" required="true"
 								maxlength="6" /></td>
 					</tr>
@@ -43,11 +44,12 @@
 
 				</tbody>
 			</table>
-			<button onclick="document.location='/upicreation/findpin'">Create
-				a 6 digit upi pin</button>
+			<form:button>Create Pin</form:button>
+            <div class="message">${result}</div>
 
 
 			
+		</div>
 		</div>
 	</form:form>
 </body>

@@ -10,8 +10,8 @@
 <body>
 <button style="font-size: 12px; background-color: #e7e7e7; color: black; float:left;" onclick="history.back()">Go Back</button>
     <form action="/customeraccount/updatecustomeraccountform" method="get">
-        <div id="form" class="box">
-    <table>
+<div class="form">
+ <div class="box">    <table>
     <caption></caption>		
 			<tr>
 			<th></th>
@@ -26,6 +26,7 @@
       </tr>
       </tbody>
       </table>
+      </div>
       </div>
     </form>
 </body>

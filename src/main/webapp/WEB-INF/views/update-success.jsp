@@ -15,14 +15,15 @@ text-align:center
 </head>
 <body>
 <button style="font-size: 12px; background-color: #e7e7e7; color: black; float:left;" onclick="history.back()">Go Back</button>
-	<div>
+	<div class="form">
+	 <div class="box">
 		<h2>Customer Account Updated Successfully!</h2>
 		<span>Aadhar Number</span><span>${updatecustomeraccount.aadharNumber}</span><br />
 		<span>Account Number</span><span>${updatecustomeraccount.accountNumber}</span><br />
 		<span>Account Type</span><span>${updatecustomeraccount.accountType}</span><br />
 		<span>Date Of Opening</span><span>${updatecustomeraccount.dateOfOpening}</span><br />
 
-		
+		</div>
 	</div>
 </body>
 </html>

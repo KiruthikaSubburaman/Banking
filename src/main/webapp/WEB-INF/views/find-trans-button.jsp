@@ -8,12 +8,24 @@
 <style><%@include file="/WEB-INF/css/style.css"%></style>
 </head>
 <body>
-<button style="font-size: 12px; background-color: #e7e7e7; color: black float:left;;" onclick="history.back()">Go Back</button>
-    <form action="/transactiondetails/findtransaction" method="get"
-        style="text-align:center ;margin-top:5%;">
-        <label>Enter Transaction Number</label> <input type="text"
-            placeholder="Transaction Number" name="transactionNumber"> 
-      <input type='submit' value="Find" name="submit">
+<button style="font-size: 12px; background-color: #e7e7e7; color: black; float:left;" onclick="history.back()">Go Back</button>
+    <form action="/transactiondetails/findtransaction" method="get">
+    <div class="form">
+     <div class="box">
+    <table>
+    <caption></caption>
+    <tr>
+    <td></td>
+    </tr>
+    <tbody>
+      <tr><td>  <label>Enter Transaction Number</label></td><td> <input type="text"
+            placeholder="Transaction Number" name="transactionNumber"> </td>
+    <td>  <input type='submit' value="Find" name="submit"></td>
+    </tr>
+      </tbody>
+      </table>
+      </div>
+      </div>
     </form>
 </body>
 </html>

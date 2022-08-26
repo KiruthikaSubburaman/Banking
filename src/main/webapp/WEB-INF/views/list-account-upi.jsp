@@ -18,6 +18,7 @@ cellpadding:2px;}
 <button style="font-size: 12px; background-color: #e7e7e7; color: black; float:left;" onclick="history.back()">Go Back</button>
 	<div id="root">
 		<div id="form">
+		 <div class="box">
 		<table class="table-size">
 		<caption></caption>		
 			<tr>
@@ -92,6 +93,7 @@ cellpadding:2px;}
 					</div>
 				</div>
 			</form:form>
+		</div>
 		</div>
 	</div>
 </body>

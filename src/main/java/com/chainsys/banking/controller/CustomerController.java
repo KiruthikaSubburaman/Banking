@@ -1,7 +1,10 @@
 package com.chainsys.banking.controller;
 
+import java.net.http.HttpRequest;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.chainsys.banking.exceptionhandler.InvalidInputDataException;
 import com.chainsys.banking.model.Customer;
 import com.chainsys.banking.model.CustomerAndAccountDto;
 import com.chainsys.banking.service.CustomerService;
@@ -51,22 +55,38 @@ public class CustomerController {
 	@GetMapping("/updatecustomerbyaadhar")
 	public String showUpdateForm() {
 		return "update-customer-button";
+		
 	}
 
 	@GetMapping("/updatecustomerform")
-	public String showUpdateCustomerForm(long aadharNumber, Model model) {
+	public String showUpdateCustomerForm( Model model,HttpServletRequest request) {
+		HttpSession session = request.getSession();
+        long aadharNumber = (long) session.getAttribute("aadharNumber");
 		Customer customer = customerService.findByAadharNumber(aadharNumber);
 		model.addAttribute("updatecustomer", customer);
-		return "update-customer-form";
+		if(customer!=null) {
+			return  "update-customer-form";
+		}else {
+			model.addAttribute("result", "Id Not Found");
+		
+		return  "update-customer-button";
+		}
 	}
 
 	@PostMapping("/updatecustomer")
-	public String updateCustomers(@Valid @ModelAttribute("updatecustomer") Customer customer, Errors errors) {
-		if (errors.hasErrors()) {
+	public String updateCustomers(@Valid @ModelAttribute("updatecustomer") Customer customer, Errors errors,Model model) {
+		try{
+			if (errors.hasErrors()) {
+		
 			return "update-customer-form";
 		}
 		customerService.save(customer);
-		return "update-customer-success";
+		model.addAttribute("result", "Successfully Updated");
+		return "update-customer-form";}
+	catch(Exception er) {
+		model.addAttribute("result", "Failed To Update");
+		return "update-customer-form";
+	}
 	}
 
 	@GetMapping("/deletecustomer")
@@ -82,7 +102,13 @@ public class CustomerController {
 	public String findCustomerByAadhar(@RequestParam("aadharNumber") long aadharNumber, Model model) {
 		Customer cus = customerService.findByAadharNumber(aadharNumber);
 		model.addAttribute("findcustomer", cus);
-		return "find-customer";
+		if(cus!=null) {
+			return  "find-customer";
+		}else {
+			model.addAttribute("message", "Id Not Found");
+		
+		return  "find-customer-button";
+		}
 	}
 	@GetMapping("/getcustomeracc")
 	public String showAccForm() {
@@ -104,13 +130,18 @@ public class CustomerController {
 	}
 
 	@PostMapping("/customerlogin")
-	public String checkingAccess(@ModelAttribute("login") Customer cus) {
-		Customer customer = customerService.getAadharNumberAndEmail(cus.getAadharNumber(), cus.getEmail());
+	public String checkingAccess(@ModelAttribute("login") Customer cus,HttpSession session,Model model) {
+		Customer customer = customerService.getEmailAndAadharNumber(cus.getEmail(), cus.getAadharNumber());
 		if (customer != null) {
+			session.setAttribute("aadharNumber", customer.getAadharNumber());
 			return "redirect:/customer/customerindex";
-		} else
+		} else {
+			model.addAttribute("result", "Please enter valid email and aadhar number");
+		}
 			return "invalid customer error";
 	}
+
+
 
 	@GetMapping("/customerindex")
 	public String customerReg() {
@@ -130,6 +161,10 @@ public class CustomerController {
 	@GetMapping("transactionuses")
 	public String transaction() {
 		return "Transaction";
+	}
+	@GetMapping("error")
+	public String customerError() {
+		return "customersubmission";
 	}
 
 }

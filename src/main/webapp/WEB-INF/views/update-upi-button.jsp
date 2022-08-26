@@ -11,7 +11,8 @@
 <button style="font-size: 12px; background-color: #e7e7e7; color: black; float:left;" onclick="history.back()">Go Back</button>
 	<br>
 	<form action="/upicreation/updateupiform" method="get">
-		<div id="form" class="box">
+	<div class="form">
+	 <div class="box">
     <table>
     <caption></caption>		
 			<tr>
@@ -28,6 +29,8 @@
       </tbody>
       </table>
       </div>
+      </div>
+      <div class="message">${result}</div>
     </form>
 </body>
 </html>

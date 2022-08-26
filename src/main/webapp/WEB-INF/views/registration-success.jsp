@@ -9,13 +9,15 @@
 <title>Customer</title>
 <style><%@include file="/WEB-INF/css/success.css"%>
 div{
-text-align="center"
+text-align:center
 }</style>
 </head>
 <body>
 <button style="font-size: 12px; background-color: #e7e7e7; color: black; float:left;" onclick="history.back()">Go Back</button>
      <div>
-     <h2>Registration successful!</h2>
+      <div class="box">
+     
+      <div><h1>Registration successful!</h1></div>
 	<span>Customer Name</span><span>${addcustomer.customerName}</span><br/>
 	<span>FatherName</span><span>${addcustomer.fatherName}</span><br/>
 	<span>Gender</span><span>${addcustomer.gender}</span><br/>
@@ -28,8 +30,11 @@ text-align="center"
 	<span>MobileNumber</span><span>${addcustomer.mobileNumber}</span><br/>
 	<span>Email</span><span>${addcustomer.email}</span><br/>
 	
-	<button onclick="document.location='/customeraccount/addcustomeraccountform'">Create
-				account</button>
+	<div><button onclick="document.location='/customeraccount/addcustomeraccountform'">Create
+				account</button></div>
+				
 	</div>
+	</div>
+	
 </body>
 </html>

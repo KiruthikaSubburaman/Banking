@@ -8,18 +8,15 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>customer List</title>
-<style><%@include file="/WEB-INF/css/style.css"%>
-.table-size{
-border:2px;
-width:100;
-cellpadding:2px;}
-</style>
+<style><%@include file="/WEB-INF/css/tablestyle.css"%></style>
 </head>
 <body>
-	<div id="table root">
-		<table class="table-size">
+	<div class="table root">
+		<table class="styled-table">
 		<caption></caption>		
-			
+			<colgroup>
+                <col span="11" style="background-color: #FFFFE0">
+            </colgroup>
 			<thead>
 				<tr>
 					<th>customerName</th>
@@ -56,5 +53,6 @@ cellpadding:2px;}
 			</tbody>
 		</table>
 	</div>
+	<button style="font-size: 12px; background-color: #e7e7e7; color: black; float:left;" onclick="history.back()">Go Back</button>
 </body>
 </html>

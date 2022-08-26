@@ -44,12 +44,20 @@ public class UpiCreationController {
 	}
 
 	@PostMapping("/addupi")
-	public String addNewUpi(@Valid@ModelAttribute("addupi") UpiCreation upi,Errors errors) {
-		if (errors.hasErrors()) {
+	public String addNewUpi(@Valid@ModelAttribute("addupi") UpiCreation upi,Errors errors,Model model) {
+		try{
+			if (errors.hasErrors()) {
+		
 			return "add-upi-form";
 		}
+			
 		upiService.save(upi);
-	 return "upisuccess";
+		model.addAttribute("result", "Upi Created Successfully");
+	 return "add-upi-form";
+	}catch(Exception er) {
+		model.addAttribute("result", "Failed to Create");
+		return "add-upi-form";
+	}
 	}
 	@GetMapping("/updatepin")
 	public String showUpdateForm() {
@@ -59,16 +67,30 @@ public class UpiCreationController {
 	public String showUpdateForm(@Valid@RequestParam("accountNumber") long number, Model model) {
 		UpiCreation upi = upiService.findByAccountNumber(number);
 		model.addAttribute("updateupi", upi);
-		return "update-upi-form";
+		if(upi!=null) {
+			return  "update-upi-form";
+		}else {
+			model.addAttribute("result", "Account number Not Found");
+		
+		return  "update-upi-button";
+		}
 	}
 
 	@PostMapping("/updateupi")
-	public String updateUpi(@Valid@ModelAttribute("updateupi") UpiCreation upi,Errors errors) {
-		if (errors.hasErrors()) {
+	public String updateUpi(@Valid@ModelAttribute("updateupi") UpiCreation upi,Errors errors,Model model) {
+		try{
+			if (errors.hasErrors()) {
+		
 			return "update-upi-form";
 		}
+			
 		upiService.save(upi);
-		return "redirect:/upicreation/findupi?accountNumber=";
+		model.addAttribute("result", "Upi changed Successfully");
+	 return "update-upi-form";
+	}catch(Exception er) {
+		model.addAttribute("result", "Failed to change Pin");
+		return "update-upi-form";
+	}
 	}
 
 	@GetMapping("/deleteupi")

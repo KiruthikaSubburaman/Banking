@@ -15,9 +15,10 @@ text-align:center
 <body>
 <button style="font-size: 12px; background-color: #e7e7e7; color: black; float:left; margin-right:480px;" onclick="history.back()">Go Back</button>
      <div>
+      <div class="box">
      <h2>UPI Pin created successfully!</h2>
 	
-	
+	</div>
 	</div>
 </body>
 </html>

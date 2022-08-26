@@ -13,7 +13,7 @@
 <body>
 <button style="font-size: 12px; background-color: #e7e7e7; color: black; float:left;" onclick="history.back()">Go Back</button>
 			<form:form action="" method="get" modelAttribute="findcustomer">
-				<div id="form" class="box">
+				<div class="form">	
 				<table>
 					<caption></caption>		
 			<tr>
@@ -23,21 +23,21 @@
 				<tr>
 					<td><label for="customerName">Customer Name</label></td>
                 <td>
-					<form:input path="customerName" />
+					<form:input path="customerName" readonly="true" />
                 </td>
 				</tr>
 				<form:errors path="customerName" cssClass="text-danger" />
 				<tr>
 					<td><label for="fatherName">Father Name</label></td>
 					<td>
-					<form:input path="fatherName" />
+					<form:input path="fatherName" readonly="true" />
 					</td>
 				</tr>
 				<form:errors path="fatherName" cssClass="text-danger" />
 				<tr>
 					<td><label for="gender">Gender</label></td>
 					<td>
-					<form:select path="gender" class="text-box">
+					<form:select path="gender" class="text-box" readonly="true">
                             <form:option value="Male">Male</form:option>
                             <form:option value="Female">Female</form:option>
                             <form:option value="Others">Others</form:option>
@@ -47,47 +47,40 @@
 				<tr>
 					<td><label for="dob">DOB</label></td>
 					<td>
-					<form:input path="dob" type="date" /></td>
+					<form:input path="dob" type="date" readonly="true"/></td>
 				</tr>
-				<%-- <form:errors path="dob" cssClass="text-danger" /> --%>
+				
 				<tr>
 					<td><label for="address">Address</label></td>
 					<td>
-					<form:input path="address" />
+					<form:input path="address" readonly="true"/>
 					</td>
 				</tr>
 				<form:errors path="address" cssClass="text-danger" />
 				<tr>
 					<td><label for="state">State</label></td>
-					<td><form:input path="state" value="TamilNadu" readonly="readonly" /></td>
+					<td><form:input path="state" value="TamilNadu" readonly="true" /></td>
 				</tr>
-				<form:errors path="state" cssClass="text-danger" value="TamilNadu"
-					readonly="readonly" />
 				<tr>
 					<td><label for="pinCode">Pin Code</label></td>
-					<td><form:input path="pinCode" maxlength="6" /></td>
+					<td><form:input path="pinCode" maxlength="6" readonly="true"/></td>
 				</tr>
-				<form:errors path="pinCode" cssClass="text-danger" />
 				<tr>
 					<td><label for="nationality">Nationality</label></td>
-					<td><form:input path="nationality" value="Indian" readonly="readonly" /></td>
+					<td><form:input path="nationality" value="Indian" readonly="true" /></td>
 				</tr>
-				<form:errors path="nationality" cssClass="text-danger" />
 				<tr>
 					<td><label for="aadharNumber">Aadhar Number</label></td>
-					<td><form:input path="aadharNumber" maxlength="12" /></td>
+					<td><form:input path="aadharNumber" maxlength="12" readonly="true"/></td>
 				</tr>
-				<form:errors path="aadharNumber" cssClass="text-danger" />
 				<tr>
 					<td><label for="mobileNumber">Mobile Number</label></td>
-					<td><form:input path="mobileNumber" maxlength="10" /></td>
+					<td><form:input path="mobileNumber" maxlength="10" readonly="true"/></td>
 				</tr>
-				<form:errors path="mobileNumber" cssClass="text-danger" />
 				<tr>
 					<td><label for="email">Email</label></td>
-					<td><form:input path="email" /></td>
+					<td><form:input path="email" readonly="true"/></td>
 				</tr>
-				<form:errors path="email" cssClass="text-danger" />
 
 </tbody>
 </table>

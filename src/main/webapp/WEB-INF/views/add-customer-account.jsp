@@ -18,14 +18,15 @@
 		onclick="history.back()">Go Back</button>
 	<form:form action="addcustomeraccount" method="post"
 		modelAttribute="addcustomeraccount">
-		<div id="form" class="box">
+		<div class="form">
+			<div class="box">
 			<table>
 				<caption></caption>		
 			<tr>
 			<th></th></tr>
 				<tbody>
 					<tr>
-						<td><label for="aadharNumber">AadharNumber</label></td>
+						<td><label class="mandatory" for="aadharNumber">AadharNumber</label></td>
 						<td><form:input path="aadharNumber"
 								title="please enter your 12 digit aadhar number" maxlength="12"
 								required="true" /></td>
@@ -39,13 +40,14 @@
 					</tr>
 					<form:errors path="accountType" cssClass="text-danger" />
 					<tr>
-						<td><label for="dateOfOpening">Date Of Opening</label></td>
+						<td><label class="mandatory" for="dateOfOpening">Date Of Opening</label></td>
 						<td><form:input path="dateOfOpening" type="date" /></td>
 					</tr>
 
 				</tbody>
 			</table>
 			<form:button>Create Account</form:button>
+		</div>
 		</div>
 	</form:form>
 </body>

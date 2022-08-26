@@ -7,47 +7,47 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Account and Transactions</title>
-<style><%@include file="/WEB-INF/css/button.css"%></style>
+<style><%@include file="/WEB-INF/css/dto.css"%></style>
 </head>
 <body>
-
-		<div id="form">
+<div class="form">
 		<table class="styled-table">
-		<caption></caption>		
+		<caption></caption>
+			
 			<tr>
 			<th></th>
 			</tr>
 				<form:form action="getaccounttransactions" method="post"
 					modelAttribute="accountdetails">
-					<div>
-						<label for="aadharNumber">AadharNumber</label>
-						<div>
-							<form:input path="aadharNumber" />
-						</div>
-					</div>
+					<tr>
+						<td><label for="aadharNumber">AadharNumber</label></td>
+						<td>
+							<form:input path="aadharNumber" readonly="true" />
+						</td>
+					</tr>
 					<form:errors path="aadharNumber" cssClass="text-danger" />
 
-					<div>
-						<label for="accountType">Account Type</label>
-						<div>
+					<tr>
+						<td><label for="accountType">Account Type</label></td>
+						<td>
 							<form:input path="accountType" value="savings"
 								readonly="readonly" />
-						</div>
-					</div>
+						</td>
+					</tr>
 					<form:errors path="accountType" cssClass="text-danger" />
-					<div>
-						<label for="dateOfOpening">Date Of Opening</label>
-						<div>
-							<form:input path="dateOfOpening" type="date" />
-						</div>
-					</div>
+					<tr>
+						<td><label for="dateOfOpening">Date Of Opening</label></td>
+						<td>
+							<form:input path="dateOfOpening" type="date" readonly="true" />
+						</td>
+					</tr>
 				</form:form>
 				</table>
-				</div>
 				</div>
 				<div id="root">
 					<table class="styled-table">
 					<caption></caption>
+					
 						<thead>
 							<tr>
 								<th>Account Number</th>
@@ -75,8 +75,9 @@
 							</c:forEach>
 						</tbody>
 					</table>
-					<button style="font-size: 12px; background-color: #e7e7e7; color: black ; float:left;" onclick="history.back()">Go Back</button>
+					
 				</div>
 				
+				<button style="font-size: 12px; background-color: #e7e7e7; color: black; float:left;" onclick="history.back()">Go Back</button>
 </body>
 </html>

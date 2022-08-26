@@ -15,6 +15,7 @@
 			<form:form action="updateupi" method="post"
 				modelAttribute="updateupi">
 				<div class="form">
+				 <div class="box">
 			<table>
 			<caption></caption>
 				<tr>
@@ -42,10 +43,10 @@
 			
 				</tbody>
 				</table>
-				<form:button>Update UPI </form:button>
-			
+				<form:button>Change Pin</form:button>
+            <div class="message">${result}</div>
 				
-				
+		</div>		
 		</div>
 		</form:form>			
 </body>

@@ -11,10 +11,10 @@
 <style><%@include file="/WEB-INF/css/style.css"%></style>
 </head>
 <body>
-<button style="font-size: 12px; background-color: #e7e7e7; color: black; float:left;" onclick="history.back()">Go Back</button>
 			<form:form action="" method="get"
 				modelAttribute="findcustomeraccount">
-				<div id="form" class="box">
+				<div class="form" >
+				<div class="box">
 				<table>
 					<caption></caption>		
 			<tr>
@@ -57,11 +57,9 @@
 				</tr> 
 </tbody>
 </table>
-			
-				
 	</div>
-	
+	</div>
 	</form:form>
-	
+	<div><button onclick="document.location='/customer/customerindex'">Back to Login</button></div>
 </body>
 </html>

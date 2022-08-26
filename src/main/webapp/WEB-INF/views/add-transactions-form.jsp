@@ -11,10 +11,11 @@
 <style><%@include file="/WEB-INF/css/style.css"%></style>
 </head>
 <body>
-<button style="font-size: 12px; background-color: #e7e7e7; color: black; float:left; margin-top:-46px;" onclick="history.back()">Go Back</button>
+<button style="font-size: 12px; background-color: #e7e7e7; color: black; float:left;" onclick="history.back()">Go Back</button>
 			<form:form action="addtransactiondetails" method="post"
 				modelAttribute="addtransaction">
-				<div id="form" class="box">
+<div class="form">
+	<div class="box">
 				<table>
 				<caption></caption>		
 			<tr>
@@ -24,16 +25,16 @@
 				<tr>
 				<td>	<label for="accountNumber">Account Number</label> </td>
 					
-					<td>	<form:input path="accountNumber" /> </td>
+					<td>	<form:input path="accountNumber" maxlength="12" required="true" /> </td>
 			</tr>
 					<tr>
 					<td><label for="transactionDate">Transaction Date</label> </td>
 					
-					<td>	<form:input path="transactionDate" type="date" /> </td>
+					<td>	<form:input path="transactionDate" type="date" required="true" /> </td>
 				</tr>
 					<tr>
 				<td>	<label for="transactionType">Transaction Type</label> </td>
-					<td>	<form:select path="transactionType" class="text-box">
+					<td>	<form:select path="transactionType" class="text-box" required="true">
                             <form:option value="deposit">Deposit</form:option>
                             <form:option value="withdraw">Withdraw</form:option>
                         </form:select> </td>
@@ -41,12 +42,12 @@
 					<tr>
 					<td><label for="depositAmount">Deposit Amount</label> </td>
 					
-					<td>	<form:input path="depositAmount" onchange='calculation("deposit")' /></td>
+					<td>	<form:input path="depositAmount" onchange='calculation("deposit")' required="true" /></td>
 				</tr>
 					<tr>
 				<td>	<label for="withdrawalAmount">Withdrawal Amount</label> </td>
 					<td>
-						<form:input path="withdrawalAmount" onchange='calculation("withdraw")'/>
+						<form:input path="withdrawalAmount" onchange='calculation("withdraw")' required="true"/>
 					</td>
 				</tr>
 					<tr>
@@ -61,7 +62,8 @@
 				</table>
 					<form:button>Add transaction</form:button>
 				</div>
+				</div>
 			</form:form>
-			<%-- <div>Current balance: ${balance}</div> --%>
+			
 </body>
 </html>

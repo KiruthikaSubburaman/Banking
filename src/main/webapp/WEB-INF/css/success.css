@@ -1,7 +1,7 @@
 @charset "ISO-8859-1";
 body {
 	background-image:
-		url("https://www.asianpaints.com/content/dam/asian_paints/colours/swatches/7844.png.transform/cc-width-720-height-540/image.png");
+		url(https://cdn.wallpapersafari.com/38/11/VOCQdG.jpg);
 	height: 768px;
 	width: 1366px;
 	background-position: center top;
@@ -13,4 +13,7 @@ span{
     text-align:left;
     display:block;
     margin-left:50px;
+    font-family: Garamond, Serif;
+    font-size: 20px;
+    color:#FFFAFA;
 }

@@ -9,12 +9,14 @@
 <meta charset="ISO-8859-1">
 <title>Update customer</title>
 <style><%@include file="/WEB-INF/css/style.css"%></style>
+
 </head>
 <body>
 <button style="font-size: 12px; background-color: #e7e7e7; color: black; float:left;" onclick="history.back()">Go Back</button>
 	<form:form action="updatecustomer" method="post"
 				modelAttribute="updatecustomer">
-				<div id="form" class="box">
+				<div class="form">
+				 <div class="box">
 				<table>
 				<caption></caption>
 				<tr>
@@ -77,7 +79,7 @@
 				<tr>
 					<td><label for="aadharNumber">Aadhar Number</label></td>
 					<td>
-					<form:input path="aadharNumber" pattern="^\d{4}\d{4}\d{4}$" maxlength="12" title=" Aadhaar must be 12 digit number" />
+					<form:input class="input-box" path="aadharNumber"  pattern="^\d{4}\d{4}\d{4}$" maxlength="12" title=" Aadhaar Can't be updated" readonly="true" />
 				</td>
 				<form:errors path="aadharNumber" cssClass="text-danger" />
 				<tr>
@@ -94,9 +96,13 @@
 				<form:errors path="email" cssClass="text-danger" />
 </tbody>
 </table>
+<form:button>Edit</form:button>
+ <div class="message">${result}</div>
+</div>
+</div>
 				
-					<form:button>Update Customer</form:button>
-					</div>
+					
+					
 			</form:form>
 </body>
 </html>

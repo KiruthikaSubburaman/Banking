@@ -15,7 +15,8 @@ text-align:center
 </head>
 <body>
 <button style="font-size: 12px; background-color: #e7e7e7; color: black; float:left;" onclick="history.back()">Go Back</button>
-     <div>
+    <div class="form">
+     <div class="box">
         <h2>Customer Details Updated Successfully!</h2>
     <span>Customer Name</span><span>${updatecustomer.customerName}</span><br/>
 	<span>FatherName</span><span>${updatecustomer.fatherName}</span><br/>
@@ -29,7 +30,7 @@ text-align:center
 	<span>MobileNumber</span><span>${updatecustomer.mobileNumber}</span><br/>
 	<span>Email</span><span>${updatecustomer.email}</span><br/>
 	
-	
+	</div>
 	
 	</div>
 </body>

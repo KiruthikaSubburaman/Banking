@@ -95,7 +95,14 @@ public class CustomerAccountController {
 	public String findCustomerAccount(@RequestParam("accountNumber") long accountNumber, Model model) {
 		CustomerAccount customerAccount = customerAccountService.findByAccountNumber(accountNumber);
 		model.addAttribute("findcustomeraccount", customerAccount);
-	 	return "find-customer-account";
+	 if(customerAccount!=null) {
+		 
+	 
+		return "find-customer-account";
+	}else {
+		model.addAttribute("message", "AccountNumber Not Found");
+		return "find-account-button";
+	}
 	}
 	@GetMapping("/getaccounttrans")
 	public String showAccForm() {
