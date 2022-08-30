@@ -33,6 +33,9 @@ public class CustomerService {
 	public Customer findByAadharNumber(long number) {
 		return customerRepository.findByAadharNumber(number);
 	}
+	public Customer findByEmail(String email) {
+		return customerRepository.findByEmail(email);
+	}
 
 	@Transactional
 	public void deleteByAadharNumber(long number) {

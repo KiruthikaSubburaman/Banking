@@ -7,6 +7,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Login Page</title>
+<link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style type="text/css">
 body {
 	background-image: linear-gradient(135deg, #FAB2FF 10%, #1904E5 100%);
@@ -365,9 +367,9 @@ style
 
 </head>
 <body>
-	<button
-		style="font-size: 12px; background-color: #e7e7e7; color: black;"
-		onclick="history.back()">Go Back</button>
+	<button id="btn" onclick="history.back()">
+            <span class="fa fa-home" style="font-size: 36px"></span>
+        </button>
 	<!-- partial:index.partial.html -->
 	<div class="box-form">
 		<div class="left">

@@ -10,6 +10,7 @@ import com.chainsys.banking.model.UpiCreation;
 @Repository
 public interface UpiCreationRepository extends CrudRepository<UpiCreation, Long> {
 	UpiCreation findByAccountNumber(long number);
+	UpiCreation findByEmail(String email);
 
 	UpiCreation save(UpiCreation upi);
 

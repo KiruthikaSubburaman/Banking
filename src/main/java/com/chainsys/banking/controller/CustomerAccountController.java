@@ -2,6 +2,8 @@ package com.chainsys.banking.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
 
@@ -64,8 +66,11 @@ public class CustomerAccountController {
 		return "update-account-button";
 	}
 	@GetMapping("/updatecustomeraccountform")
-	public String showupdateCustomerAccountForm(@RequestParam("accountNumber") long accountNumber, Model model) {
-		CustomerAccount customerAccount = customerAccountService.findByAccountNumber(accountNumber);
+	public String showupdateCustomerAccountForm(Model model,HttpServletRequest request)
+	{
+		HttpSession session = request.getSession();
+		String email = (String) session.getAttribute("email");
+		CustomerAccount customerAccount = customerAccountService.findByEmail(email);
 		model.addAttribute("updatecustomeraccount", customerAccount);
 		return "update-customer-account";
 	}
@@ -109,8 +114,10 @@ public class CustomerAccountController {
 		return "get-account-trans-button";
 	}
 	@GetMapping("/getaccounttransactions")
-	public String getAccountTransactions(@RequestParam("accountNumber") long number, Model model) {
-		AccountAndTransactionDto dto = customerAccountService.getAccountTransaction(number);
+	public String getAccountTransactions(Model model,HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		String email = (String) session.getAttribute("email");
+		AccountAndTransactionDto dto = customerAccountService.getAccountTransaction(email);
 		model.addAttribute("accountdetails", dto.getCustomerAccount());
 		model.addAttribute("transactionlist", dto.getTransaction());
 		return "list-account-transaction";

@@ -1,6 +1,5 @@
 package com.chainsys.banking.controller;
 
-import java.net.http.HttpRequest;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,7 +16,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.chainsys.banking.exceptionhandler.InvalidInputDataException;
 import com.chainsys.banking.model.Customer;
 import com.chainsys.banking.model.CustomerAndAccountDto;
 import com.chainsys.banking.service.CustomerService;
@@ -61,8 +59,8 @@ public class CustomerController {
 	@GetMapping("/updatecustomerform")
 	public String showUpdateCustomerForm( Model model,HttpServletRequest request) {
 		HttpSession session = request.getSession();
-        long aadharNumber = (long) session.getAttribute("aadharNumber");
-		Customer customer = customerService.findByAadharNumber(aadharNumber);
+        String email = (String) session.getAttribute("email");
+		Customer customer = customerService.findByEmail(email);
 		model.addAttribute("updatecustomer", customer);
 		if(customer!=null) {
 			return  "update-customer-form";
@@ -133,12 +131,12 @@ public class CustomerController {
 	public String checkingAccess(@ModelAttribute("login") Customer cus,HttpSession session,Model model) {
 		Customer customer = customerService.getEmailAndAadharNumber(cus.getEmail(), cus.getAadharNumber());
 		if (customer != null) {
-			session.setAttribute("aadharNumber", customer.getAadharNumber());
+			session.setAttribute("email", customer.getEmail());
 			return "redirect:/customer/customerindex";
 		} else {
 			model.addAttribute("result", "Please enter valid email and aadhar number");
 		}
-			return "invalid customer error";
+			return "customer-login-form";
 	}
 
 

@@ -27,6 +27,9 @@ public class UpiCreationService {
 	public UpiCreation findByAccountNumber(long number) {
 		return upiRepository.findByAccountNumber(number);
 	}
+	public UpiCreation findByEmail(String email) {
+		return upiRepository.findByEmail(email);
+	}
 @Transactional
 	public void deleteByAccountNumber(long number) {
 		upiRepository.deleteByAccountNumber(number);

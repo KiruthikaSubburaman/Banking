@@ -28,23 +28,13 @@
 					href="/customer/updatecustomerform">Customer Details</a>
 			</div>
 		</div>
-
-		<div class="dropdown">
-			<button class="dropbtn">
-				Account <em class="fa fa-caret-down"></em>
-			</button>
-			<div class="dropdown-content">
-				<a href="/customeraccount/findaccount">view Account</a>
-			</div>
-		</div>
-
 		<div class="dropdown">
 			<button class="dropbtn">
 				UPI <em class="fa fa-caret-down"></em>
 			</button>
 			<div class="dropdown-content">
 				<a href="/upicreation/addupiform">Create New Pin</a> <a
-					href="/upicreation/updatepin">Change Pin</a>
+					href="/upicreation/updateupiform">Change Pin</a>
 			</div>
 		</div>
 
@@ -54,7 +44,7 @@
 			</button>
 			<div class="dropdown-content">
 				<a href="/transactiondetails/addtransactionform">New Transaction</a> 
-				<a href="/customeraccount/getaccounttrans">view Transactions</a>
+				<a href="/customeraccount/getaccounttransactions">view Transactions</a>
 			</div>
 		</div>
 	</div>

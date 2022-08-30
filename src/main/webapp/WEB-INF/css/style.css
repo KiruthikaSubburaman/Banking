@@ -54,7 +54,7 @@ h1 {
 }
 .mandatory:after {
     content:"*";
-    color: #ADFF2F;
+    color: black;
   }
   
   input.input-box, textarea {

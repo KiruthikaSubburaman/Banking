@@ -20,6 +20,12 @@
 				<form:form action="getaccounttransactions" method="post"
 					modelAttribute="accountdetails">
 					<tr>
+						<td><label for="email">Email</label></td>
+						<td>
+							<form:input path="email" readonly="true" />
+						</td>
+					</tr>
+					<tr>
 						<td><label for="aadharNumber">AadharNumber</label></td>
 						<td>
 							<form:input path="aadharNumber" readonly="true" />
@@ -50,6 +56,7 @@
 					
 						<thead>
 							<tr>
+							    <th>Email</th>
 								<th>Account Number</th>
 								<th>Transaction Number</th>
 								<th>Transaction Date</th>
@@ -63,6 +70,7 @@
 						<tbody>
 							<c:forEach var="transaction" items="${transactionlist}">
 								<tr>
+								    <td>${transaction.email}</td>
 									<td>${transaction.accountNumber}</td>
 									<td>${transaction.transactionNumber}</td>
 									<td>${transaction.transactionDate}</td>

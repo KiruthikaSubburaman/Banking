@@ -37,6 +37,9 @@ public class CustomerAccountService {
 	public CustomerAccount findByAccountNumber(long number) {
 		return customerAccountRepository.findByAccountNumber(number);
 	}
+	public CustomerAccount findByEmail(String email) {
+		return customerAccountRepository.findByEmail(email);
+	}
 
 	public void deleteByAccountNumber(long number) {
 		customerAccountRepository.deleteByAccountNumber(number);
@@ -45,11 +48,11 @@ public class CustomerAccountService {
 		return customerAccountRepository.findAll();
 	}
 
-	public AccountAndTransactionDto getAccountTransaction(long number) {
-		CustomerAccount customerAccount = findByAccountNumber(number);
+	public AccountAndTransactionDto getAccountTransaction(String email) {
+		CustomerAccount customerAccount = findByEmail(email);
 		AccountAndTransactionDto dto = new AccountAndTransactionDto();
 		dto.setCustomerAccount(customerAccount);
-		List<Transaction> trans = transactionRepository.findByaccountNumber(number);
+		List<Transaction> trans = transactionRepository.findByEmail(email);
 		Iterator<Transaction> itr = trans.iterator();
 		while (itr.hasNext()) {
 			dto.addTransactions(itr.next());

@@ -2,6 +2,8 @@ package com.chainsys.banking.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,15 +66,18 @@ public class UpiCreationController {
 		return "update-upi-button";
 	}
 	@GetMapping("/updateupiform")
-	public String showUpdateForm(@Valid@RequestParam("accountNumber") long number, Model model) {
-		UpiCreation upi = upiService.findByAccountNumber(number);
+	public String showUpdateForm( Model model,HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		String email = (String) session.getAttribute("email");
+
+		UpiCreation upi = upiService.findByEmail(email);
 		model.addAttribute("updateupi", upi);
 		if(upi!=null) {
 			return  "update-upi-form";
 		}else {
 			model.addAttribute("result", "Account number Not Found");
 		
-		return  "update-upi-button";
+		return  "update-upi-form";
 		}
 	}
 

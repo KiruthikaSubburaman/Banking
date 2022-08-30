@@ -1,5 +1,6 @@
 package com.chainsys.banking.model;
 
+
 import java.sql.Date;
 
 import javax.persistence.Column;
@@ -10,11 +11,15 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Digits;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.PastOrPresent;
 
 @Entity
 @Table(name = "createupi")
 public class UpiCreation {
+	@Column(name = "email")
+	@Email(message = "*Invalid Email", regexp = "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}")
+	private String email;
 	@Id
 	@Column(name = "account_number")
 	@Digits(message="*Invalid Account Number",integer = 15, fraction = 0)
@@ -49,7 +54,13 @@ public class UpiCreation {
 	public void setCustomerAccount(CustomerAccount customerAccount) {
 		this.customerAccount = customerAccount;
 	}
+	public String getEmail() {
+		return email;
+	}
 
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	public long getAccountNumber() {
 		return accountNumber;
 	}

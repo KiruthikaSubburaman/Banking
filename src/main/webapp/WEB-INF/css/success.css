@@ -1,7 +1,7 @@
 @charset "ISO-8859-1";
 body {
 	background-image:
-		url(https://cdn.wallpapersafari.com/38/11/VOCQdG.jpg);
+		url(https://i.pinimg.com/736x/b4/d9/aa/b4d9aac7374566dc1a55bcbaae02fa0d--backgrounds-free-wallpaper-backgrounds.jpg);
 	height: 768px;
 	width: 1366px;
 	background-position: center top;
@@ -16,4 +16,7 @@ span{
     font-family: Garamond, Serif;
     font-size: 20px;
     color:#FFFAFA;
+}
+h1{
+	color:#FFFAFA;
 }

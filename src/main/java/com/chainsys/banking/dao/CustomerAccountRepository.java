@@ -10,7 +10,7 @@ import com.chainsys.banking.model.CustomerAccount;
 @Repository
 public interface CustomerAccountRepository extends CrudRepository<CustomerAccount, Long> {
 	CustomerAccount findByAccountNumber(long number);
-
+	CustomerAccount findByEmail(String email);
 	CustomerAccount save(CustomerAccount customerAccount);
 
 	void deleteByAccountNumber(long number);

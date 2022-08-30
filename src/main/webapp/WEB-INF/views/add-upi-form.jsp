@@ -8,49 +8,137 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Add UPI</title>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
 <style>
-<%@include file="/WEB-INF/css/style.css"%>
+body, div, ul, li, p {
+	font-family: arial;
+}
+
+#header {
+	height: 120px;
+	display: block;
+	background-color: #F5F5F5;
+}
+
+#header .logo {
+	background-color: DodgerBlue;
+}
+
+#header .logo a {
+	padding-left: 450px;
+	color: white;
+	text-decoration: none;
+	font-size: 30px;
+}
+/** Navigation **/
+#navigation {
+	display: inline-block;
+	list-style: none;
+	line-height: 50px;
+	margin: 0;
+	padding-left: 20;
+}
+
+#navigation ul {
+	display: inline-block;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+#navigation li {
+	float: left;
+	width: 180px;
+	text-align: right;
+}
+
+#navigation li a {
+	color: #616161;
+	font-size: 20px;
+	text-decoration: none;
+}
+
+#navigation li a:hover {
+	font-size: 20px;
+	color: #212121;
+}
+
+#navigation li.active a {
+	transition: 900ms;
+	color: #fff;
+	padding: 12px;
+	background-color: transparent;
+	font-size: 20px;
+	border: 2px solid white;
+	border-radius: 10px;
+}
+
+.card {
+	background-color: #b3d7ff;
+}
 </style>
+
 </head>
-<body>
-<button style="font-size: 12px; background-color: #e7e7e7; color: black; float:left;" onclick="history.back()">Go Back</button>
-	<form:form action="addupi" method="post" modelAttribute="addupi">
-		<div class="form">
-			<div class="box">
-			<table>
-			<caption></caption>		
-			<tr>
-			<th></th>
-			</tr>
-				<tbody>
 
-					<tr>
-						<td><label class="mandatory" for="accountNumber">Account Number</label></td>
-						<td><form:input path="accountNumber" required="true"
-								maxlength="15" title="Enter your account number" /></td>
-					</tr>
-					<form:errors path="accountNumber" cssClass="text-danger" />
-					<tr>
-						<td><label class="mandatory" for="createNewPIN">Create New PIN</label></td>
-						<td><form:input path="createNewPIN" pattern="^\\d{6}$" title="pin must be number" required="true"
-								maxlength="6" /></td>
-					</tr>
-
-					<form:errors path="createNewPIN" cssClass="text-danger" />
-					<tr>
-						<td><label for="pinCreatedDate">Pin Created Date</label></td>
-						<td><form:input path="pinCreatedDate" type="date" /></td>
-					</tr>
-
-				</tbody>
-			</table>
-			<form:button>Create Pin</form:button>
-            <div class="message">${result}</div>
-
-
-			
+<div id="header">
+	<div>
+		<div class="logo">
+			                    <a>UPI CREATION FORM</a>
 		</div>
+	</div>
+</div>
+<div class="container col-md-100">
+	<div class="card">
+
+		<div class="card-body">
+			<form:form action="addupi" method="post" modelAttribute="addupi">
+			<fieldset class="form-group">
+					<legend></legend>
+					<label><em class=""></em>Email :</label> <input type="text"
+						class="form-control" name="email"
+						placeholder="Enter Your Email ID" required="required">
+				</fieldset>
+				<form:errors path="email" cssClass="text-danger" />
+				<fieldset class="form-group">
+					<legend></legend>
+					<label><em class=""></em>Account Number :</label> <input
+						type="text" class="form-control" name="accountNumber"
+						placeholder="Enter Your Account Number" maxlength="12"
+						required="required">
+
+				</fieldset>
+				<form:errors path="accountNumber" cssClass="text-danger" />
+				<fieldset class="form-group">
+					<legend></legend>
+					<label><em class=""></em>Pin :</label> <input type="text"
+						class="form-control" name="createNewPIN"
+						placeholder="Enter a 6 digit upi pin" maxlength="6" required="required">
+				</fieldset>
+				<form:errors path="createNewPIN" cssClass="text-danger" />
+				<fieldset class="form-group">
+					<legend></legend>
+					<label><em class=""></em>Pin Created Date :</label> <input
+						type="date" class="form-control" name="pinCreatedDate"
+						required="required">
+
+				</fieldset>
+				<form:errors path="pinCreatedDate" cssClass="text-danger" />
+
+
+
+				<button type="submit" class="btn btn-success">Submit</button>
+			</form:form>
+			<div class="message">${result}</div>
+			<br>
+			<button type="submit" class="btn btn-success"
+				onclick="history.back()">Go Back</button>
 		</div>
-	</form:form>
+	</div>
+</div>
 </body>
 </html>

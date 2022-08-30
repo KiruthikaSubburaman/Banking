@@ -17,4 +17,5 @@ public interface TransactionRepository extends CrudRepository<Transaction, Long>
 	List<Transaction> findAll();
 
 	List<Transaction> findByaccountNumber(long number);
+	List<Transaction> findByEmail(String email);
 }
